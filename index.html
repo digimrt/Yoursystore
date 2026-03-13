@@ -20,13 +20,16 @@
         <div class="container">
             <div class="header-content">
                 <div class="header-actions">
-                   <!-- <button class="icon-btn" id="searchBtn" aria-label="بحث">
-                        <i class="fas fa-search"></i>
-                    </button>-->
+                   
+                    <button class="icon-btn theme-toggle" id="themeToggle" aria-label="تغيير الوضع">
+                        <i class="fas fa-moon"></i>
+                    </button>
+
                     <button class="icon-btn cart-btn" id="cartBtn" aria-label="سلة التسوق">
                         <i class="fas fa-shopping-bag"></i>
                         <span class="cart-count" id="cartCount">0</span>
                     </button>
+
                 </div>
 
                 <nav class="nav" id="nav">
@@ -64,6 +67,8 @@
     <!-- Product Detail Section (Hidden by default) -->
     <section id="productDetail" style="display: none;"></section>
 
+    
+
     <!-- Main Sections -->
     <div id="mainSections">
         <!-- Hero Slider -->
@@ -80,8 +85,7 @@
                                     <a href="#featured" class="btn btn-primary">تسوق</a>
                                 </div>
                                 <div class="hero-image">
-                                    <img src="img/rare_beauty.jpg"
-                                        alt="makeup">
+                                    <img src="img/rare_beauty.jpg" alt="makeup">
                                 </div>
                             </div>
                         </div>
@@ -96,13 +100,12 @@
                                     <a href="#discounts" class="btn btn-primary">الحصول على العرض</a>
                                 </div>
                                 <div class="hero-image">
-                                    <img src="img/makiage.jpg"
-                                        alt="عروض خاصة">
+                                    <img src="img/makiage.jpg" alt="عروض خاصة">
                                 </div>
                             </div>
                         </div>
                     </div>
-                  <!--  <div class="swiper-slide">
+                    <!--  <div class="swiper-slide">
                         <div class="hero-slide" style="background: linear-gradient(135deg, #FFE4E9 0%, #FFF0F5 100%);">
                             <div class="container">
                                 <div class="hero-content">
@@ -130,36 +133,31 @@
                 <div class="categories-grid">
                     <a href="#lip" class="category-card" data-category="lip">
                         <div class="category-image">
-                            <img src="img/lips.jpg"
-                                alt="LIPS">
+                            <img src="img/lips.jpg" alt="LIPS">
                         </div>
                         <h3 class="category-name">LIPS</h3>
                     </a>
                     <a href="#blush" class="category-card" data-category="blush">
                         <div class="category-image">
-                            <img src="img/blush.jpg"
-                                alt="BLUSH">
+                            <img src="img/blush.jpg" alt="BLUSH">
                         </div>
                         <h3 class="category-name">BLUSH</h3>
                     </a>
                     <a href="#perfumes" class="category-card" data-category="perfumes">
                         <div class="category-image">
-                            <img src="img/victoria.jpg"
-                                alt="PERFUME">
+                            <img src="img/victoria.jpg" alt="PERFUME">
                         </div>
                         <h3 class="category-name">PERFUME</h3>
                     </a>
                     <a href="#bath" class="category-card" data-category="bath">
                         <div class="category-image">
-                            <img src="img/bath.jpg"
-                                alt="BATH">
+                            <img src="img/bath.jpg" alt="BATH">
                         </div>
                         <h3 class="category-name">BATH</h3>
                     </a>
                     <a href="#lipoil" class="category-card" data-category="lipoil">
                         <div class="category-image">
-                            <img src="img/rare_beauty.jpg"
-                                alt="LIP OIL">
+                            <img src="img/rare_beauty.jpg" alt="LIP OIL">
                         </div>
                         <h3 class="category-name">LIP OIL</h3>
                     </a>
@@ -171,8 +169,8 @@
         <section class="products" id="featured">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">منتجات مميزة</h2>
-                    <p class="section-subtitle">اكتشفي أفضل منتجاتنا المختارة بعناية</p>
+                    <h2 class="section-title">أحدث المنتجات</h2>
+                    <p class="section-subtitle">منتجات جديدة</p>
                 </div>
                 <div class="products-grid" id="featuredProducts"></div>
             </div>
@@ -259,7 +257,7 @@
                     <div class="footer-section">
                         <img src="img/logo.PNG" width="120px" alt="">
                         <div class="social-links">
-                            <a href="#" class="social-link" aria-label="تيك توك">
+                            <a href="https://www.tiktok.com/@yoursystoree?_r=1&_t=ZS-94etEBfRVsg" class="social-link" aria-label="تيك توك">
                                 <i class="fa-brands fa-tiktok"></i>
                             </a>
                             <a href="https://wa.me/22230764882" class="social-link" aria-label="واتساب">
@@ -276,13 +274,13 @@
                             <li><a href="#lip">LIPS</a></li>
                         </ul>
                     </div>
-                    <div class="footer-section">
+                   <!-- <div class="footer-section">
                         <h4 class="footer-subtitle">خدمة العملاء</h4>
                         <ul class="footer-links">
                             <li><a href="#">من نحن</a></li>
                             <li><a href="#">اتصل بنا</a></li>
                         </ul>
-                    </div>
+                    </div>-->
                     <div class="footer-section">
                         <h4 class="footer-subtitle">تواصل معنا</h4>
                         <ul class="contact-info">
@@ -310,7 +308,6 @@
         <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
         <script src="js/script.js"></script>
         <script src="js/products.js"></script>
-        <script src="js/main.js"></script>
 </body>
 
 </html>
