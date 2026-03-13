@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Yoursy Store </title>
+    <link rel="icon" href="img/logo1.PNG">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="header-actions">
+                    <button class="icon-btn" id="searchBtn" aria-label="بحث">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <button class="icon-btn cart-btn" id="cartBtn" aria-label="سلة التسوق">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </button>
+                </div>
+
+                <nav class="nav" id="nav">
+                    <ul class="nav-list">
+                        <li><a href="#home" class="nav-link active">الرئيسية</a></li>
+                        <li><a href="#lip" class="nav-link">LIPS</a></li>
+                        <li><a href="#blush" class="nav-link">BLUSH</a></li>
+                        <li><a href="#perfumes" class="nav-link">PERFUME</a></li>
+                        <li><a href="#bath" class="nav-link">BATH</a></li>
+                        <li><a href="#lipoil" class="nav-link">LIP OIL</a></li>
+                    </ul>
+                </nav>
+
+                <div class="logo">
+                    <img src="img/logo.PNG" width="80px" alt="">
+                </div>
+
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="القائمة">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Search Overlay -->
+        <div class="search-overlay" id="searchOverlay">
+            <div class="search-box">
+                <input type="text" placeholder="ابحث عن المنتجات..." id="searchInput">
+                <button class="search-close" id="searchClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Product Detail Section (Hidden by default) -->
+    <section id="productDetail" style="display: none;"></section>
+
+    <!-- Main Sections -->
+    <div id="mainSections">
+        <!-- Hero Slider -->
+        <section class="hero" id="home">
+            <div class="swiper heroSwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="hero-slide" style="background: linear-gradient(135deg, #FFE5E5 0%, #FFF0F0 100%);">
+                            <div class="container">
+                                <div class="hero-content">
+                                    <span class="hero-badge">منتجات جديدة</span>
+                                    <h2 class="hero-title">أحدث المنتجات</h2>
+                                    <p class="hero-text">ميكاب</p>
+                                    <a href="#featured" class="btn btn-primary">تسوق</a>
+                                </div>
+                                <div class="hero-image">
+                                    <img src="img/rare_beauty.jpg"
+                                        alt="makeup">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="hero-slide" style="background: linear-gradient(135deg, #F5E6D3 0%, #FFF5E6 100%);">
+                            <div class="container">
+                                <div class="hero-content">
+                                    <span class="hero-badge">خصم 40%</span>
+                                    <h2 class="hero-title">عروض خاصة</h2>
+                                    <p class="hero-text">خصومات كبيرة على مجموعة مختارة</p>
+                                    <a href="#discounts" class="btn btn-primary">الحصول على العرض</a>
+                                </div>
+                                <div class="hero-image">
+                                    <img src="img/makiage.jpg"
+                                        alt="عروض خاصة">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  <!--  <div class="swiper-slide">
+                        <div class="hero-slide" style="background: linear-gradient(135deg, #FFE4E9 0%, #FFF0F5 100%);">
+                            <div class="container">
+                                <div class="hero-content">
+                                    <span class="hero-badge">حصري</span>
+                                    <h2 class="hero-title">إكسسوارات فاخرة</h2>
+                                    <p class="hero-text">أكملي إطلالتك بلمسة من الفخامة</p>
+                                    <a href="#bath" class="btn btn-primary">استكشفي المزيد</a>
+                                </div>
+                                <div class="hero-image">
+                                    <img src="https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?w=600&h=700&fit=crop"
+                                        alt="إكسسوارات">
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </section>
+
+        <!-- Categories -->
+        <section class="categories">
+            <div class="container">
+                <h2 class="section-title">تسوقي حسب الفئة</h2>
+                <div class="categories-grid">
+                    <a href="#lip" class="category-card" data-category="lip">
+                        <div class="category-image">
+                            <img src="img/lips.jpg"
+                                alt="LIPS">
+                        </div>
+                        <h3 class="category-name">LIPS</h3>
+                    </a>
+                    <a href="#blush" class="category-card" data-category="blush">
+                        <div class="category-image">
+                            <img src="img/blush.jpg"
+                                alt="BLUSH">
+                        </div>
+                        <h3 class="category-name">BLUSH</h3>
+                    </a>
+                    <a href="#perfumes" class="category-card" data-category="perfumes">
+                        <div class="category-image">
+                            <img src="img/victoria.jpg"
+                                alt="PERFUME">
+                        </div>
+                        <h3 class="category-name">PERFUME</h3>
+                    </a>
+                    <a href="#bath" class="category-card" data-category="bath">
+                        <div class="category-image">
+                            <img src="img/bath.jpg"
+                                alt="BATH">
+                        </div>
+                        <h3 class="category-name">BATH</h3>
+                    </a>
+                    <a href="#lipoil" class="category-card" data-category="lipoil">
+                        <div class="category-image">
+                            <img src="img/rare_beauty.jpg"
+                                alt="LIP OIL">
+                        </div>
+                        <h3 class="category-name">LIP OIL</h3>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Products -->
+        <section class="products" id="featured">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">منتجات مميزة</h2>
+                    <p class="section-subtitle">اكتشفي أفضل منتجاتنا المختارة بعناية</p>
+                </div>
+                <div class="products-grid" id="featuredProducts"></div>
+            </div>
+        </section>
+
+        <!-- Discount Section -->
+        <section class="products discount-section" id="discounts">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">عروض وخصومات</h2>
+                    <p class="section-subtitle">لا تفوتي فرصة الحصول على هذه العروض المذهلة</p>
+                </div>
+                <div class="products-grid" id="discountProducts"></div>
+            </div>
+        </section>
+
+        <!-- All Categories -->
+        <section class="products" id="lip">
+            <div class="container">
+                <h2 class="section-title">LIPS</h2>
+                <div class="products-grid" id="lipProducts"></div>
+            </div>
+        </section>
+
+        <section class="products" id="blush">
+            <div class="container">
+                <h2 class="section-title">BLUSH</h2>
+                <div class="products-grid" id="blushProducts"></div>
+            </div>
+        </section>
+
+        <section class="products" id="perfumes">
+            <div class="container">
+                <h2 class="section-title">PERFUME</h2>
+                <div class="products-grid" id="perfumesProducts"></div>
+            </div>
+        </section>
+
+        <section class="products" id="bath">
+            <div class="container">
+                <h2 class="section-title">BATH</h2>
+                <div class="products-grid" id="bathProducts"></div>
+            </div>
+        </section>
+
+        <section class="products" id="lipoil">
+            <div class="container">
+                <h2 class="section-title">LIP OIL</h2>
+                <div class="products-grid" id="lipoilProducts"></div>
+            </div>
+        </section>
+
+        <!-- Cart Sidebar -->
+        <div class="cart-sidebar" id="cartSidebar">
+            <div class="cart-header">
+                <h3>سلة التسوق</h3>
+                <button class="cart-close" id="cartClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="cart-body" id="cartBody">
+                <div class="empty-cart" id="emptyCart">
+                    <i class="fas fa-shopping-bag"></i>
+                    <p>سلة التسوق فارغة</p>
+                </div>
+            </div>
+            <div class="cart-footer" id="cartFooter" style="display: none;">
+                <div class="cart-total">
+                    <span>المجموع:</span>
+                    <span id="cartTotal">0 MRU</span>
+                </div>
+                <button class="btn btn-primary btn-block" id="checkoutBtn">
+                    <i class="fab fa-whatsapp"></i>
+                    إتمام الطلب عبر واتساب
+                </button>
+            </div>
+        </div>
+        <div class="cart-overlay" id="cartOverlay"></div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <img src="img/logo.PNG" width="120px" alt="">
+                        <div class="social-links">
+                            <a href="#" class="social-link" aria-label="تيك توك">
+                                <i class="fa-brands fa-tiktok"></i>
+                            </a>
+                            <a href="https://wa.me/22230764882" class="social-link" aria-label="واتساب">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="footer-section">
+                        <h4 class="footer-subtitle">روابط سريعة</h4>
+                        <ul class="footer-links">
+                            <li><a href="#home">الرئيسية</a></li>
+                            <li><a href="#featured">منتجات مميزة</a></li>
+                            <li><a href="#discounts">العروض</a></li>
+                            <li><a href="#lip">LIPS</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4 class="footer-subtitle">خدمة العملاء</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">من نحن</a></li>
+                            <li><a href="#">اتصل بنا</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4 class="footer-subtitle">تواصل معنا</h4>
+                        <ul class="contact-info">
+                            <li>
+                                <i class="fas fa-phone"></i>
+                                <span>+222 30 76 48 82</span>
+                            </li>
+                            <!--   <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>info@elegance-shop.com</span>
+                        </li> -->
+                            <li>
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>نواكشوط، موريتانيا</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2026 Yoursy Store. جميع الحقوق محفوظة.</p>
+                </div>
+            </div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+        <script src="js/script.js"></script>
+        <script src="js/products.js"></script>
+        <script src="js/main.js"></script>
+</body>
+
+</html>
