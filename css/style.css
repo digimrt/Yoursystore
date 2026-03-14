@@ -418,7 +418,7 @@ body {
     right: 0;
     left: 0;
     background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
-    color: var(--white);
+    color: white;
     padding: 2rem 1rem 1rem;
     font-size: 1.25rem;
     font-weight: 600;
@@ -791,6 +791,7 @@ body {
     height: 40px;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.1);
+    color: white;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1306,6 +1307,13 @@ body {
     color: var(--text-primary);
 }
 
+.footer-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .product-price .price-current {
     color: var(--accent-color); /* يبقى كما هو */
 }
@@ -1401,4 +1409,13 @@ body {
 [data-theme="dark"] .back-btn:hover {
     background-color: var(--primary-color);
     color: white;
+}
+[data-theme="dark"] .social-link {
+    color: #ffffff;  /* لون أبيض ثابت */
+    background: rgba(255, 255, 255, 0.15); /* خلفية شفافة فاتحة */
+}
+
+[data-theme="dark"] .social-link:hover {
+    background: var(--primary-color); /* عند التحويم يبقى كما هو */
+    color: #ffffff;
 }

@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeToggle = document.getElementById('themeToggle');
     if (themeToggle) {
         const themeIcon = themeToggle.querySelector('i');
-        
+
         // استعادة الوضع المحفوظ
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme === 'dark') {
@@ -44,9 +44,9 @@ document.addEventListener('DOMContentLoaded', () => {
             themeIcon.classList.remove('fa-moon');
             themeIcon.classList.add('fa-sun');
         }
-        
+
         // حدث النقر
-        themeToggle.addEventListener('click', function() {
+        themeToggle.addEventListener('click', function () {
             const currentTheme = document.documentElement.getAttribute('data-theme');
             if (currentTheme === 'dark') {
                 document.documentElement.removeAttribute('data-theme');
@@ -97,7 +97,7 @@ function initHeroSlider() {
 function renderProducts() {
     const featured = products.filter(p => p.featured);
     const discount = products.filter(p => p.discount);
-    const categories = ['lip', 'blush', 'perfumes', 'bath', 'lipoil'];
+    const categories = ['makeup', 'skincare', 'perfumes', /*'bath', 'lipoil'*/];
 
     renderProductGrid('featuredProducts', featured);
     renderProductGrid('discountProducts', discount);
@@ -306,7 +306,7 @@ function updateCartUI() {
 // ==========================
 // Helpers
 // ==========================
-function getCategoryName(cat) { return { 'lip': 'LIPS', 'blush': 'BLUSH', 'perfumes': 'PERFUME', 'bath': 'BATH', 'lipoil': 'LIP OIL' }[cat] || cat; }
+function getCategoryName(cat) { return { 'makeup': 'MAKEUP', 'skincare': 'SKIN CARE', 'perfumes': 'PERFUME',/*  'bath': 'BATH', 'lipoil': 'LIP OIL'*/ }[cat] || cat; }
 function closeProductDetail() {
     document.getElementById('productDetail').style.display = 'none';
     const main = document.getElementById('mainSections');
@@ -425,9 +425,16 @@ function initEventListeners() {
         const href = link.getAttribute('href');
         if (href?.startsWith('#') && !href.startsWith('#product-')) {
             e.preventDefault();
+
+            // التحقق مما إذا كانت صفحة التفاصيل مفتوحة وإغلاقها
+            const productDetail = document.getElementById('productDetail');
+            if (productDetail && productDetail.style.display === 'block') {
+                closeProductDetail(); // استدعاء الدالة التي تغلق التفاصيل
+            }
+
             const target = document.querySelector(href);
             if (target) {
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' }); // تمرير سلس
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
             nav?.classList.remove('active');
         }
