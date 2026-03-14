@@ -8,7 +8,7 @@ const products = [
         price: 200,
         originalPrice: null,
         images: [
-            'img/salty-tan.jpg',
+            'img/salty-tan.JPG',
         ],
         description: 'MAKEUP gloss',
         available: true,
@@ -22,7 +22,7 @@ const products = [
         price: 200,
         originalPrice: null,
         images: [
-            'img/espresso.jpg'
+            'img/espresso.JPG'
         ],
         description: '',
         available: true,
@@ -35,7 +35,7 @@ const products = [
         price: 200,
         originalPrice: null,
         images: [
-            'img/raspberry-jelly.jpg'
+            'img/raspberry-jelly.JPG'
         ],
         description: '',
         available: true,
@@ -48,7 +48,7 @@ const products = [
         price: 200,
         originalPrice: null,
         images: [
-            'img/ribbon.jpg'
+            'img/ribbon.JPG'
         ],
         description: '',
         available: true,
@@ -62,7 +62,7 @@ const products = [
         price: 200,
         originalPrice: null,
         images: [
-            'img/toast.jpg'
+            'img/toast.JPG'
         ],
         description: '',
         available: true,
@@ -76,7 +76,7 @@ const products = [
         price: 200,
         originalPrice: null,
         images: [
-            'img/peach-pit.jpg'
+            'img/peach-pit.JPG'
         ],
         description: '',
         available: true
@@ -88,7 +88,7 @@ const products = [
         price: 200,
         originalPrice: null,
         images: [
-            'img/juava-spritz.jpg'
+            'img/juava-spritz.JPG'
         ],
         description: '',
         available: true,
@@ -101,7 +101,7 @@ const products = [
         price: 200,
         originalPrice: null,
         images: [
-            'img/vanilla.jpg'
+            'img/vanilla.JPG'
         ],
         description: '',
         available: true,
@@ -115,7 +115,7 @@ const products = [
         price: 200,
         originalPrice: null,
         images: [
-            'img/rosewood-nights.jpg'
+            'img/rosewood-nights.JPG'
         ],
         description: '',
         available: true,
@@ -129,7 +129,7 @@ const products = [
         price: 200,
         originalPrice: null,
         images: [
-            'img/soft-mauve.jpg'
+            'img/soft-mauve.JPG'
         ],
         description: '',
         available: true
@@ -141,7 +141,7 @@ const products = [
         price: 200,
         originalPrice: null,
         images: [
-            'img/pinkcloud.jpg'
+            'img/pinkcloud.JPG'
         ],
         description: '',
         available: true,
@@ -154,7 +154,7 @@ const products = [
         price: 200,
         originalPrice: null,
         images: [
-            'img/blush-dreams.jpg'
+            'img/blush-dreams.JPG'
         ],
         description: '',
         available: true,
@@ -169,7 +169,7 @@ const products = [
         price: 200,
         originalPrice: null,
         images: [
-            'img/enlighten.jpg'
+            'img/enlighten.JPG'
         ],
         description: '',
         available: true,
@@ -183,7 +183,7 @@ const products = [
         price: 200,
         originalPrice: null,
         images: [
-            'img/mesmerize.jpg'
+            'img/mesmerize.JPG'
         ],
         description: '',
         available: true
@@ -195,7 +195,7 @@ const products = [
         price: 200,
         originalPrice: null,
         images: [
-            'img/exhilrate.jpg'
+            'img/exhilrate.JPG'
         ],
         description: '',
         available: true,
@@ -208,7 +208,7 @@ const products = [
         price: 2800,
         originalPrice: null,
         images: [
-            'img/tint.jpg'
+            'img/tint.JPG'
         ],
         description: '',
         available: true,
@@ -223,7 +223,7 @@ const products = [
         price: 200,
         originalPrice: null,
         images: [
-            'img/encourage.jpg'
+            'img/encourage.JPG'
         ],
         description: '',
         available: true,
@@ -238,7 +238,7 @@ const products = [
         price: 200,
         originalPrice: null,
         images: [
-            'img/hope.jpg'
+            'img/hope.JPG'
         ],
         description: '',
         available: true
@@ -250,7 +250,7 @@ const products = [
         price: 200,
         originalPrice: null,
         images: [
-            'img/happy.jpg'
+            'img/happy.JPG'
         ],
         description: '',
         available: true,
@@ -263,7 +263,7 @@ const products = [
         price: 200,
         originalPrice: null,
         images: [
-            'img/bliss.jpg'
+            'img/bliss.JPG'
         ],
         description: '',
         available: true,
@@ -276,7 +276,7 @@ const products = [
         price: 400,
         originalPrice: null,
         images: [
-            'img/mascara.jpg'
+            'img/mascara.JPG'
         ],
         description: '',
         available: true,
@@ -289,7 +289,7 @@ const products = [
         price: 150,
         originalPrice: null,
         images: [
-            'img/eyebrows-pen.jpg'
+            'img/eyebrows-pen.JPG'
         ],
         description: '',
         available: true,
@@ -302,7 +302,7 @@ const products = [
         price: 200,
         originalPrice: null,
         images: [
-            'img/toasted-teddy.jpg'
+            'img/toasted-teddy.JPG'
         ],
         description: '',
         available: true,
@@ -315,7 +315,7 @@ const products = [
         price: 200,
         originalPrice: null,
         images: [
-            'img/freckle.jpg'
+            'img/freckle.JPG'
         ],
         description: '',
         available: true,
@@ -328,7 +328,7 @@ const products = [
         price: 200,
         originalPrice: null,
         images: [
-            'img/juice-box.jpg'
+            'img/juice-box.JPG'
         ],
         description: '',
         available: true,
@@ -341,7 +341,7 @@ const products = [
         price: 200,
         originalPrice: null,
         images: [
-            'img/spicy-marg.jpg'
+            'img/spicy-marg.JPG'
         ],
         description: '',
         available: true,
@@ -354,7 +354,7 @@ const products = [
         price: 200,
         originalPrice: null,
         images: [
-            'img/sleepy-girl.jpg'
+            'img/sleepy-girl.JPG'
         ],
         description: '',
         available: true,
@@ -367,7 +367,7 @@ const products = [
         price: 200,
         originalPrice: null,
         images: [
-            'img/piggy.jpg'
+            'img/piggy.JPG'
         ],
         description: '',
         available: true,
@@ -383,7 +383,7 @@ const products = [
         price: 250,
         originalPrice: null,
         images: [
-            'img/gelgot2b.jpg'
+            'img/gelgot2b.JPG'
         ],
         description: '',
         available: true,
@@ -396,7 +396,7 @@ const products = [
         price: 200,
         originalPrice: null,
         images: [
-            'img/vaseline.jpg'
+            'img/vaseline.JPG'
         ],
         description: '',
         available: true,
@@ -409,7 +409,7 @@ const products = [
         price: 600,
         originalPrice: null,
         images: [
-            'img/pack-daily-scent.jpg'
+            'img/pack-daily-scent.JPG'
         ],
         description: '',
         available: true,
@@ -422,7 +422,7 @@ const products = [
         price: 250,
         originalPrice: null,
         images: [
-            'img/dove-deodorant.jpg'
+            'img/dove-deodorant.JPG'
         ],
         description: '',
         available: true,
@@ -435,7 +435,7 @@ const products = [
         price: 500,
         originalPrice: null,
         images: [
-            'img/venus-gillette.jpg'
+            'img/venus-gillette.JPG'
         ],
         description: '',
         available: true,
@@ -454,7 +454,7 @@ const products = [
         price: 600,
         originalPrice: null,
         images: [
-            'img/romantic.jpg'
+            'img/romantic.JPG'
         ],
         description: '',
         available: true,
@@ -467,7 +467,7 @@ const products = [
         price: 600,
         originalPrice: null,
         images: [
-            'img/coconut-passion.jpg'
+            'img/coconut-passion.JPG'
         ],
         description: '',
         available: true,
@@ -480,7 +480,7 @@ const products = [
         price: 600,
         originalPrice: null,
         images: [
-            'img/rush.jpg'
+            'img/rush.JPG'
         ],
         description: '',
         available: true,
@@ -493,7 +493,7 @@ const products = [
         price: 600,
         originalPrice: null,
         images: [
-            'img/aqua-kiss.jpg'
+            'img/aqua-kiss.JPG'
         ],
         description: '',
         available: true,
@@ -520,7 +520,7 @@ const products = [
         price: 300,
         originalPrice: null,
         images: [
-            'img/sol-de-janeiro62.jpg'
+            'img/sol-de-janeiro62.JPG'
         ],
         description: '',
         available: true,
@@ -534,7 +534,7 @@ const products = [
         price: 300,
         originalPrice: null,
         images: [
-            'img/sol-de-janeiro87.jpg'
+            'img/sol-de-janeiro87.JPG'
         ],
         description: '',
         available: true,
@@ -547,7 +547,7 @@ const products = [
         price: 300,
         originalPrice: null,
         images: [
-            'img/sol-de-janeiro40.jpg'
+            'img/sol-de-janeiro40.JPG'
         ],
         description: '',
         available: true,
@@ -560,7 +560,7 @@ const products = [
         price: 300,
         originalPrice: null,
         images: [
-            'img/sol-de-janeiro59.jpg'
+            'img/sol-de-janeiro59.JPG'
         ],
         description: '',
         available: true,
@@ -574,7 +574,7 @@ const products = [
         price: 300,
         originalPrice: null,
         images: [
-            'img/sol-de-janeiro71.jpg'
+            'img/sol-de-janeiro71.JPG'
         ],
         description: '',
         available: true,
@@ -588,7 +588,7 @@ const products = [
         price: 300,
         originalPrice: null,
         images: [
-            'img/sol-de-janeiro48.jpg'
+            'img/sol-de-janeiro48.JPG'
         ],
         description: '',
         available: true,
@@ -601,7 +601,7 @@ const products = [
         price: 300,
         originalPrice: null,
         images: [
-            'img/sol-de-janeiro39.jpg'
+            'img/sol-de-janeiro39.JPG'
         ],
         description: '',
         available: true,
@@ -614,20 +614,20 @@ const products = [
         price: 150,
         originalPrice: null,
         images: [
-            'img/yara.jpg'
+            'img/yara.JPG'
         ],
         description: '',
         available: true,
         discount: false
     },
     {
-        id: 46,
+        id: 47,
         name: 'Perfume oil - سفير الحب',
         category: 'perfumes',
         price: 150,
         originalPrice: null,
         images: [
-            'img/sefirlhoub.jpg'
+            'img/sefirlhoub.JPG'
         ],
         description: '',
         available: true,
