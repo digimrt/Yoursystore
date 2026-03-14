@@ -1,294 +1,639 @@
 // Products Data with multiple images and availability
 const products = [
-    // lip
+    // makeup
     {
         id: 1,
-        name: 'lip gloss rhode',
-        category: 'lip',
-        price: 100,
-        // originalPrice: 4500, //
+        name: 'Lip gloss - Salty tan',
+        category: 'makeup',
+        price: 200,
+        originalPrice: null,
         images: [
-            'img/lip_gloss_rhode.jpg',
-            'img/lip_gloss_rhode1.jpg',
-            'img/lip_gloss_rhode2.jpg'
+            'img/salty-tan.jpg',
         ],
-        description: 'lips gloss',
-        available: false,
+        description: 'MAKEUP gloss',
+        available: true,
         featured: true,
-        //  discount: true //
+        discount: false
     },
     {
         id: 2,
-        name: 'rare',
-        category: 'lip',
-        price: 2800,
-        originalPrice: 3200,
+        name: 'Lip gloss - Espresso',
+        category: 'makeup',
+        price: 200,
+        originalPrice: null,
         images: [
-            'img/makiage.jpg',
-            'img/victoria.jpg'
+            'img/espresso.jpg'
         ],
-        description: 'udcwcnncnu',
+        description: '',
         available: true,
         featured: true
     },
     {
         id: 3,
-        name: 'beauty',
-        category: 'lip',
-        price: 2500,
+        name: 'Lip gloss - Raspberry Jelly',
+        category: 'makeup',
+        price: 200,
         originalPrice: null,
         images: [
-            'img/bath.jpg',
-            'https://images.unsplash.com/photo-1566174053879-31528523f8ae?w=600&h=700&fit=crop'
+            'img/raspberry-jelly.jpg'
         ],
-        description: 'فستان صيفي خفيف وأنيق، مثالي للأيام الحارة. مصنوع من قماش قطني يسمح بالتهوية.',
+        description: '',
         available: true,
         featured: true
     },
     {
         id: 4,
-        name: 'fashion',
-        category: 'lip',
-        price: 4200,
-        originalPrice: 5500,
+        name: 'Lip gloss - Ribbon',
+        category: 'makeup',
+        price: 200,
+        originalPrice: null,
         images: [
-            'img/rare_beauty.jpg',
-            'https://images.unsplash.com/photo-1566174053879-31528523f8ae?w=600&h=700&fit=crop'
+            'img/ribbon.jpg'
         ],
-        description: 'فستان طويل فخم بتصميم راقي، يناسب المناسبات الرسمية والاحتفالات الكبرى.',
+        description: '',
         available: true,
-        discount: true
+        discount: false
     },
 
-    // blush
     {
         id: 5,
-        name: 'حقيبة يد جلدية',
-        category: 'blush',
-        price: 2200,
-        originalPrice: 2800,
+        name: 'Lip gloss - Toast',
+        category: 'makeup',
+        price: 200,
+        originalPrice: null,
         images: [
-            'https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&h=700&fit=crop',
-            'https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=600&h=700&fit=crop'
+            'img/toast.jpg'
         ],
-        description: 'حقيبة يد جلدية فاخرة بتصميم عملي وأنيق. مثالية للاستخدام اليومي وتتسع لجميع احتياجاتك.',
+        description: '',
         available: true,
         featured: true,
-        discount: true
+        discount: false
     },
     {
         id: 6,
-        name: 'حقيبة كلاتش أنيقة',
-        category: 'blush',
-        price: 1800,
+        name: 'Lip gloss - Peach pit',
+        category: 'makeup',
+        price: 200,
         originalPrice: null,
         images: [
-            'https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=600&h=700&fit=crop',
-            'https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&h=700&fit=crop'
+            'img/peach-pit.jpg'
         ],
-        description: 'حقيبة كلاتش أنيقة صغيرة الحجم، مثالية للسهرات والمناسبات الخاصة.',
+        description: '',
         available: true
     },
     {
         id: 7,
-        name: 'حقيبة عملية كبيرة',
-        category: 'blush',
-        price: 3000,
-        originalPrice: 3800,
+        name: 'Lip gloss - Juava spritz',
+        category: 'makeup',
+        price: 200,
+        originalPrice: null,
         images: [
-            'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=600&h=700&fit=crop',
-            'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&h=700&fit=crop'
+            'img/juava-spritz.jpg'
         ],
-        description: 'حقيبة عملية كبيرة الحجم مثالية للعمل والسفر. تحتوي على عدة جيوب للتنظيم.',
+        description: '',
         available: true,
         featured: true
     },
     {
         id: 8,
-        name: 'حقيبة كروس صغيرة',
-        category: 'blush',
-        price: 1600,
-        originalPrice: 2000,
+        name: 'Lip gloss - Vanilla',
+        category: 'makeup',
+        price: 200,
+        originalPrice: null,
         images: [
-            'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&h=700&fit=crop',
-            'https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=600&h=700&fit=crop'
+            'img/vanilla.jpg'
         ],
-        description: 'حقيبة كروس صغيرة عملية وعصرية، خفيفة الوزن ومريحة للحمل.',
+        description: '',
         available: true,
-        discount: true
+        discount: false
     },
 
-    // perfumes
     {
         id: 9,
-        name: 'كعب عالي كلاسيكي',
-        category: 'perfumes',
-        price: 2500,
-        originalPrice: 3000,
+        name: 'Summer fridays - Rosewood nights',
+        category: 'makeup',
+        price: 200,
+        originalPrice: null,
         images: [
-            'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=600&h=700&fit=crop',
-            'https://images.unsplash.com/photo-1603808033192-082d6919d3e1?w=600&h=700&fit=crop'
+            'img/rosewood-nights.jpg'
         ],
-        description: 'كعب عالي كلاسيكي أنيق يناسب جميع المناسبات. مريح للقدم رغم ارتفاعه.',
+        description: '',
         available: true,
         featured: true,
-        discount: true
+        discount: false
     },
     {
         id: 10,
-        name: 'صندل صيفي مريح',
-        category: 'perfumes',
-        price: 1500,
+        name: 'Summer fridays - Soft mauve',
+        category: 'makeup',
+        price: 200,
         originalPrice: null,
         images: [
-            'https://images.unsplash.com/photo-1603808033192-082d6919d3e1?w=600&h=700&fit=crop',
-            'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=600&h=700&fit=crop'
+            'img/soft-mauve.jpg'
         ],
-        description: 'صندل صيفي مريح وخفيف، مثالي للأيام الحارة والنزهات الشاطئية.',
+        description: '',
         available: true
     },
     {
         id: 11,
-        name: 'حذاء رياضي عصري',
-        category: 'perfumes',
-        price: 2200,
+        name: 'Summer fridays - Pink cloud',
+        category: 'makeup',
+        price: 200,
         originalPrice: null,
         images: [
-            'https://images.unsplash.com/photo-1560343090-f0409e92791a?w=600&h=700&fit=crop',
-            'https://images.unsplash.com/photo-1608256246200-53e635b5b65f?w=600&h=700&fit=crop'
+            'img/pinkcloud.jpg'
         ],
-        description: 'حذاء رياضي عصري مريح للمشي والرياضة. يجمع بين الأناقة والراحة.',
+        description: '',
         available: true,
         featured: true
     },
     {
         id: 12,
-        name: 'بوت جلد طويل',
-        category: 'perfumes',
-        price: 3500,
-        originalPrice: 4200,
+        name: 'Summer fridays - Blush dreams',
+        category: 'makeup',
+        price: 200,
+        originalPrice: null,
         images: [
-            'https://images.unsplash.com/photo-1608256246200-53e635b5b65f?w=600&h=700&fit=crop',
-            'https://images.unsplash.com/photo-1560343090-f0409e92791a?w=600&h=700&fit=crop'
+            'img/blush-dreams.jpg'
         ],
-        description: 'بوت جلد طويل فاخر، مثالي للطقس البارد والإطلالات الشتوية الأنيقة.',
+        description: '',
         available: true,
-        discount: true
+        discount: false
     },
 
-    // bath
+
     {
         id: 13,
-        name: 'قلادة ذهبية فاخرة',
-        category: 'bath',
-        price: 1800,
-        originalPrice: 2200,
+        name: 'Rare beauty - Enlighten',
+        category: 'makeup',
+        price: 200,
+        originalPrice: null,
         images: [
-            'img/ring.webp',
-            'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&h=700&fit=crop'
+            'img/enlighten.jpg'
         ],
-        description: 'قلادة ذهبية فاخرة بتصميم راقي، تضيف لمسة من الأناقة لأي إطلالة.',
+        description: '',
         available: true,
-        featured: true,
-        discount: true
+        featured: false,
+        discount: false
     },
     {
         id: 14,
-        name: 'أساور مجموعة',
-        category: 'bath',
-        price: 1200,
+        name: 'Rare beauty - Mesmerize',
+        category: 'makeup',
+        price: 200,
         originalPrice: null,
         images: [
-            'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&h=700&fit=crop',
-            'https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=600&h=700&fit=crop'
+            'img/mesmerize.jpg'
         ],
-        description: 'مجموعة أساور أنيقة يمكن ارتداؤها معاً أو بشكل منفصل.',
+        description: '',
         available: true
     },
     {
         id: 15,
-        name: 'نظارة شمسية عصرية',
-        category: 'bath',
-        price: 1000,
+        name: 'Rare beauty - Exhilrate',
+        category: 'makeup',
+        price: 200,
         originalPrice: null,
         images: [
-            'https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=600&h=700&fit=crop',
-            'https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=600&h=700&fit=crop'
+            'img/exhilrate.jpg'
         ],
-        description: 'نظارة شمسية عصرية توفر حماية ممتازة من الشمس مع إطلالة أنيقة.',
+        description: '',
         available: true,
         featured: true
     },
     {
         id: 16,
-        name: 'ساعة يد أنيقة',
-        category: 'bath',
+        name: 'Lipstick - Tint',
+        category: 'makeup',
         price: 2800,
-        originalPrice: 3500,
+        originalPrice: null,
         images: [
-            'https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=600&h=700&fit=crop',
-            'https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=600&h=700&fit=crop'
+            'img/tint.jpg'
         ],
-        description: 'ساعة يد أنيقة بتصميم كلاسيكي عصري، تناسب جميع الإطلالات.',
+        description: '',
         available: true,
-        discount: true
+        discount: false
     },
 
-    // lip oil
+
     {
         id: 17,
-        name: 'عطر فرنسي فاخر',
-        category: 'lipoil',
-        price: 4500,
-        originalPrice: 5500,
+        name: 'Blush - Encourage',
+        category: 'makeup',
+        price: 200,
+        originalPrice: null,
         images: [
-            'https://images.unsplash.com/photo-1541643600914-78b084683601?w=600&h=700&fit=crop',
-            'https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=600&h=700&fit=crop'
+            'img/encourage.jpg'
         ],
-        description: 'عطر فرنسي فاخر برائحة مميزة وثبات طويل. مثالي للمناسبات الخاصة.',
+        description: '',
         available: true,
         featured: true,
-        discount: true
+        discount: false
+
     },
     {
         id: 18,
-        name: 'عطر زهري منعش',
-        category: 'lipoil',
-        price: 3200,
+        name: 'Blush - Hope',
+        category: 'makeup',
+        price: 200,
         originalPrice: null,
         images: [
-            'https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=600&h=700&fit=crop',
-            'https://images.unsplash.com/photo-1541643600914-78b084683601?w=600&h=700&fit=crop'
+            'img/hope.jpg'
         ],
-        description: 'عطر زهري منعش برائحة خفيفة ومنعشة، مثالي للاستخدام اليومي.',
+        description: '',
         available: true
     },
     {
         id: 19,
-        name: 'عطر شرقي أصيل',
-        category: 'lipoil',
-        price: 3800,
+        name: 'Blush - Happy',
+        category: 'makeup',
+        price: 200,
         originalPrice: null,
         images: [
-            'https://images.unsplash.com/photo-1547887537-6158d64c35b3?w=600&h=700&fit=crop',
-            'https://images.unsplash.com/photo-1523293182086-7651a899d37f?w=600&h=700&fit=crop'
+            'img/happy.jpg'
         ],
-        description: 'عطر شرقي أصيل برائحة دافئة وغنية، يعكس التراث العربي الأصيل.',
+        description: '',
         available: true,
         featured: true
     },
     {
         id: 20,
-        name: 'عطر ليلي ساحر',
-        category: 'lipoil',
-        price: 4000,
-        //originalPrice: 4800, /
+        name: 'Blush - Bliss',
+        category: 'makeup',
+        price: 200,
+        originalPrice: null,
         images: [
-            'https://images.unsplash.com/photo-1523293182086-7651a899d37f?w=600&h=700&fit=crop',
-            'https://images.unsplash.com/photo-1547887537-6158d64c35b3?w=600&h=700&fit=crop'
+            'img/bliss.jpg'
         ],
-        description: 'عطر ليلي ساحر برائحة جذابة ومثيرة، مثالي للسهرات والمناسبات المسائية.',
+        description: '',
         available: true,
-        discount: true
-    }
+        discount: false
+    },
+    {
+        id: 21,
+        name: 'Mascara',
+        category: 'makeup',
+        price: 400,
+        originalPrice: null,
+        images: [
+            'img/mascara.jpg'
+        ],
+        description: '',
+        available: true,
+        discount: false
+    },
+    {
+        id: 22,
+        name: 'Eyebrows pen',
+        category: 'makeup',
+        price: 150,
+        originalPrice: null,
+        images: [
+            'img/eyebrows-pen.jpg'
+        ],
+        description: '',
+        available: true,
+        discount: false
+    },
+    {
+        id: 23,
+        name: 'Blush - Toasted teddy',
+        category: 'makeup',
+        price: 200,
+        originalPrice: null,
+        images: [
+            'img/toasted-teddy.jpg'
+        ],
+        description: '',
+        available: true,
+        discount: false
+    },
+    {
+        id: 24,
+        name: 'Blush - Freckle',
+        category: 'makeup',
+        price: 200,
+        originalPrice: null,
+        images: [
+            'img/freckle.jpg'
+        ],
+        description: '',
+        available: true,
+        discount: false
+    },
+    {
+        id: 25,
+        name: 'Blush - Juice box',
+        category: 'makeup',
+        price: 200,
+        originalPrice: null,
+        images: [
+            'img/juice-box.jpg'
+        ],
+        description: '',
+        available: true,
+        discount: false
+    },
+    {
+        id: 26,
+        name: 'Blush - Spicy marg',
+        category: 'makeup',
+        price: 200,
+        originalPrice: null,
+        images: [
+            'img/spicy-marg.jpg'
+        ],
+        description: '',
+        available: true,
+        discount: false
+    },
+    {
+        id: 27,
+        name: 'Blush - Sleepy girl',
+        category: 'makeup',
+        price: 200,
+        originalPrice: null,
+        images: [
+            'img/sleepy-girl.jpg'
+        ],
+        description: '',
+        available: true,
+        discount: false
+    },
+    {
+        id: 28,
+        name: 'Blush - Piggy',
+        category: 'makeup',
+        price: 200,
+        originalPrice: null,
+        images: [
+            'img/piggy.jpg'
+        ],
+        description: '',
+        available: true,
+        discount: false
+    },
+
+    // skin care
+
+    {
+        id: 29,
+        name: 'Gel got2b',
+        category: 'skincare',
+        price: 250,
+        originalPrice: null,
+        images: [
+            'img/gelgot2b.jpg'
+        ],
+        description: '',
+        available: true,
+        discount: false
+    },
+    {
+        id: 30,
+        name: 'Vaseline',
+        category: 'skincare',
+        price: 200,
+        originalPrice: null,
+        images: [
+            'img/vaseline.jpg'
+        ],
+        description: '',
+        available: true,
+        discount: false
+    },
+    {
+        id: 36,
+        name: 'Pack daily scent',
+        category: 'skincare',
+        price: 600,
+        originalPrice: null,
+        images: [
+            'img/pack-daily-scent.jpg'
+        ],
+        description: '',
+        available: true,
+        discount: false
+    },
+    {
+        id: 37,
+        name: 'Dove deodorant',
+        category: 'skincare',
+        price: 250,
+        originalPrice: null,
+        images: [
+            'img/dove-deodorant.jpg'
+        ],
+        description: '',
+        available: true,
+        discount: false
+    },
+    {
+        id: 38,
+        name: 'Venus gillette',
+        category: 'skincare',
+        price: 500,
+        originalPrice: null,
+        images: [
+            'img/venus-gillette.jpg'
+        ],
+        description: '',
+        available: true,
+        discount: false
+    },
+
+
+
+    // perfumes
+
+
+    {
+        id: 31,
+        name: 'Victoria`s secret - Romantic',
+        category: 'perfumes',
+        price: 600,
+        originalPrice: null,
+        images: [
+            'img/romantic.jpg'
+        ],
+        description: '',
+        available: true,
+        discount: false
+    },
+    {
+        id: 32,
+        name: 'Victoria`s secret - Coconut passion',
+        category: 'perfumes',
+        price: 600,
+        originalPrice: null,
+        images: [
+            'img/coconut-passion.jpg'
+        ],
+        description: '',
+        available: true,
+        discount: false
+    },
+    {
+        id: 33,
+        name: 'Victoria`s secret - Rush',
+        category: 'perfumes',
+        price: 600,
+        originalPrice: null,
+        images: [
+            'img/rush.jpg'
+        ],
+        description: '',
+        available: true,
+        discount: false
+    },
+    {
+        id: 34,
+        name: 'Victoria`s secret - Aqua kiss',
+        category: 'perfumes',
+        price: 600,
+        originalPrice: null,
+        images: [
+            'img/aqua-kiss.jpg'
+        ],
+        description: '',
+        available: true,
+        discount: false
+    },
+    {
+        id: 35,
+        name: 'Victoria`s secret - Amber romance',
+        category: 'perfumes',
+        price: 600,
+        originalPrice: null,
+        images: [
+            'img/amber-romance.jpg'
+        ],
+        description: '',
+        available: true,
+        discount: false
+    },
+
+    {
+        id: 39,
+        name: 'Sol de Janeiro 62 - 35ml',
+        category: 'perfumes',
+        price: 300,
+        originalPrice: null,
+        images: [
+            'img/sol-de-janeiro62.jpg'
+        ],
+        description: '',
+        available: true,
+        discount: false
+    },
+
+    {
+        id: 40,
+        name: 'Sol de Janeiro 87 - 35ml',
+        category: 'perfumes',
+        price: 300,
+        originalPrice: null,
+        images: [
+            'img/sol-de-janeiro87.jpg'
+        ],
+        description: '',
+        available: true,
+        discount: false
+    },
+    {
+        id: 41,
+        name: 'Sol de Janeiro 40 - 35ml',
+        category: 'perfumes',
+        price: 300,
+        originalPrice: null,
+        images: [
+            'img/sol-de-janeiro40.jpg'
+        ],
+        description: '',
+        available: true,
+        discount: false
+    },
+    {
+        id: 42,
+        name: 'Sol de Janeiro 59 - 35ml',
+        category: 'perfumes',
+        price: 300,
+        originalPrice: null,
+        images: [
+            'img/sol-de-janeiro59.jpg'
+        ],
+        description: '',
+        available: true,
+        discount: false
+    },
+
+    {
+        id: 43,
+        name: 'Sol de Janeiro 71 - 35ml',
+        category: 'perfumes',
+        price: 300,
+        originalPrice: null,
+        images: [
+            'img/sol-de-janeiro71.jpg'
+        ],
+        description: '',
+        available: true,
+        discount: false
+    },
+
+    {
+        id: 44,
+        name: 'Sol de Janeiro 48 - 35ml',
+        category: 'perfumes',
+        price: 300,
+        originalPrice: null,
+        images: [
+            'img/sol-de-janeiro48.jpg'
+        ],
+        description: '',
+        available: true,
+        discount: false
+    },
+    {
+        id: 45,
+        name: 'Sol de Janeiro 39 - 35ml',
+        category: 'perfumes',
+        price: 300,
+        originalPrice: null,
+        images: [
+            'img/sol-de-janeiro39.jpg'
+        ],
+        description: '',
+        available: true,
+        discount: false
+    },
+    {
+        id: 46,
+        name: 'Perfume oil - يارا',
+        category: 'perfumes',
+        price: 150,
+        originalPrice: null,
+        images: [
+            'img/yara.jpg'
+        ],
+        description: '',
+        available: true,
+        discount: false
+    },
+    {
+        id: 46,
+        name: 'Perfume oil - سفير الحب',
+        category: 'perfumes',
+        price: 150,
+        originalPrice: null,
+        images: [
+            'img/sefirlhoub.jpg'
+        ],
+        description: '',
+        available: true,
+        discount: false
+    },
+
+
+
 ];
