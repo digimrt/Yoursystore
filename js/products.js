@@ -166,7 +166,7 @@ const products = [
         id: 13,
         name: 'Rare beauty - Enlighten',
         category: 'makeup',
-        price: 200,
+        price: 300,
         originalPrice: null,
         images: [
             'img/enlighten.JPG'
@@ -180,7 +180,7 @@ const products = [
         id: 14,
         name: 'Rare beauty - Mesmerize',
         category: 'makeup',
-        price: 200,
+        price: 300,
         originalPrice: null,
         images: [
             'img/mesmerize.JPG'
@@ -192,7 +192,7 @@ const products = [
         id: 15,
         name: 'Rare beauty - Exhilrate',
         category: 'makeup',
-        price: 200,
+        price: 300,
         originalPrice: null,
         images: [
             'img/exhilrate.JPG'
@@ -205,7 +205,7 @@ const products = [
         id: 16,
         name: 'Lipstick - Tint',
         category: 'makeup',
-        price: 2800,
+        price: 150,
         originalPrice: null,
         images: [
             'img/tint.JPG'
@@ -633,7 +633,19 @@ const products = [
         available: true,
         discount: false
     },
-
+    {
+        id: 48,
+        name: 'Perfume oil - موصوف',
+        category: 'perfumes',
+        price: 150,
+        originalPrice: null,
+        images: [
+            'img/mousouf.JPG'
+        ],
+        description: '',
+        available: true,
+        discount: false
+    },
 
 
 ];

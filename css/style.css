@@ -747,6 +747,58 @@ body {
     margin-bottom: 1rem;
 }
 
+/* -------------------
+   Cart location input
+   ------------------- */
+.cart-location {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    text-align: right; /* RTL */
+}
+
+.cart-location label {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+}
+
+.cart-location input#customerLocation {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    font-size: 0.95rem;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    outline: none;
+    transition: box-shadow 0.15s, border-color 0.15s;
+    text-align: right; /* مهم للـRTL */
+}
+
+.cart-location input#customerLocation:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 6px 18px rgba(255, 62, 162, 0.08);
+}
+
+.cart-location .location-help {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    line-height: 1;
+}
+
+/* Responsive small screens */
+@media (max-width: 768px) {
+    .cart-location input#customerLocation {
+        padding: 0.75rem;
+    }
+}
+
+
+
+
+
 /* Footer */
 .footer {
     background: var(--text-dark);

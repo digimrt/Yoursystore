@@ -355,19 +355,53 @@ function shareProduct(productId) {
 }
 
 // ==========================
-// Checkout
+// Checkout (معدل ليشمل التحقق من العنوان)
 // ==========================
 function checkout() {
-    if (cart.length === 0) return;
+
+    if (cart.length === 0) {
+        showNotification('سلة التسوق فارغة');
+        return;
+    }
+
+    const locationInput = document.getElementById('customerLocation');
+    const location = locationInput.value.trim();
+
+    if (!location) {
+        showNotification('الرجاء إدخال مكان السكن قبل إتمام الطلب');
+        locationInput.focus();
+        return;
+    }
+
     const phone = '22230764882';
-    let msg = 'السلام عليكم، أود طلب المنتجات التالية:\n\n';
+
+    let msg = `السلام عليكم، أود طلب المنتجات التالية:
+
+`;
+
     cart.forEach((item, i) => {
-        msg += `${i + 1}. ${item.name}\nالسعر: ${item.price.toLocaleString()} MRU\nالكمية: ${item.quantity}\nالمجموع: ${(item.price * item.quantity).toLocaleString()} MRU\n\n`;
+        msg += `${i + 1}- ${item.name}
+الكمية: ${item.quantity}
+السعر: ${item.price * item.quantity} MRU
+`;
     });
+
     const total = cart.reduce((sum, i) => sum + i.price * i.quantity, 0);
-    msg += `السعر الكامل: ${total.toLocaleString()} MRU`;
-    window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
+
+    msg += `المجموع الكلي: ${total} MRU
+
+`;
+    msg += `العنوان: ${location}
+
+`;
+    msg += ``;
+
+    const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+
+    window.open(url, '_blank');
 }
+
+
 
 // ==========================
 // Event Listeners
@@ -383,7 +417,17 @@ function initEventListeners() {
     document.getElementById('searchClose')?.addEventListener('click', () => searchOverlay.classList.remove('active'));
     searchOverlay?.addEventListener('click', (e) => { if (e.target === searchOverlay) searchOverlay.classList.remove('active'); });
 
-    document.getElementById('cartBtn')?.addEventListener('click', () => { cartSidebar?.classList.add('active'); cartOverlay?.classList.add('active'); });
+    document.getElementById('cartBtn')?.addEventListener('click', () => {
+        cartSidebar?.classList.add('active');
+        cartOverlay?.classList.add('active');
+
+        // بعد فتح السلة بقليل نركّز على حقل العنوان لتسهيل الإدخال
+        setTimeout(() => {
+            const locationInput = document.getElementById('customerLocation');
+            if (locationInput) locationInput.focus();
+        }, 250);
+    });
+
     document.getElementById('cartClose')?.addEventListener('click', () => { cartSidebar?.classList.remove('active'); cartOverlay?.classList.remove('active'); });
     cartOverlay?.addEventListener('click', () => { cartSidebar?.classList.remove('active'); cartOverlay?.classList.remove('active'); nav?.classList.remove('active'); });
 

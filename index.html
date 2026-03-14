@@ -20,7 +20,7 @@
         <div class="container">
             <div class="header-content">
                 <div class="header-actions">
-                   
+
                     <button class="icon-btn theme-toggle" id="themeToggle" aria-label="تغيير الوضع">
                         <i class="fas fa-moon"></i>
                     </button>
@@ -38,7 +38,7 @@
                         <li><a href="#makeup" class="nav-link">MAKEUP</a></li>
                         <li><a href="#skincare" class="nav-link">SKIN CARE</a></li>
                         <li><a href="#perfumes" class="nav-link">PERFUMES</a></li>
-                     <!--   <li><a href="#bath" class="nav-link">BATH</a></li>
+                        <!--   <li><a href="#bath" class="nav-link">BATH</a></li>
                         <li><a href="#lipoil" class="nav-link">LIP OIL</a></li> -->
                     </ul>
                 </nav>
@@ -67,7 +67,7 @@
     <!-- Product Detail Section (Hidden by default) -->
     <section id="productDetail" style="display: none;"></section>
 
-    
+
 
     <!-- Main Sections -->
     <div id="mainSections">
@@ -90,7 +90,7 @@
                             </div>
                         </div>
                     </div>
-                  <!--  <div class="swiper-slide">
+                    <!--  <div class="swiper-slide">
                         <div class="hero-slide" style="background: linear-gradient(135deg, #F5E6D3 0%, #FFF5E6 100%);">
                             <div class="container">
                                 <div class="hero-content">
@@ -149,7 +149,7 @@
                         </div>
                         <h3 class="category-name">PERFUMES</h3>
                     </a>
-                 <!--   <a href="#bath" class="category-card" data-category="bath">
+                    <!--   <a href="#bath" class="category-card" data-category="bath">
                         <div class="category-image">
                             <img src="img/bath.jpg" alt="BATH">
                         </div>
@@ -210,7 +210,7 @@
             </div>
         </section>
 
-      <!--  <section class="products" id="bath">
+        <!--  <section class="products" id="bath">
             <div class="container">
                 <h2 class="section-title">BATH</h2>
                 <div class="products-grid" id="bathProducts"></div>
@@ -239,15 +239,26 @@
                 </div>
             </div>
             <div class="cart-footer" id="cartFooter" style="display: none;">
+                <!-- حقل عنوان الزبون (مطلوب) -->
+                <div class="cart-location">
+                    <label for="customerLocation">مكان السكن (العنوان بالتفصيل)</label>
+                    <input type="text" id="customerLocation" placeholder=""
+                        aria-label="مكان السكن" />
+                    <small class="location-help" id="locationHelp" aria-hidden="true">الرجاء كتابة عنوان كامل لتسهيل
+                        التوصيل — هذا الحقل مطلوب.</small>
+                </div>
+
                 <div class="cart-total">
                     <span>المجموع:</span>
                     <span id="cartTotal">0 MRU</span>
                 </div>
+
                 <button class="btn btn-primary btn-block" id="checkoutBtn">
                     <i class="fab fa-whatsapp"></i>
                     إتمام الطلب عبر واتساب
                 </button>
             </div>
+
         </div>
         <div class="cart-overlay" id="cartOverlay"></div>
 
@@ -258,7 +269,8 @@
                     <div class="footer-section">
                         <img src="img/logo.PNG" width="120px" alt="">
                         <div class="social-links">
-                            <a href="https://www.tiktok.com/@yoursystoree?_r=1&_t=ZS-94etEBfRVsg" class="social-link" aria-label="تيك توك">
+                            <a href="https://www.tiktok.com/@yoursystoree?_r=1&_t=ZS-94etEBfRVsg" class="social-link"
+                                aria-label="تيك توك">
                                 <i class="fa-brands fa-tiktok"></i>
                             </a>
                             <a href="https://wa.me/22230764882" class="social-link" aria-label="واتساب">
@@ -270,11 +282,12 @@
                         <h4 class="footer-subtitle">روابط سريعة</h4>
                         <ul class="footer-links">
                             <li><a href="#home">الرئيسية</a></li>
-                            <li><a href="#featured">منتجات مميزة</a></li>
-                            <li><a href="#discounts">العروض</a></li>
+                            <li><a href="#makeup">MAKEUP</a></li>
+                            <li><a href="#skincare">SKIN CARE</a></li>
+                            <li><a href="#perfumes">PERFUMES</a></li>
                         </ul>
                     </div>
-                   <!-- <div class="footer-section">
+                    <!-- <div class="footer-section">
                         <h4 class="footer-subtitle">خدمة العملاء</h4>
                         <ul class="footer-links">
                             <li><a href="#">من نحن</a></li>
