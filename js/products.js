@@ -661,7 +661,7 @@ const products = [
         price: 800,
         originalPrice: 1000,
         images: [
-            'img/perfumesetwith.JPG'
+            'img/perfumesetwith.jpg'
         ],
         description: '',
         available: true,
@@ -674,7 +674,7 @@ const products = [
         price: 350,
         originalPrice: 400,
         images: [
-            'img/eyebrowsset.JPG'
+            'img/eyebrowsset.jpg'
         ],
         description: '',
         available: true,
@@ -687,7 +687,7 @@ const products = [
         price: 800,
         originalPrice: 1000,
         images: [
-            'img/perfumesetwithmask.JPG'
+            'img/perfumesetwithmask.jpg'
         ],
         description: '',
         available: true,
@@ -700,7 +700,7 @@ const products = [
         price: 800,
         originalPrice: 1050,
         images: [
-            'img/Perfumewithtint.JPG'
+            'img/Perfumewithtint.jpg'
         ],
         description: '',
         available: true,
@@ -713,7 +713,7 @@ const products = [
         price: 800,
         originalPrice: 1000,
         images: [
-            'img/perfumehairclip.JPG'
+            'img/perfumehairclip.jpg'
         ],
         description: '',
         available: true,
@@ -726,7 +726,7 @@ const products = [
         price: 850,
         originalPrice: 1050,
         images: [
-            'img/cleaningsetwithjaneiro.JPG'
+            'img/cleaningsetwithjaneiro.jpg'
         ],
         description: '',
         available: true,
@@ -739,7 +739,7 @@ const products = [
         price: 800,
         originalPrice: 1000,
         images: [
-            'img/rhodeset.JPG'
+            'img/rhodeset.jpg'
         ],
         description: '',
         available: true,
