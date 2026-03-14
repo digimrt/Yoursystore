@@ -506,7 +506,7 @@ const products = [
         price: 600,
         originalPrice: null,
         images: [
-            'img/amber-romance.jpg'
+            'img/amber-romance.JPG'
         ],
         description: '',
         available: true,
