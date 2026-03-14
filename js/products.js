@@ -512,6 +512,19 @@ const products = [
         available: true,
         discount: false
     },
+    {
+        id: 56,
+        name: 'Victoria`s secret - Velvet petals',
+        category: 'perfumes',
+        price: 600,
+        originalPrice: null,
+        images: [
+            'img/velvetpetals.JPG'
+        ],
+        description: '',
+        available: true,
+        discount: false
+    },
 
     {
         id: 39,
@@ -646,6 +659,19 @@ const products = [
         available: true,
         discount: false
     },
+    {
+        id: 57,
+        name: 'Perfume oil - روز باريس',
+        category: 'perfumes',
+        price: 150,
+        originalPrice: null,
+        images: [
+            'img/roseparis.JPG'
+        ],
+        description: '',
+        available: true,
+        discount: false
+    },
 
 
 
@@ -661,7 +687,7 @@ const products = [
         price: 800,
         originalPrice: 1000,
         images: [
-            'img/perfumesetwith.jpg'
+            'img/perfumesetwith.JPG'
         ],
         description: '',
         available: true,
@@ -674,7 +700,7 @@ const products = [
         price: 350,
         originalPrice: 400,
         images: [
-            'img/eyebrowsset.jpg'
+            'img/eyebrowsset.JPG'
         ],
         description: '',
         available: true,
@@ -687,7 +713,7 @@ const products = [
         price: 800,
         originalPrice: 1000,
         images: [
-            'img/perfumesetwithmask.jpg'
+            'img/perfumesetwithmask.JPG'
         ],
         description: '',
         available: true,
@@ -700,7 +726,7 @@ const products = [
         price: 800,
         originalPrice: 1050,
         images: [
-            'img/Perfumewithtint.jpg'
+            'img/Perfumewithtint.JPG'
         ],
         description: '',
         available: true,
@@ -713,7 +739,7 @@ const products = [
         price: 800,
         originalPrice: 1000,
         images: [
-            'img/perfumehairclip.jpg'
+            'img/perfumehairclip.JPG'
         ],
         description: '',
         available: true,
@@ -726,7 +752,7 @@ const products = [
         price: 850,
         originalPrice: 1050,
         images: [
-            'img/cleaningsetwithjaneiro.jpg'
+            'img/cleaningsetwithjaneiro.JPG'
         ],
         description: '',
         available: true,
@@ -739,7 +765,7 @@ const products = [
         price: 800,
         originalPrice: 1000,
         images: [
-            'img/rhodeset.jpg'
+            'img/rhodeset.JPG'
         ],
         description: '',
         available: true,
