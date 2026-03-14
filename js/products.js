@@ -648,4 +648,106 @@ const products = [
     },
 
 
+
+
+
+
+    /* discount */
+
+    {
+        id: 49,
+        name: 'Perfume set with hair clip',
+        category: '',
+        price: 800,
+        originalPrice: 1000,
+        images: [
+            'img/perfumesetwith.JPG'
+        ],
+        description: '',
+        available: true,
+        discount: true
+    },
+    {
+        id: 50,
+        name: 'Eyebrows set',
+        category: '',
+        price: 350,
+        originalPrice: 400,
+        images: [
+            'img/eyebrowsset.JPG'
+        ],
+        description: '',
+        available: true,
+        discount: true
+    },
+    {
+        id: 51,
+        name: 'Perfume set with sleeping mask',
+        category: '',
+        price: 800,
+        originalPrice: 1000,
+        images: [
+            'img/perfumesetwithmask.JPG'
+        ],
+        description: '',
+        available: true,
+        discount: true
+    },
+    {
+        id: 52,
+        name: 'Perfume set with tint kiko',
+        category: '',
+        price: 800,
+        originalPrice: 1050,
+        images: [
+            'img/Perfumewithtint.JPG'
+        ],
+        description: '',
+        available: true,
+        discount: true
+    },
+    {
+        id: 53,
+        name: 'Perfume set with hair clip',
+        category: '',
+        price: 800,
+        originalPrice: 1000,
+        images: [
+            'img/perfumehairclip.JPG'
+        ],
+        description: '',
+        available: true,
+        discount: true
+    },
+    {
+        id: 54,
+        name: 'Cleaning set with perfume sol de janeiro',
+        category: '',
+        price: 850,
+        originalPrice: 1050,
+        images: [
+            'img/cleaningsetwithjaneiro.JPG'
+        ],
+        description: '',
+        available: true,
+        discount: true
+    },
+    {
+        id: 55,
+        name: 'Rhode set',
+        category: '',
+        price: 800,
+        originalPrice: 1000,
+        images: [
+            'img/rhodeset.JPG'
+        ],
+        description: '',
+        available: true,
+        discount: true
+    },
+
+
+
+
+
 ];
