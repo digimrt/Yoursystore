@@ -358,49 +358,149 @@ function shareProduct(productId) {
 // ==========================
 // Checkout (معدل ليشمل التحقق من العنوان)
 // ==========================
+function isIOS() {
+    return /iPhone|iPad|iPod/i.test(navigator.userAgent);
+}
+function isAndroid() {
+    return /Android/i.test(navigator.userAgent);
+}
+function isInAppBrowser() {
+    // يتعرف على أشهر متصفحات التطبيقات (يمكن تعديل/إضافة حسب الحاجة)
+    const ua = navigator.userAgent || '';
+    return /(FBAN|FBAV|Instagram|Twitter|LinkedIn|Snapchat|TikTok|Line|WhatsApp)/i.test(ua);
+}
+
+function showOpenInBrowserModal(waLink) {
+    // إنشاؤه فقط عند الفشل كـ fallback مرئي للمستخدم
+    if (document.getElementById('openInBrowserModal')) return;
+
+    const modal = document.createElement('div');
+    modal.id = 'openInBrowserModal';
+    modal.style = 'position:fixed;left:0;right:0;top:0;bottom:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.5);z-index:9999;';
+    modal.innerHTML = `
+    <div style="background:#fff;border-radius:8px;padding:18px;max-width:420px;width:95%;text-align:right;direction:rtl;font-family:sans-serif;">
+      <h3 style="margin:0 0 8px 0">فتح في المتصفح</h3>
+      <p style="margin:0 0 12px 0">يبدو أن متصفح التطبيق لا يسمح بفتح واتساب مباشرة. اضغط على الزر أدناه لفتح الرابط في المتصفح أو انسخه وشاركه.</p>
+      <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:12px;">
+        <button id="copyWaLinkBtn" style="padding:8px 10px;border:1px solid #ddd;background:#f5f5f5;border-radius:6px;cursor:pointer">نسخ الرابط</button>
+        <a id="openWaInBrowserBtn" style="padding:8px 10px;background:#25D366;color:#fff;border-radius:6px;text-decoration:none">فتح في المتصفح</a>
+        <button id="closeWaModal" style="padding:8px 10px;border:none;background:#eee;border-radius:6px;cursor:pointer">إلغاء</button>
+      </div>
+    </div>
+  `;
+    document.body.appendChild(modal);
+
+    const copyBtn = document.getElementById('copyWaLinkBtn');
+    const openBtn = document.getElementById('openWaInBrowserBtn');
+    const closeBtn = document.getElementById('closeWaModal');
+
+    openBtn.href = waLink;
+    openBtn.target = '_blank';
+
+    copyBtn.addEventListener('click', () => {
+        navigator.clipboard.writeText(waLink).then(() => {
+            copyBtn.textContent = 'تم النسخ';
+            setTimeout(() => (copyBtn.textContent = 'نسخ الرابط'), 1500);
+        });
+    });
+    closeBtn.addEventListener('click', () => modal.remove());
+}
+
+// الدالة الأساسية التي تحاول فتح واتساب بعدة طرق
+function openWhatsAppWithFallback(phone, message) {
+    const encoded = encodeURIComponent(message);
+    const waWeb = `https://wa.me/${phone}?text=${encoded}`;
+    const waApi = `https://api.whatsapp.com/send?phone=${phone}&text=${encoded}`; // بديل
+    const appScheme = `whatsapp://send?phone=${phone}&text=${encoded}`;
+
+    // إذا الجهاز أندرويد، حاول استخدام intent (طريقة قوية على أندرويد)
+    if (isAndroid()) {
+        try {
+            const intentUrl = `intent://send?phone=${phone}&text=${encoded}#Intent;package=com.whatsapp;scheme=whatsapp;end`;
+            // محاولة فتح الـ intent
+            window.location.href = intentUrl;
+            // بعد 1.2 ثانية إذا لم يفتح التطبيق نعيد التوجيه إلى wa.me كـ fallback
+            setTimeout(() => { window.location.href = waWeb; }, 1200);
+            return;
+        } catch (e) {
+            // استمر للـ fallback أدناه
+        }
+    }
+
+    // على iOS: حاول scheme ثم fallback إلى wa.me
+    if (isIOS()) {
+        // محاولة فتح التطبيق عن طريق iframe (تقنية مستخدمة كـ trigger)
+        const ifrm = document.createElement('iframe');
+        ifrm.style.display = 'none';
+        ifrm.src = appScheme;
+        document.body.appendChild(ifrm);
+
+        // بعد وقت نزيل iframe ونحول إلى wa.me
+        setTimeout(() => {
+            try { document.body.removeChild(ifrm); } catch (e) { }
+            window.location.href = waWeb;
+        }, 900);
+
+        return;
+    }
+
+    // حالات عامة/سطح المكتب: افتح wa.me مباشرة
+    window.location.href = waWeb;
+}
+
+// دالة checkout الجديدة (استبدل بها دالتك الحالية)
 function checkout() {
     if (cart.length === 0) {
         showNotification('سلة التسوق فارغة');
         return;
     }
-
     const locationInput = document.getElementById('customerLocation');
     const location = locationInput.value.trim();
-
     if (!location) {
         showNotification('الرجاء إدخال مكان السكن قبل إتمام الطلب');
         locationInput.focus();
         return;
     }
 
-    const phone = '22230764882'; // الرقم بدون + أو صفر
-
+    const phone = '22230764882';
     let msg = `السلام عليكم، أود طلب المنتجات التالية:\n\n`;
     cart.forEach((item, i) => {
-        msg += `${i + 1}- ${item.name}\nالكمية: ${item.quantity}\nالسعر: ${item.price * item.quantity} MRU\n`;
+        msg += `${i + 1}- ${item.name}\nالكمية: ${item.quantity}\nالسعر: ${item.price * item.quantity} MRU\n\n`;
     });
     const total = cart.reduce((sum, i) => sum + i.price * i.quantity, 0);
-    msg += `\nالمجموع الكلي: ${total} MRU\n\nالعنوان: ${location}\n`;
+    msg += `المجموع الكلي: ${total} MRU\n\nالعنوان: ${location}\n`;
 
-    // ترميز الرسالة
-    const encodedMsg = encodeURIComponent(msg);
+    // إذا نحن داخل متصفح داخل تطبيق (in-app) نستخدم المحاولات ثم إن فشلنا نعرض مودال "فتح في المتصفح"
+    const waLink = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
 
-    // إنشاء رابط الصفحة الوسيطة (عدل الرابط حسب مسار موقعك)
-    const redirectUrl = `${window.location.origin}/whatsapp-redirect.html?phone=${phone}&text=${encodedMsg}`;
+    if (isInAppBrowser()) {
+        // نجرب فتح التطبيق بأساليب مختلفة ثم بعد مهلة قصيرة نظهر زر فتح بالمتصفح (fallback مرئي)
+        // أولاً: حاول فتح scheme / intent
+        if (isAndroid()) {
+            // Android intent attempt
+            const intentUrl = `intent://send?phone=${phone}&text=${encodeURIComponent(msg)}#Intent;package=com.whatsapp;scheme=whatsapp;end`;
+            window.location.href = intentUrl;
+            // بعد 1.5s: نعرض المودال لنسخ الرابط أو فتحه في المتصفح
+            setTimeout(() => showOpenInBrowserModal(waLink), 1500);
+            return;
+        }
+        if (isIOS()) {
+            // iOS: محاولة عن طريق scheme عبر iframe
+            const ifr = document.createElement('iframe');
+            ifr.style.display = 'none';
+            ifr.src = `whatsapp://send?text=${encodeURIComponent(msg)}&phone=${phone}`;
+            document.body.appendChild(ifr);
+            setTimeout(() => { try { document.body.removeChild(ifr); } catch (e) { } showOpenInBrowserModal(waLink); }, 1200);
+            return;
+        }
 
-    // محاولة فتح الصفحة في نافذة جديدة (تخرج من WebView في كثير من الأحيان)
-    const newWindow = window.open(redirectUrl, '_blank');
-    
-    // إذا منع المتصفح النافذة المنبثقة، نستخدم رابطاً مخفياً
-    if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
-        const link = document.createElement('a');
-        link.href = redirectUrl;
-        link.target = '_blank';
-        link.rel = 'noopener noreferrer';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+        // في أي in-app browser آخر: فقط أظهر المودال (أفضل تجربة للمستخدم)
+        showOpenInBrowserModal(waLink);
+        return;
     }
+
+    // لا نعمل في-app: افتح مباشرة (normal browsers)
+    openWhatsAppWithFallback(phone, msg);
 }
 
 
