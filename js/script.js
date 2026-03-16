@@ -402,6 +402,8 @@ function checkout() {
     window.location.href = url;
 }
 
+
+
 // ==========================
 // Event Listeners
 // ==========================
@@ -491,6 +493,3 @@ function initEventListeners() {
         else closeProductDetail();
     });
 }
-
-
-

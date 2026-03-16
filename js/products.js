@@ -12,7 +12,7 @@ const products = [
         ],
         description: ``,
         available: true,
-        featured: true,
+        featured: false,
         discount: false
     },
     {
@@ -26,7 +26,7 @@ const products = [
         ],
         description: ``,
         available: true,
-        featured: true
+        featured: false
     },
     {
         id: 3,
@@ -39,7 +39,7 @@ const products = [
         ],
         description: ``,
         available: true,
-        featured: true
+        featured: false
     },
     {
         id: 4,
@@ -66,7 +66,7 @@ const products = [
         ],
         description: ``,
         available: true,
-        featured: true,
+        featured: false,
         discount: false
     },
     {
@@ -92,7 +92,7 @@ const products = [
         ],
         description: ``,
         available: true,
-        featured: true
+        featured: false
     },
     {
         id: 8,
@@ -119,7 +119,7 @@ const products = [
         ],
         description: ``,
         available: true,
-        featured: true,
+        featured: false,
         discount: false
     },
     {
@@ -145,7 +145,7 @@ const products = [
         ],
         description: ``,
         available: true,
-        featured: true
+        featured: false
     },
     {
         id: 12,
@@ -199,7 +199,7 @@ const products = [
         ],
         description: ``,
         available: true,
-        featured: true
+        featured: false
     },
     {
         id: 16,
@@ -226,8 +226,8 @@ const products = [
             'img/encourage.JPG'
         ],
         description: ``,
-        available: true,
-        featured: true,
+        available: false,
+        featured: false,
         discount: false
 
     },
@@ -254,7 +254,7 @@ const products = [
         ],
         description: ``,
         available: true,
-        featured: true
+        featured: false
     },
     {
         id: 20,
@@ -507,6 +507,32 @@ const products = [
  • تساعدها تجف أسرع.
  • أفضل للحبوب المفتوحة أو التي فيها رأس أبيض.
  • عادة تكون لطيفة على البشرة الحساسة.`,
+        available: true,
+        discount: false
+    },
+    {
+        id: 69,
+        name: 'Vaseline original',
+        category: 'skincare',
+        price: 200,
+        originalPrice: null,
+        images: [
+            'img/Vaselineoriginal.JPG'
+        ],
+        description: ``,
+        available: true,
+        discount: false
+    },
+    {
+        id: 70,
+        name: 'Vaseline - cacao butter',
+        category: 'skincare',
+        price: 200,
+        originalPrice: null,
+        images: [
+            'img/cacaobutter.JPG'
+        ],
+        description: ``,
         available: true,
         discount: false
     },
@@ -842,7 +868,168 @@ const products = [
     },
 
 
+    /*--------NEW-------- */
+
+    {
+        id: 61,
+        name: 'Madagascar Centella',
+        category: '',
+        price: 1100,
+        originalPrice: null,
+        images: [
+            'img/MadagascarCentella.JPG'
+        ],
+        description: ` هي المجموعة الأساسية والمهدئة للبشرة. تركز على إصلاح الحاجز الواقي وعلاج الاحمرار والتحسس.
+الوظيفة: ترطيب، تهدئة، وإصلاح.
+
+المكون الأساسي: مستخلص السنتيلا أسياتيكا النقي.
+
+مناسبة لـ: جميع أنواع البشرة، خاصة الحساسة والمتضررة.`,
+        available: true,
+        featured: true,
+        discount: false
+    },
+    {
+        id: 62,
+        name: 'Tea-Trica (لحب الشباب)',
+        category: null,
+        price: 1100,
+        originalPrice: null,
+        images: [
+            'img/Tea-Trica.JPG'
+        ],
+        description: ` مجموعة متخصصة في العناية بالبشرة التي تعاني من البثور والتهيج المفاجئ.
+الوظيفة: التحكم في الدهون، تهدئة حب الشباب، وتنقية المسام.
+المكون الأساسي: مزيج من شجرة الشاي وسنتيلا أسياتيكا (تريكا).
+مناسبة لـ: البشرة الدهنية والمعرضة لحب الشباب.
+`,
+        available: true,
+        featured: true,
+        discount: false
+    },
+    {
+        id: 63,
+        name: 'Poremizing (للمسام)',
+        category: null,
+        price: 1100,
+        originalPrice: null,
+        images: [
+            'img/Poremizing.JPG'
+        ],
+        description: `تركز هذه المجموعة على تحسين مظهر المسام الواسعة وتنظيفها 
+بعمق.
+الوظيفة: شد المسام، إزالة الرؤوس السوداء، وتحسين ملمس الجلد.
+المكون الأساسي: ملح الهيمالايا الوردي.
+مناسبة لـ: البشرة الدهنية والمختلطة التي تعاني من مسام بارزة.
+`,
+        available: true,
+        featured: true,
+        discount: false
+    },
+    {
+        id: 64,
+        name: 'Hyalu-Cica (للترطيب الفائق)',
+        category: null,
+        price: 1100,
+        originalPrice: null,
+        images: [
+            'img/Hyalu-Cica.JPG'
+        ],
+        description: `مجموعة مخصصة للبشرة التي تعاني من الجفاف وفقدان الحيوية.
+الوظيفة: ترطيب عميق، منع فقدان الماء، وإعطاء لمعة صحية.
+المكون الأساسي: مزيج من حمض الهيالورونيك والسنتيلا.
+مناسبة لـ: البشرة الجافة والبشرة الباهتة.
+`,
+        available: true,
+        featured: true,
+        discount: false
+    },
+    {
+        id: 65,
+        name: 'Tone Brightening (للتفتيح)',
+        category: null,
+        price: 1100,
+        originalPrice: null,
+        images: [
+            'img/ToneBrightening.JPG'
+        ],
+        description: `تعمل هذه المجموعة على توحيد لون البشرة والتخلص من التصبغات وآثار الحبوب.
+الوظيفة: تفتيح البقع الداكنة، توحيد لون البشرة، وإعطاء إشراقة.
+المكون الأساسي: مادة "ماديكاسوسايد" والنياسيناميد.
+مناسبة لـ: البشرة التي تعاني من التصبغات والبهتان.`,
+        available: true,
+        featured: true,
+        discount: false
+    },
+    {
+        id: 66,
+        name: 'Purito - Best Kit',
+        category: null,
+        price: 1100,
+        originalPrice: null,
+        images: [
+            'img/PuritoBest.JPG'
+        ],
+        description: `علامة "بوريتو" تركز على المكونات النظيفة والآمنة لتقوية حاجز البشرة.
+الوظيفة: تغذية البشرة، تقوية الحاجز الطبيعي، وتوفير عناية يومية متوازنة.
+المكون الأساسي: البانثينول، السنتيلا،
+ومستخلصات نباتية مهدئة.
+مناسبة لـ: البشرة الحساسة والتي تحتاج إلى تغذية عميقة.
+`,
+        available: true,
+        featured: true,
+        discount: false
+    },
+    {
+        id: 67,
+        name: 'Brightening Facial Scrub (ACURE)',
+        category: null,
+        price: 700,
+        originalPrice: null,
+        images: [
+            'img/Brightening.JPG'
+        ],
+        description: ` واحد من أشهر المقشرات الفيزيائية عالمياً وحاصل على عدة جوائز بفضل تركيبته الفعالة والنباتية.
+إليكِ كل ما تحتاجين معرفته عنه:
+1. وظيفة المنتج الأساسية
+يعمل هذا المقشر على إزالة خلايا الجلد الميتة والشوائب العالقة في المسام، مما يساعد في تحويل البشرة من باهتة ومجهدة إلى بشرة أكثر إشراقاً ونعومة.
+2. المكونات الرئيسية
+• عشب البحر (Sea Kelp): غني بالمعادن التي تنقي البشرة وتغذيها.
+• الطين الأخضر الفرنسي (French Green Clay): يعمل كالمغناطيس لسحب الدهون والشوائب من داخل المسام.
+• قشور الليمون وقصب السكر: توفر تقشيراً لطيفاً وتساعد في تفتيح لون البشرة.
+• خلايا جذعية من مريمية ليلية: توفر حماية ومضادات أكسدة للبشرة.
+3. المميزات
+• نباتي 100% (Vegan): خالٍ من القسوة ولا يحتوي على مكونات حيوانية.
+• نظيف (Clean Beauty): خالٍ من البارابين، الكبريتات، الفتالات، والزيوت المعدنية.
+• نتائج فورية: ستلاحظين نعومة واضحة في ملمس الجلد بعد أول استخدام.
+`,
+        available: true,
+        featured: true,
+        discount: false
+    },
+    {
+        id: 68,
+        name: 'Gluta Collagen Pin',
+        category: null,
+        price: 850,
+        originalPrice: null,
+        images: [
+            'img/GlutaCollagenPin.JPG'
+        ],
+        description: `يجمع المنتج بين عدة عناصر مشهورة في عالم التجميل:
+• الجلوتاثيون (Gluta): يُعرف بدوره كمضاد للأكسدة قوي، ويُستخدم غالباً بهدف تفتيح لون البشرة وتوحيدها.
+• الكولاجين (Collagen): تحديداً "Collagen Dipeptide" (كما هو موضح بجانب العلم الياباني)، وهو نوع سهل الامتصاص يساعد في مرونة البشرة وتقليل التجاعيد.
+• مستخلصات الفواكه الحمراء: يحتوي على صور للطماطم، الفراولة، التوت، والكرز (Acerola Cherry)، وهي مصادر غنية بـ فيتامين C الذي يعزز امتصاص الكولاجين ويحمي البشرة من الإجهاد التأكسدي.
+تفاصيل العبوة
+• الكمية: تحتوي الحقيبة على 30 ظرفاً (Sachet)، وزن كل ظرف 10 جرام.`,
+        available: true,
+        featured: true,
+        discount: false
+    },
+
+
 
 
 
 ];
+
