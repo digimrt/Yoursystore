@@ -399,7 +399,7 @@ function checkout() {
 
     const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
 
-    window.open(url, '_blank');
+    window.location.href = url;
 }
 
 
