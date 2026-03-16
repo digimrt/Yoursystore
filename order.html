@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Redirecting...</title>
+<script>
+
+const phone = "22230764882";
+
+const params = new URLSearchParams(window.location.search);
+const text = params.get("text");
+
+const url = `https://wa.me/${phone}?text=${text}`;
+
+window.location.href = url;
+
+</script>
+</head>
+<body>
+
+<p>جاري تحويلك إلى واتساب...</p>
+
+<!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <img src="img/logo.PNG" width="120px" alt="">
+                        <div class="social-links">
+                            <a href="https://www.tiktok.com/@yoursystoree?_r=1&_t=ZS-94etEBfRVsg" class="social-link"
+                                aria-label="تيك توك">
+                                <i class="fa-brands fa-tiktok"></i>
+                            </a>
+                            <a href="https://wa.me/22230764882" class="social-link" aria-label="واتساب">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="footer-section">
+                        <h4 class="footer-subtitle">روابط سريعة</h4>
+                        <ul class="footer-links">
+                            <li><a href="#home">الرئيسية</a></li>
+                            <li><a href="#makeup">MAKEUP</a></li>
+                            <li><a href="#skincare">SKIN CARE</a></li>
+                            <li><a href="#perfumes">PERFUMES</a></li>
+                        </ul>
+                    </div>
+                    <!-- <div class="footer-section">
+                        <h4 class="footer-subtitle">خدمة العملاء</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">من نحن</a></li>
+                            <li><a href="#">اتصل بنا</a></li>
+                        </ul>
+                    </div>-->
+                    <div class="footer-section">
+                        <h4 class="footer-subtitle">تواصل معنا</h4>
+                        <ul class="contact-info">
+                            <li>
+                                <i class="fas fa-phone"></i>
+                                <span>+222 30 76 48 82</span>
+                            </li>
+                            <!--   <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>info@elegance-shop.com</span>
+                        </li> -->
+                            <li>
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>نواكشوط، موريتانيا</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2026 Yoursy Store. جميع الحقوق محفوظة.</p>
+                </div>
+            </div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+        <script src="js/script.js"></script>
+        <script src="js/products.js"></script>
+
+</body>
+</html>

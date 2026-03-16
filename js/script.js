@@ -397,7 +397,7 @@ function checkout() {
 `;
     msg += ``;
 
-    const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+    const url = `/order.html?text=${encodeURIComponent(msg)}`;
 
     window.location.href = url;
 }
