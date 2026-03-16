@@ -412,7 +412,7 @@ const products = [
             'img/pack-daily-scent.JPG'
         ],
         description: ``,
-        available: true,
+        available: false,
         discount: false
     },
     {
