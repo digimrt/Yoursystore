@@ -359,120 +359,48 @@ function shareProduct(productId) {
 // Checkout (معدل ليشمل التحقق من العنوان)
 // ==========================
 function checkout() {
-  if (cart.length === 0) {
-    showNotification('سلة التسوق فارغة');
-    return;
-  }
 
-  const locationInput = document.getElementById('customerLocation');
-  const location = (locationInput?.value || '').trim();
-  if (!location) {
-    showNotification('الرجاء إدخال مكان السكن قبل إتمام الطلب');
-    locationInput?.focus();
-    return;
-  }
+    if (cart.length === 0) {
+        showNotification('سلة التسوق فارغة');
+        return;
+    }
 
-  const phone = '22230764882';
-  let msg = 'السلام عليكم، أود طلب المنتجات التالية:%0A%0A';
-  cart.forEach((item, i) => {
-    msg += encodeURIComponent(`${i+1}- ${item.name}\nالكمية: ${item.quantity}\nالسعر: ${item.price * item.quantity} MRU\n\n`);
-  });
-  const total = cart.reduce((s,i) => s + i.price * i.quantity, 0);
-  msg += encodeURIComponent(`المجموع الكلي: ${total} MRU\n\nالعنوان: ${location}\n`);
+    const locationInput = document.getElementById('customerLocation');
+    const location = locationInput.value.trim();
 
-  // رابط wa.me (الخطة الاحتياط)
-  const waWeb = `https://wa.me/${phone}?text=${msg}`;
-  // رابط التطبيق (scheme)
-  const waScheme = `whatsapp://send?phone=${phone}&text=${msg}`;
-  // Intent خاص بأندرويد (حاول فتح التطبيق مباشرة)
-  const waIntent = `intent://send?phone=${phone}&text=${msg}#Intent;package=com.whatsapp;scheme=whatsapp;end`;
+    if (!location) {
+        showNotification('الرجاء إدخال مكان السكن قبل إتمام الطلب');
+        locationInput.focus();
+        return;
+    }
 
-  // helpers للكشف عن الجهاز / in-app browser بسيط
-  const ua = navigator.userAgent || '';
-  const isAndroid = /Android/i.test(ua);
-  const isIOS = /iPhone|iPad|iPod/i.test(ua);
-  const isMobile = /Android|iPhone|iPad|iPod/i.test(ua);
-  const inApp = /(FBAN|FBAV|Instagram|Twitter|LinkedIn|Snapchat|TikTok|Line)/i.test(ua);
+    const phone = '22230764882';
 
-  // عرض مودال fallback (يُنشأ مرة واحدة)
-  function showWaModal(urlWeb, urlScheme) {
-    if (document.getElementById('waFallbackModal')) return;
-    const modal = document.createElement('div');
-    modal.id = 'waFallbackModal';
-    modal.style = 'position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.5);z-index:99999;';
-    modal.innerHTML = `
-      <div style="background:#fff;padding:18px;border-radius:8px;max-width:420px;width:94%;direction:rtl;text-align:right;font-family:inherit">
-        <h3 style="margin:0 0 8px">فتح الطلب في واتساب</h3>
-        <p style="margin:0 0 12px">يبدو أن متصفح التطبيق يمنع التحويل التلقائي. اضغط على أحد الخيارات أدناه:</p>
-        <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:12px">
-          <a id="waOpenAppBtn" style="padding:8px 10px;background:#25D366;color:#fff;border-radius:6px;text-decoration:none">فتح في تطبيق واتساب</a>
-          <a id="waOpenWebBtn" href="${urlWeb}" target="_blank" style="padding:8px 10px;background:#007bff;color:#fff;border-radius:6px;text-decoration:none">فتح في المتصفح</a>
-          <button id="waCopyBtn" style="padding:8px 10px;border:1px solid #ddd;background:#f5f5f5;border-radius:6px;cursor:pointer">نسخ الرابط</button>
-        </div>
-        <div style="text-align:left;margin-top:8px"><button id="waCloseBtn" style="background:transparent;border:none;color:#666;cursor:pointer">إلغاء</button></div>
-      </div>`;
-    document.body.appendChild(modal);
+    let msg = `السلام عليكم، أود طلب المنتجات التالية:
 
-    const appBtn = document.getElementById('waOpenAppBtn');
-    const webBtn = document.getElementById('waOpenWebBtn');
-    const copyBtn = document.getElementById('waCopyBtn');
-    const closeBtn = document.getElementById('waCloseBtn');
+`;
 
-    // رابط scheme (يمكن لاحد الأجهزة تفتحه)
-    appBtn.href = urlScheme;
-    appBtn.onclick = function(e) {
-      // على الأمان: نفذ كرابط مباشر (يحتاج تفاعل المستخدم)
-      window.location.href = urlScheme;
-    };
-
-    copyBtn.addEventListener('click', () => {
-      navigator.clipboard.writeText(urlWeb).then(() => {
-        copyBtn.textContent = 'تم النسخ';
-        setTimeout(() => copyBtn.textContent = 'نسخ الرابط', 1400);
-      }).catch(() => {
-        copyBtn.textContent = 'فشل النسخ';
-        setTimeout(() => copyBtn.textContent = 'نسخ الرابط', 1400);
-      });
+    cart.forEach((item, i) => {
+        msg += `${i + 1}- ${item.name}
+الكمية: ${item.quantity}
+السعر: ${item.price * item.quantity} MRU
+`;
     });
 
-    closeBtn.addEventListener('click', () => modal.remove());
-  }
+    const total = cart.reduce((sum, i) => sum + i.price * i.quantity, 0);
 
-  // طريقة المحاولة الذكية:
-  // 1) إذا أندرويد: جرّب intent:// ثم بعد مهلة قصيرة أظهر مودال (fallback).
-  // 2) إذا iOS: جرّب إنشاء iframe يفتح scheme ثم بعد مهلة أظهر المودال.
-  // 3) لو سطح مكتب أو غير معروف: افتح waWeb في نافذة جديدة.
-  if (isAndroid) {
-    // محاولة intent (أقوى على أندرويد)
-    window.location.href = waIntent;
-    // بعد 1.4s، لو لم يفتح التطبيق، اعرض مودال ليفتح المستخدم يدوياً
-    setTimeout(() => showWaModal(waWeb, waScheme), 1400);
-    return;
-  }
+    msg += `المجموع الكلي: ${total} MRU
 
-  if (isIOS) {
-    // محاولة فتح عبر iframe (طريقة شائعة على iOS)
-    const ifr = document.createElement('iframe');
-    ifr.style.display = 'none';
-    ifr.src = waScheme;
-    document.body.appendChild(ifr);
-    setTimeout(() => {
-      try { document.body.removeChild(ifr); } catch (e) {}
-      showWaModal(waWeb, waScheme);
-    }, 1000);
-    return;
-  }
+`;
+    msg += `العنوان: ${location}
 
-  // حالة الهواتف الأخرى داخل تطبيق (WebView) — نعرض المودال فوراً لأن JS قد يُحظر
-  if (inApp && isMobile) {
-    showWaModal(waWeb, waScheme);
-    return;
-  }
+`;
+    msg += ``;
 
-  // متصفحات النظام العادية (Chrome/Safari) — افتح الرابط مباشرة
-  window.open(waWeb, '_blank');
+    const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+
+    window.location.href = url;
 }
-
 
 // ==========================
 // Event Listeners
