@@ -359,7 +359,6 @@ function shareProduct(productId) {
 // Checkout (معدل ليشمل التحقق من العنوان)
 // ==========================
 function checkout() {
-
     if (cart.length === 0) {
         showNotification('سلة التسوق فارغة');
         return;
@@ -374,32 +373,115 @@ function checkout() {
         return;
     }
 
-    const phone = '22230764882';
-
-    let msg = `السلام عليكم، أود طلب المنتجات التالية:
-
-`;
-
+    const phone = '22230764882'; // الرقم بدون + أو صفر
+    let msg = `السلام عليكم، أود طلب المنتجات التالية:\n\n`;
     cart.forEach((item, i) => {
-        msg += `${i + 1}- ${item.name}
-الكمية: ${item.quantity}
-السعر: ${item.price * item.quantity} MRU
-`;
+        msg += `${i + 1}- ${item.name}\nالكمية: ${item.quantity}\nالسعر: ${item.price * item.quantity} MRU\n`;
     });
-
     const total = cart.reduce((sum, i) => sum + i.price * i.quantity, 0);
+    msg += `\nالمجموع الكلي: ${total} MRU\n\nالعنوان: ${location}\n`;
 
-    msg += `المجموع الكلي: ${total} MRU
+    const encodedMsg = encodeURIComponent(msg);
 
-`;
-    msg += `العنوان: ${location}
+    // روابط متنوعة
+    const whatsappDeeplink = `whatsapp://send?phone=${phone}&text=${encodedMsg}`;
+    const webFallback = `https://wa.me/${phone}?text=${encodedMsg}`;
+    
+    // رابط intent:// للأندرويد (يتطلب وجود حزمة واتساب)
+    const intentUrl = `intent://send?phone=${phone}&text=${encodedMsg}#Intent;scheme=whatsapp;package=com.whatsapp;end;`;
 
-`;
-    msg += ``;
+    // 1. محاولة فتح التطبيق مباشرة باستخدام deep link
+    function tryOpenApp() {
+        // كشف نظام التشغيل
+        const isAndroid = /android/i.test(navigator.userAgent);
+        const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
 
-    const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+        let appOpened = false;
+        let timer;
 
-    window.location.href = url;
+        // دالة مشتركة لبدء المؤقت والحدث
+        function setupFallback() {
+            // نافذة زمنية: إذا لم يفتح التطبيق خلال 1.5 ثانية، نستخدم fallback
+            timer = setTimeout(() => {
+                if (!appOpened) {
+                    openWebFallback();
+                }
+            }, 1500);
+
+            // مراقبة إخفاء الصفحة (يعني التطبيق فتح)
+            window.addEventListener('visibilitychange', function onVisibility() {
+                if (document.hidden) {
+                    appOpened = true;
+                    clearTimeout(timer);
+                    window.removeEventListener('visibilitychange', onVisibility);
+                }
+            });
+        }
+
+        // فتح الرابط في iframe (طريقة تخفف القيود في بعض WebViews)
+        function openViaIframe(url) {
+            const iframe = document.createElement('iframe');
+            iframe.style.display = 'none';
+            iframe.src = url;
+            document.body.appendChild(iframe);
+            setTimeout(() => {
+                document.body.removeChild(iframe);
+            }, 2000);
+        }
+
+        // فتح الرابط في نافذة جديدة
+        function openViaWindow(url) {
+            const win = window.open(url, '_blank');
+            if (!win || win.closed || typeof win.closed === 'undefined') {
+                // إذا منع المتصفح النافذة المنبثقة، نستخدم link click
+                const link = document.createElement('a');
+                link.href = url;
+                link.target = '_blank';
+                link.rel = 'noopener noreferrer';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            }
+        }
+
+        // محاولة فتح التطبيق حسب النظام
+        if (isAndroid) {
+            // محاولة intent:// أولاً (غالباً ما ينجح في WebView)
+            openViaIframe(intentUrl);
+            // أيضاً محاولة deep link العادي
+            openViaIframe(whatsappDeeplink);
+        } else if (isIOS) {
+            // iOS: استخدم deep link مباشرة
+            openViaIframe(whatsappDeeplink);
+        } else {
+            // أجهزة أخرى: استخدم deep link
+            openViaIframe(whatsappDeeplink);
+        }
+
+        // أيضاً محاولة window.location.href كخيار إضافي
+        window.location.href = isAndroid ? intentUrl : whatsappDeeplink;
+
+        setupFallback();
+    }
+
+    // دالة الفتح الاحتياطي (تفتح رابط الويب في متصفح خارجي)
+    function openWebFallback() {
+        // حاول فتح الرابط في نافذة جديدة بإجبار target = "_blank" (يخرج من WebView في كثير من الأحيان)
+        const win = window.open(webFallback, '_blank');
+        if (!win || win.closed || typeof win.closed === 'undefined') {
+            // إذا فشلت النافذة، استخدم link click
+            const link = document.createElement('a');
+            link.href = webFallback;
+            link.target = '_blank';
+            link.rel = 'noopener noreferrer';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    }
+
+    // بدء المحاولة
+    tryOpenApp();
 }
 
 
