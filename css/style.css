@@ -1241,6 +1241,7 @@ background: #dc3545;
 }
 
 .product-description p {
+    white-space: pre-line;
     line-height: 1.8;
     color: var(--text-light);
 }

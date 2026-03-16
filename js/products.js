@@ -10,7 +10,7 @@ const products = [
         images: [
             'img/salty-tan.JPG',
         ],
-        description: 'MAKEUP gloss',
+        description: ``,
         available: true,
         featured: true,
         discount: false
@@ -24,7 +24,7 @@ const products = [
         images: [
             'img/espresso.JPG'
         ],
-        description: '',
+        description: ``,
         available: true,
         featured: true
     },
@@ -37,7 +37,7 @@ const products = [
         images: [
             'img/raspberry-jelly.JPG'
         ],
-        description: '',
+        description: ``,
         available: true,
         featured: true
     },
@@ -50,7 +50,7 @@ const products = [
         images: [
             'img/ribbon.JPG'
         ],
-        description: '',
+        description: ``,
         available: true,
         discount: false
     },
@@ -64,7 +64,7 @@ const products = [
         images: [
             'img/toast.JPG'
         ],
-        description: '',
+        description: ``,
         available: true,
         featured: true,
         discount: false
@@ -78,7 +78,7 @@ const products = [
         images: [
             'img/peach-pit.JPG'
         ],
-        description: '',
+        description: ``,
         available: true
     },
     {
@@ -90,7 +90,7 @@ const products = [
         images: [
             'img/juava-spritz.JPG'
         ],
-        description: '',
+        description: ``,
         available: true,
         featured: true
     },
@@ -103,7 +103,7 @@ const products = [
         images: [
             'img/vanilla.JPG'
         ],
-        description: '',
+        description: ``,
         available: true,
         discount: false
     },
@@ -117,7 +117,7 @@ const products = [
         images: [
             'img/rosewood-nights.JPG'
         ],
-        description: '',
+        description: ``,
         available: true,
         featured: true,
         discount: false
@@ -131,7 +131,7 @@ const products = [
         images: [
             'img/soft-mauve.JPG'
         ],
-        description: '',
+        description: ``,
         available: true
     },
     {
@@ -143,7 +143,7 @@ const products = [
         images: [
             'img/pinkcloud.JPG'
         ],
-        description: '',
+        description: ``,
         available: true,
         featured: true
     },
@@ -156,7 +156,7 @@ const products = [
         images: [
             'img/blush-dreams.JPG'
         ],
-        description: '',
+        description: ``,
         available: true,
         discount: false
     },
@@ -171,7 +171,7 @@ const products = [
         images: [
             'img/enlighten.JPG'
         ],
-        description: '',
+        description: ``,
         available: true,
         featured: false,
         discount: false
@@ -185,7 +185,7 @@ const products = [
         images: [
             'img/mesmerize.JPG'
         ],
-        description: '',
+        description: ``,
         available: true
     },
     {
@@ -197,7 +197,7 @@ const products = [
         images: [
             'img/exhilrate.JPG'
         ],
-        description: '',
+        description: ``,
         available: true,
         featured: true
     },
@@ -210,7 +210,7 @@ const products = [
         images: [
             'img/tint.JPG'
         ],
-        description: '',
+        description: ``,
         available: true,
         discount: false
     },
@@ -225,7 +225,7 @@ const products = [
         images: [
             'img/encourage.JPG'
         ],
-        description: '',
+        description: ``,
         available: true,
         featured: true,
         discount: false
@@ -240,7 +240,7 @@ const products = [
         images: [
             'img/hope.JPG'
         ],
-        description: '',
+        description: ``,
         available: true
     },
     {
@@ -252,7 +252,7 @@ const products = [
         images: [
             'img/happy.JPG'
         ],
-        description: '',
+        description: ``,
         available: true,
         featured: true
     },
@@ -265,7 +265,7 @@ const products = [
         images: [
             'img/bliss.JPG'
         ],
-        description: '',
+        description: ``,
         available: true,
         discount: false
     },
@@ -278,7 +278,7 @@ const products = [
         images: [
             'img/mascara.JPG'
         ],
-        description: '',
+        description: ``,
         available: true,
         discount: false
     },
@@ -291,7 +291,7 @@ const products = [
         images: [
             'img/eyebrows-pen.JPG'
         ],
-        description: '',
+        description: ``,
         available: true,
         discount: false
     },
@@ -304,7 +304,7 @@ const products = [
         images: [
             'img/toasted-teddy.JPG'
         ],
-        description: '',
+        description: ``,
         available: true,
         discount: false
     },
@@ -317,7 +317,7 @@ const products = [
         images: [
             'img/freckle.JPG'
         ],
-        description: '',
+        description: ``,
         available: true,
         discount: false
     },
@@ -330,7 +330,7 @@ const products = [
         images: [
             'img/juice-box.JPG'
         ],
-        description: '',
+        description: ``,
         available: true,
         discount: false
     },
@@ -343,7 +343,7 @@ const products = [
         images: [
             'img/spicy-marg.JPG'
         ],
-        description: '',
+        description: ``,
         available: true,
         discount: false
     },
@@ -356,7 +356,7 @@ const products = [
         images: [
             'img/sleepy-girl.JPG'
         ],
-        description: '',
+        description: ``,
         available: true,
         discount: false
     },
@@ -369,7 +369,7 @@ const products = [
         images: [
             'img/piggy.JPG'
         ],
-        description: '',
+        description: ``,
         available: true,
         discount: false
     },
@@ -385,7 +385,7 @@ const products = [
         images: [
             'img/gelgot2b.JPG'
         ],
-        description: '',
+        description: ``,
         available: true,
         discount: false
     },
@@ -398,7 +398,7 @@ const products = [
         images: [
             'img/vaseline.JPG'
         ],
-        description: '',
+        description: ``,
         available: true,
         discount: false
     },
@@ -411,7 +411,7 @@ const products = [
         images: [
             'img/pack-daily-scent.JPG'
         ],
-        description: '',
+        description: ``,
         available: true,
         discount: false
     },
@@ -424,7 +424,7 @@ const products = [
         images: [
             'img/dove-deodorant.JPG'
         ],
-        description: '',
+        description: ``,
         available: true,
         discount: false
     },
@@ -437,7 +437,76 @@ const products = [
         images: [
             'img/venus-gillette.JPG'
         ],
-        description: '',
+        description: ``,
+        available: true,
+        discount: false
+    },
+    {
+        id: 58,
+        name: 'Biodance',
+        category: 'skincare',
+        price: 300,
+        originalPrice: null,
+        images: [
+            'img/biodance.JPG'
+        ],
+        description: `ماسك كوري مخصص لترطيب البشرة بعمق وتحسين مرونتها. يحتوي على مكونات نشطة تساعد على تغذية الجلد ومنحه مظهرًا أكثر امتلاءً ونضارة.
+
+المكونات البارزة:
+ • كولاجين منخفض الجزيئات: يساعد على شد البشرة وتحسين مرونتها.
+ • حمض الهيالورونيك منخفض الجزيئات: يرطب البشرة بعمق ويحافظ على الماء داخل الجلد.
+ • Galactomyces Ferment (بروبيوتيك): يدعم صحة البشرة ويمنحها إشراقة ويُحسّن مظهر المسام.
+
+الفوائد الأساسية:
+ • ترطيب قوي للبشرة
+ • تقليل مظهر المسام
+ • شد وتحسين مرونة الجلد
+ • يمنح البشرة مظهرًا ناعمًا وممتلئًا
+
+طريقة الاستخدام:
+ 1. ضعي الماسك على بشرة نظيفة بعد التونر.
+ 2. اتركيه حوالي 4 ساعات حتى ينشف.
+ 3. أزيليه ودلّكي السيروم المتبقي حتى تمتصه البشرة.
+
+الحجم: 34 غرام`,
+        available: true,
+        discount: false
+    },
+    {
+        id: 59,
+        name: 'Sachet hydrocolloid',
+        category: 'skincare',
+        price: 50,
+        originalPrice: null,
+        images: [
+            'img/hydrocolloid.JPG'
+        ],
+        description: `Hydrocolloid مضاف لها:
+ • Salicylic Acid (حمض الساليسيليك)
+ • Tea essence (غالباً زيت شجرة الشاي)
+ • وظيفتها:
+ • امتصاص السوائل مثل الأولى.
+ • تعالج الحبة كيميائياً بتقليل الالتهاب وتنظيف المسام.
+ • أفضل للحبوب الملتهبة أو التي لم تفتح بعد`,
+        available: true,
+        discount: false
+    },
+    {
+        id: 60,
+        name: 'Sachet',
+        category: 'skincare',
+        price: 50,
+        originalPrice: null,
+        images: [
+            'img/sachet.JPG'
+        ],
+        description: `تعمل مثل ضمادة تمتص السوائل من الحبة.
+ • وظيفتها:
+ • تمتص القيح والزيوت من الحبة.
+ • تحمي الحبة من اللمس والبكتيريا.
+ • تساعدها تجف أسرع.
+ • أفضل للحبوب المفتوحة أو التي فيها رأس أبيض.
+ • عادة تكون لطيفة على البشرة الحساسة.`,
         available: true,
         discount: false
     },
@@ -456,7 +525,7 @@ const products = [
         images: [
             'img/romantic.JPG'
         ],
-        description: '',
+        description: ``,
         available: true,
         discount: false
     },
@@ -469,7 +538,7 @@ const products = [
         images: [
             'img/coconut-passion.JPG'
         ],
-        description: '',
+        description: ``,
         available: true,
         discount: false
     },
@@ -482,7 +551,7 @@ const products = [
         images: [
             'img/rush.JPG'
         ],
-        description: '',
+        description: ``,
         available: true,
         discount: false
     },
@@ -495,7 +564,7 @@ const products = [
         images: [
             'img/aqua-kiss.JPG'
         ],
-        description: '',
+        description: ``,
         available: true,
         discount: false
     },
@@ -508,7 +577,7 @@ const products = [
         images: [
             'img/amber-romance.JPG'
         ],
-        description: '',
+        description: ``,
         available: true,
         discount: false
     },
@@ -521,7 +590,7 @@ const products = [
         images: [
             'img/velvetpetals.JPG'
         ],
-        description: '',
+        description: ``,
         available: true,
         discount: false
     },
@@ -535,7 +604,7 @@ const products = [
         images: [
             'img/sol-de-janeiro62.JPG'
         ],
-        description: '',
+        description: ``,
         available: true,
         discount: false
     },
@@ -549,7 +618,7 @@ const products = [
         images: [
             'img/sol-de-janeiro87.JPG'
         ],
-        description: '',
+        description: ``,
         available: true,
         discount: false
     },
@@ -562,7 +631,7 @@ const products = [
         images: [
             'img/sol-de-janeiro40.JPG'
         ],
-        description: '',
+        description: ``,
         available: true,
         discount: false
     },
@@ -575,7 +644,7 @@ const products = [
         images: [
             'img/sol-de-janeiro59.JPG'
         ],
-        description: '',
+        description: ``,
         available: true,
         discount: false
     },
@@ -589,7 +658,7 @@ const products = [
         images: [
             'img/sol-de-janeiro71.JPG'
         ],
-        description: '',
+        description: ``,
         available: true,
         discount: false
     },
@@ -603,7 +672,7 @@ const products = [
         images: [
             'img/sol-de-janeiro48.JPG'
         ],
-        description: '',
+        description: ``,
         available: true,
         discount: false
     },
@@ -616,7 +685,7 @@ const products = [
         images: [
             'img/sol-de-janeiro39.JPG'
         ],
-        description: '',
+        description: ``,
         available: true,
         discount: false
     },
@@ -629,7 +698,7 @@ const products = [
         images: [
             'img/yara.JPG'
         ],
-        description: '',
+        description: ``,
         available: true,
         discount: false
     },
@@ -642,7 +711,7 @@ const products = [
         images: [
             'img/sefirlhoub.JPG'
         ],
-        description: '',
+        description: ``,
         available: true,
         discount: false
     },
@@ -655,7 +724,7 @@ const products = [
         images: [
             'img/mousouf.JPG'
         ],
-        description: '',
+        description: ``,
         available: true,
         discount: false
     },
@@ -668,7 +737,7 @@ const products = [
         images: [
             'img/roseparis.JPG'
         ],
-        description: '',
+        description: ``,
         available: true,
         discount: false
     },
@@ -683,91 +752,91 @@ const products = [
     {
         id: 49,
         name: 'Perfume set with hair clip',
-        category: '',
+        category: null,
         price: 800,
         originalPrice: 1000,
         images: [
             'img/perfumesetwith.JPG'
         ],
-        description: '',
+        description: ``,
         available: true,
         discount: true
     },
     {
         id: 50,
         name: 'Eyebrows set',
-        category: '',
+        category: null,
         price: 350,
         originalPrice: 400,
         images: [
             'img/eyebrowsset.JPG'
         ],
-        description: '',
+        description: ``,
         available: true,
         discount: true
     },
     {
         id: 51,
         name: 'Perfume set with sleeping mask',
-        category: '',
+        category: null,
         price: 800,
         originalPrice: 1000,
         images: [
             'img/perfumesetwithmask.JPG'
         ],
-        description: '',
+        description: ``,
         available: true,
         discount: true
     },
     {
         id: 52,
         name: 'Perfume set with tint kiko',
-        category: '',
+        category: null,
         price: 800,
         originalPrice: 1050,
         images: [
             'img/Perfumewithtint.JPG'
         ],
-        description: '',
+        description: ``,
         available: true,
         discount: true
     },
     {
         id: 53,
         name: 'Perfume set with hair clip',
-        category: '',
+        category: null,
         price: 800,
         originalPrice: 1000,
         images: [
             'img/perfumehairclip.JPG'
         ],
-        description: '',
+        description: ``,
         available: true,
         discount: true
     },
     {
         id: 54,
         name: 'Cleaning set with perfume sol de janeiro',
-        category: '',
+        category: null,
         price: 850,
         originalPrice: 1050,
         images: [
             'img/cleaningsetwithjaneiro.JPG'
         ],
-        description: '',
+        description: ``,
         available: true,
         discount: true
     },
     {
         id: 55,
         name: 'Rhode set',
-        category: '',
+        category: null,
         price: 800,
         originalPrice: 1000,
         images: [
             'img/rhodeset.JPG'
         ],
-        description: '',
+        description: ``,
         available: true,
         discount: true
     },
