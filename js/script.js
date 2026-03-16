@@ -359,7 +359,6 @@ function shareProduct(productId) {
 // Checkout (معدل ليشمل التحقق من العنوان)
 // ==========================
 function checkout() {
-
     if (cart.length === 0) {
         showNotification('سلة التسوق فارغة');
         return;
@@ -374,32 +373,51 @@ function checkout() {
         return;
     }
 
-    const phone = '22230764882';
+    const phone = '22230764882'; // الرقم بدون + أو صفر إضافي
 
-    let msg = `السلام عليكم، أود طلب المنتجات التالية:
-
-`;
-
+    // بناء الرسالة
+    let msg = `السلام عليكم، أود طلب المنتجات التالية:\n\n`;
     cart.forEach((item, i) => {
-        msg += `${i + 1}- ${item.name}
-الكمية: ${item.quantity}
-السعر: ${item.price * item.quantity} MRU
-`;
+        msg += `${i + 1}- ${item.name}\nالكمية: ${item.quantity}\nالسعر: ${item.price * item.quantity} MRU\n`;
     });
-
     const total = cart.reduce((sum, i) => sum + i.price * i.quantity, 0);
+    msg += `\nالمجموع الكلي: ${total} MRU\n\nالعنوان: ${location}\n`;
 
-    msg += `المجموع الكلي: ${total} MRU
+    const encodedMsg = encodeURIComponent(msg);
 
-`;
-    msg += `العنوان: ${location}
+    // 1. الرابط العميق المباشر (يفتح التطبيق فوراً إذا كان مثبتاً)
+    const deepLink = `whatsapp://send?phone=${phone}&text=${encodedMsg}`;
+    // 2. رابط ويب احتياطي (يُستخدم في حالة الفشل)
+    const webFallback = `https://wa.me/${phone}?text=${encodedMsg}`;
 
-`;
-    msg += ``;
+    let appOpened = false;
 
-    const url = `/order.html?text=${encodeURIComponent(msg)}`;
+    // محاولة فتح التطبيق عبر الـ deep link
+    window.location.href = deepLink;
 
-    window.location.href = url;
+    // نافذة زمنية: إذا لم يفتح التطبيق خلال 800ms، نستخدم الرابط الاحتياطي
+    const fallbackTimer = setTimeout(() => {
+        if (!appOpened) {
+            // فتح الرابط الاحتياطي في نافذة جديدة (تخرج من WebView التيك توك إلى المتصفح)
+            const newWindow = window.open(webFallback, '_blank');
+            if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
+                // إذا منع المتصفح النافذة المنبثقة، ننشئ رابطاً مخفياً وننقر عليه يدوياً
+                const link = document.createElement('a');
+                link.href = webFallback;
+                link.target = '_blank';
+                link.rel = 'noopener noreferrer';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            }
+        }
+    }, 800);
+
+    // كشف ما إذا تم تصغير الصفحة (أي تم فتح التطبيق)
+    window.addEventListener('blur', () => {
+        appOpened = true;
+        clearTimeout(fallbackTimer);
+    });
 }
 
 
