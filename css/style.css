@@ -1473,3 +1473,14 @@ body {
     background: var(--primary-color); /* عند التحويم يبقى كما هو */
     color: #ffffff;
 }
+
+@media (max-width: 768px) {
+    .add-to-cart {
+        padding: 0.6rem;          /* تقليل الحشو الداخلي */
+        font-size: 0.85rem;       /* تصغير الخط */
+        gap: 0.25rem;             /* تقليل المسافة بين الأيقونة والنص */
+    }
+    .add-to-cart i {
+        font-size: 0.9rem;        /* تصغير الأيقونة */
+    }
+}
