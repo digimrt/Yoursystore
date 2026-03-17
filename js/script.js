@@ -427,7 +427,7 @@ function shareProduct(productId) {
 }
 
 // ============================================
-// إتمام الطلب عبر واتساب (Checkout)
+// إتمام الطلب عبر واتساب (Checkout) - نسخة محسنة
 // ============================================
 
 /**
@@ -437,8 +437,9 @@ function openWhatsApp(url) {
     // الطريقة 1: محاولة الفتح في نافذة جديدة
     const win = window.open(url, '_blank');
     
-    // إذا فشلت (ربما بسبب مانع النوافذ المنبثقة)، استخدم طريقة النقر على رابط
+    // إذا تم حظر النافذة المنبثقة
     if (!win) {
+        // الطريقة 2: إنشاء رابط HTML والنقر عليه برمجياً
         const link = document.createElement('a');
         link.href = url;
         link.target = '_blank';
@@ -451,10 +452,107 @@ function openWhatsApp(url) {
         setTimeout(() => {
             document.body.removeChild(link);
         }, 100);
+        
+        // الطريقة 3: بعد تأخير بسيط، جرب التوجيه المباشر (بعض المتصفحات تسمح بذلك بعد تفاعل المستخدم)
+        setTimeout(() => {
+            window.location.href = url;
+        }, 300);
     }
     
-    // ملاحظة: إذا لم يعمل أي من الحلين، يمكن إضافة توجيه يدوي للمستخدم
-    // ولكن الحلين أعلاه يغطيان معظم الحالات.
+    // الطريقة 4: إذا لم يفتح بعد 1.5 ثانية، اعرض للمستخدم خيار النسخ أو الفتح اليدوي
+    setTimeout(() => {
+        // التحقق مما إذا كان المستخدم لا يزال في الصفحة (أي لم يتم الانتقال)
+        if (!document.hidden && !win && !window.location.href.includes('whatsapp')) {
+            showWhatsAppFallback(url);
+        }
+    }, 1500);
+}
+
+/**
+ * عرض رسالة مساعدة للمستخدم في حال فشل الفتح التلقائي
+ */
+function showWhatsAppFallback(url) {
+    // إنشاء عنصر رسالة مخصص
+    const fallbackDiv = document.createElement('div');
+    fallbackDiv.className = 'whatsapp-fallback';
+    fallbackDiv.innerHTML = `
+        <div class="fallback-content">
+            <p>لم يتم فتح واتساب تلقائياً؟</p>
+            <button class="btn btn-primary" onclick="window.open('${url}', '_blank')">فتح واتساب</button>
+            <button class="btn btn-secondary" onclick="copyToClipboard('${url}')">نسخ الرابط</button>
+            <button class="close-fallback">×</button>
+        </div>
+    `;
+    
+    // إضافة أنماط للرسالة (يمكن نقلها لملف CSS لاحقاً)
+    const style = document.createElement('style');
+    style.textContent = `
+        .whatsapp-fallback {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: var(--shadow-hover);
+            z-index: 10000;
+            padding: 15px;
+            animation: slideUp 0.3s ease;
+            direction: rtl;
+        }
+        .fallback-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 10px;
+        }
+        .fallback-content p {
+            flex: 1;
+            margin: 0;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+        .fallback-content .btn {
+            padding: 8px 16px;
+            font-size: 0.9rem;
+        }
+        .close-fallback {
+            background: transparent;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: var(--text-light);
+            padding: 0 5px;
+        }
+        @keyframes slideUp {
+            from { transform: translateY(100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    `;
+    document.head.appendChild(style);
+    
+    // إضافة حدث إغلاق
+    fallbackDiv.querySelector('.close-fallback').addEventListener('click', () => {
+        fallbackDiv.remove();
+    });
+    
+    document.body.appendChild(fallbackDiv);
+    
+    // إزالة تلقائية بعد 10 ثوانٍ
+    setTimeout(() => {
+        if (fallbackDiv.parentNode) fallbackDiv.remove();
+    }, 10000);
+}
+
+/**
+ * نسخ النص إلى الحافظة
+ */
+function copyToClipboard(text) {
+    navigator.clipboard.writeText(text).then(() => {
+        showNotification('تم نسخ الرابط');
+    }).catch(() => {
+        alert('الرجاء نسخ الرابط يدوياً: ' + text);
+    });
 }
 
 /**
@@ -482,14 +580,15 @@ function checkout() {
     cart.forEach((item, index) => {
         message += `${index + 1}- ${item.name}\n`;
         message += `الكمية: ${item.quantity}\n`;
-        message += `السعر: ${formatPrice(item.price * item.quantity)}\n`;
+        message += `السعر: ${formatPrice(item.price * item.quantity)}\n\n`;
     });
 
     const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
-    message += `\nالمجموع الكلي: ${formatPrice(total)}\n`;
+    message += `المجموع الكلي: ${formatPrice(total)}\n`;
     message += `العنوان: ${location}\n`;
 
-    const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+    // استخدام رابط api.whatsapp.com بدلاً من wa.me (قد يعمل أفضل في بعض المتصفحات)
+    const url = `https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(message)}`;
     
     // فتح الرابط بالطريقة المتوافقة
     openWhatsApp(url);
