@@ -427,67 +427,111 @@ function shareProduct(productId) {
 }
 
 // ============================================
-// إتمام الطلب عبر واتساب (Checkout) - نسخة محسنة
+// إتمام الطلب عبر واتساب (نسخة متقدمة)
 // ============================================
 
 /**
  * فتح رابط واتساب بطرق متعددة لضمان العمل داخل المتصفحات الداخلية (تيك توك)
  */
 function openWhatsApp(url) {
-    // الطريقة 1: محاولة الفتح في نافذة جديدة
-    const win = window.open(url, '_blank');
+    // الكشف عن نظام التشغيل
+    const isAndroid = /Android/i.test(navigator.userAgent);
+    const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
     
-    // إذا تم حظر النافذة المنبثقة
-    if (!win) {
-        // الطريقة 2: إنشاء رابط HTML والنقر عليه برمجياً
-        const link = document.createElement('a');
-        link.href = url;
-        link.target = '_blank';
-        link.rel = 'noopener noreferrer';
-        link.style.display = 'none';
-        document.body.appendChild(link);
-        link.click();
-        
-        // إزالة الرابط بعد النقر
-        setTimeout(() => {
-            document.body.removeChild(link);
-        }, 100);
-        
-        // الطريقة 3: بعد تأخير بسيط، جرب التوجيه المباشر (بعض المتصفحات تسمح بذلك بعد تفاعل المستخدم)
-        setTimeout(() => {
-            window.location.href = url;
-        }, 300);
+    // استخراج الرقم والنص من الرابط (للاستخدام في intent)
+    let phone = '', text = '';
+    try {
+        const urlObj = new URL(url);
+        phone = urlObj.searchParams.get('phone') || '';
+        text = urlObj.searchParams.get('text') || '';
+    } catch (e) {}
+    
+    // رابط intent للأندرويد
+    const intentUrl = isAndroid && phone ? `intent://send?phone=${phone}&text=${encodeURIComponent(text)}#Intent;scheme=whatsapp;package=com.whatsapp;end` : null;
+    
+    let opened = false;
+    
+    // محاولة فتح intent إذا كان أندرويد
+    if (isAndroid && intentUrl) {
+        try {
+            window.location.href = intentUrl;
+            opened = true;
+            // ننتظر قليلاً لنرى إذا تم الانتقال
+            setTimeout(() => {
+                if (!document.hidden) {
+                    // لم ينتقل، نجرب الطرق الأخرى
+                    tryRegularMethods();
+                }
+            }, 500);
+            return;
+        } catch (e) {
+            // إذا فشل intent، نكمل
+        }
     }
     
-    // الطريقة 4: إذا لم يفتح بعد 1.5 ثانية، اعرض للمستخدم خيار النسخ أو الفتح اليدوي
-    setTimeout(() => {
-        // التحقق مما إذا كان المستخدم لا يزال في الصفحة (أي لم يتم الانتقال)
-        if (!document.hidden && !win && !window.location.href.includes('whatsapp')) {
-            showWhatsAppFallback(url);
+    tryRegularMethods();
+    
+    function tryRegularMethods() {
+        // الطريقة 2: window.open
+        const win = window.open(url, '_blank');
+        if (win) {
+            opened = true;
+            // بعض المتصفحات تفتح نافذة فارغة، نتحقق بعد ثانية
+            setTimeout(() => {
+                if (win.closed) {
+                    // النافذة أغلقت فوراً، جرب location.href
+                    window.location.href = url;
+                }
+            }, 1000);
+        } else {
+            // الطريقة 3: location.href
+            window.location.href = url;
+            
+            // الطريقة 4: إنشاء رابط HTML والنقر عليه
+            const link = document.createElement('a');
+            link.href = url;
+            link.target = '_blank';
+            link.rel = 'noopener noreferrer';
+            link.style.display = 'none';
+            document.body.appendChild(link);
+            link.click();
+            setTimeout(() => {
+                document.body.removeChild(link);
+            }, 100);
         }
-    }, 1500);
+        
+        // إذا لم يفتح بعد 2 ثانية، اعرض خيار المساعدة
+        setTimeout(() => {
+            if (!document.hidden && !window.location.href.includes('whatsapp')) {
+                showExternalBrowserOption(url);
+            }
+        }, 2000);
+    }
 }
 
 /**
- * عرض رسالة مساعدة للمستخدم في حال فشل الفتح التلقائي
+ * عرض خيار الفتح في متصفح خارجي أو نسخ الرابط
  */
-function showWhatsAppFallback(url) {
-    // إنشاء عنصر رسالة مخصص
-    const fallbackDiv = document.createElement('div');
-    fallbackDiv.className = 'whatsapp-fallback';
-    fallbackDiv.innerHTML = `
-        <div class="fallback-content">
-            <p>لم يتم فتح واتساب تلقائياً؟</p>
-            <button class="btn btn-primary" onclick="window.open('${url}', '_blank')">فتح واتساب</button>
-            <button class="btn btn-secondary" onclick="copyToClipboard('${url}')">نسخ الرابط</button>
-            <button class="close-fallback">×</button>
+function showExternalBrowserOption(url) {
+    // إزالة أي خيار سابق
+    const existing = document.querySelector('.external-browser-option');
+    if (existing) existing.remove();
+    
+    const externalDiv = document.createElement('div');
+    externalDiv.className = 'external-browser-option';
+    externalDiv.innerHTML = `
+        <div class="external-content">
+            <p>لم يتم فتح واتساب تلقائياً. يمكنك:</p>
+            <button class="btn btn-primary" id="retryWhatsApp">محاولة مرة أخرى</button>
+            <button class="btn btn-secondary" id="copyWhatsAppLink">نسخ الرابط</button>
+            <button class="close-external">×</button>
         </div>
     `;
     
-    // إضافة أنماط للرسالة (يمكن نقلها لملف CSS لاحقاً)
+    // إضافة الأنماط (يمكن نقلها لملف CSS لاحقاً)
     const style = document.createElement('style');
     style.textContent = `
-        .whatsapp-fallback {
+        .external-browser-option {
             position: fixed;
             bottom: 20px;
             left: 20px;
@@ -497,26 +541,27 @@ function showWhatsAppFallback(url) {
             box-shadow: var(--shadow-hover);
             z-index: 10000;
             padding: 15px;
-            animation: slideUp 0.3s ease;
             direction: rtl;
+            animation: slideUp 0.3s ease;
         }
-        .fallback-content {
+        .external-content {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
             gap: 10px;
         }
-        .fallback-content p {
+        .external-content p {
             flex: 1;
             margin: 0;
             font-weight: 600;
             color: var(--text-dark);
-        }
-        .fallback-content .btn {
-            padding: 8px 16px;
             font-size: 0.9rem;
         }
-        .close-fallback {
+        .external-content .btn {
+            padding: 8px 16px;
+            font-size: 0.85rem;
+        }
+        .close-external {
             background: transparent;
             border: none;
             font-size: 1.2rem;
@@ -531,28 +576,56 @@ function showWhatsAppFallback(url) {
     `;
     document.head.appendChild(style);
     
-    // إضافة حدث إغلاق
-    fallbackDiv.querySelector('.close-fallback').addEventListener('click', () => {
-        fallbackDiv.remove();
+    // إضافة الأحداث
+    externalDiv.querySelector('#retryWhatsApp').addEventListener('click', () => {
+        externalDiv.remove();
+        openWhatsApp(url); // إعادة المحاولة
     });
     
-    document.body.appendChild(fallbackDiv);
+    externalDiv.querySelector('#copyWhatsAppLink').addEventListener('click', () => {
+        copyToClipboard(url);
+        showNotification('تم نسخ الرابط');
+        externalDiv.remove();
+    });
     
-    // إزالة تلقائية بعد 10 ثوانٍ
+    externalDiv.querySelector('.close-external').addEventListener('click', () => {
+        externalDiv.remove();
+    });
+    
+    document.body.appendChild(externalDiv);
+    
+    // إزالة تلقائية بعد 15 ثانية
     setTimeout(() => {
-        if (fallbackDiv.parentNode) fallbackDiv.remove();
-    }, 10000);
+        if (externalDiv.parentNode) externalDiv.remove();
+    }, 15000);
 }
 
 /**
  * نسخ النص إلى الحافظة
  */
 function copyToClipboard(text) {
-    navigator.clipboard.writeText(text).then(() => {
-        showNotification('تم نسخ الرابط');
-    }).catch(() => {
-        alert('الرجاء نسخ الرابط يدوياً: ' + text);
-    });
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).catch(() => {
+            fallbackCopy(text);
+        });
+    } else {
+        fallbackCopy(text);
+    }
+    
+    function fallbackCopy(text) {
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+            document.execCommand('copy');
+        } catch (err) {
+            console.error('فشل النسخ', err);
+        }
+        document.body.removeChild(textarea);
+    }
 }
 
 /**
@@ -587,7 +660,7 @@ function checkout() {
     message += `المجموع الكلي: ${formatPrice(total)}\n`;
     message += `العنوان: ${location}\n`;
 
-    // استخدام رابط api.whatsapp.com بدلاً من wa.me (قد يعمل أفضل في بعض المتصفحات)
+    // استخدام رابط api.whatsapp.com (قد يكون أكثر توافقاً)
     const url = `https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(message)}`;
     
     // فتح الرابط بالطريقة المتوافقة
