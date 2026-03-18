@@ -226,7 +226,7 @@ const products = [
             'img/encourage.JPG'
         ],
         description: ``,
-        available: false,
+        available: true,
         featured: false,
         discount: false
 
@@ -604,7 +604,7 @@ const products = [
             'img/amber-romance.JPG'
         ],
         description: ``,
-        available: true,
+        available: false,
         discount: false
     },
     {
@@ -814,19 +814,19 @@ const products = [
         available: true,
         discount: true
     },
-    {
-        id: 52,
-        name: 'Perfume set with tint kiko',
-        category: null,
-        price: 800,
-        originalPrice: 1050,
-        images: [
-            'img/Perfumewithtint.JPG'
-        ],
-        description: ``,
-        available: true,
-        discount: true
-    },
+    /*  {
+         id: 52,
+         name: 'Perfume set with tint kiko',
+         category: null,
+         price: 800,
+         originalPrice: 1050,
+         images: [
+             'img/Perfumewithtint.JPG'
+         ],
+         description: ``,
+         available: true,
+         discount: true
+     },*/
     {
         id: 53,
         name: 'Perfume set with hair clip',
