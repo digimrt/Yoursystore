@@ -712,7 +712,7 @@ const products = [
             'img/sol-de-janeiro39.JPG'
         ],
         description: ``,
-        available: true,
+        available: false,
         discount: false
     },
     {
@@ -840,7 +840,7 @@ const products = [
         available: true,
         discount: true
     },
-    {
+   /* {
         id: 54,
         name: 'Cleaning set with perfume sol de janeiro',
         category: null,
@@ -852,7 +852,7 @@ const products = [
         description: ``,
         available: true,
         discount: true
-    },
+    },  */
     {
         id: 55,
         name: 'Rhode set',
@@ -885,7 +885,7 @@ const products = [
 المكون الأساسي: مستخلص السنتيلا أسياتيكا النقي.
 
 مناسبة لـ: جميع أنواع البشرة، خاصة الحساسة والمتضررة.`,
-        available: true,
+        available: false,
         featured: true,
         discount: false
     },
@@ -957,7 +957,7 @@ const products = [
 الوظيفة: تفتيح البقع الداكنة، توحيد لون البشرة، وإعطاء إشراقة.
 المكون الأساسي: مادة "ماديكاسوسايد" والنياسيناميد.
 مناسبة لـ: البشرة التي تعاني من التصبغات والبهتان.`,
-        available: true,
+        available: false,
         featured: true,
         discount: false
     },
