@@ -386,7 +386,7 @@ const products = [
             'img/gelgot2b.JPG'
         ],
         description: ``,
-        available: true,
+        available: false,
         discount: false
     },
     {
