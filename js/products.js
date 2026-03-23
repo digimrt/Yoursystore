@@ -788,7 +788,7 @@ const products = [
         available: true,
         discount: true
     },
-    {
+    /*{
         id: 50,
         name: 'Eyebrows set',
         category: null,
@@ -800,7 +800,7 @@ const products = [
         description: ``,
         available: true,
         discount: true
-    },
+    }, */
     {
         id: 51,
         name: 'Perfume set with sleeping mask',
