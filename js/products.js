@@ -405,14 +405,14 @@ const products = [
     {
         id: 36,
         name: 'Pack daily scent',
-        category: 'skincare',
+        category: 'perfumes',
         price: 600,
         originalPrice: null,
         images: [
             'img/pack-daily-scent.JPG'
         ],
         description: ``,
-        available: false,
+        available: true,
         discount: false
     },
     {
@@ -762,6 +762,19 @@ const products = [
         originalPrice: null,
         images: [
             'img/roseparis.JPG'
+        ],
+        description: ``,
+        available: true,
+        discount: false
+    },
+    {
+        id: 71,
+        name: 'Miss arrogate - من عساف',
+        category: 'perfumes',
+        price: 200,
+        originalPrice: null,
+        images: [
+            'img/missarrogate.JPG'
         ],
         description: ``,
         available: true,
