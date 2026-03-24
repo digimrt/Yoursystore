@@ -403,19 +403,6 @@ const products = [
         discount: false
     },
     {
-        id: 36,
-        name: 'Pack daily scent',
-        category: 'perfumes',
-        price: 600,
-        originalPrice: null,
-        images: [
-            'img/pack-daily-scent.JPG'
-        ],
-        description: ``,
-        available: true,
-        discount: false
-    },
-    {
         id: 37,
         name: 'Dove deodorant',
         category: 'skincare',
@@ -540,6 +527,33 @@ const products = [
 
 
     // perfumes
+    {
+        id: 71,
+        name: 'Miss arrogate - من عساف',
+        category: 'perfumes',
+        price: 2000,
+        originalPrice: null,
+        images: [
+            'img/missarrogate.JPG'
+        ],
+        description: ``,
+        available: true,
+        featured: true,
+        discount: false
+    },
+    {
+        id: 36,
+        name: 'Pack daily scent',
+        category: 'perfumes',
+        price: 600,
+        originalPrice: null,
+        images: [
+            'img/pack-daily-scent.JPG'
+        ],
+        description: ``,
+        available: true,
+        discount: false
+    },
 
 
     {
@@ -762,19 +776,6 @@ const products = [
         originalPrice: null,
         images: [
             'img/roseparis.JPG'
-        ],
-        description: ``,
-        available: true,
-        discount: false
-    },
-    {
-        id: 71,
-        name: 'Miss arrogate - من عساف',
-        category: 'perfumes',
-        price: 2000,
-        originalPrice: null,
-        images: [
-            'img/missarrogate.JPG'
         ],
         description: ``,
         available: true,
