@@ -771,7 +771,7 @@ const products = [
         id: 71,
         name: 'Miss arrogate - من عساف',
         category: 'perfumes',
-        price: 200,
+        price: 2000,
         originalPrice: null,
         images: [
             'img/missarrogate.JPG'
