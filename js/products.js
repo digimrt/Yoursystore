@@ -38,7 +38,7 @@ const products = [
             'img/raspberry-jelly.JPG'
         ],
         description: ``,
-        available: true,
+        available: false,
         featured: false
     },
     {
@@ -198,7 +198,7 @@ const products = [
             'img/exhilrate.JPG'
         ],
         description: ``,
-        available: true,
+        available: false,
         featured: false
     },
     {
@@ -253,7 +253,7 @@ const products = [
             'img/happy.JPG'
         ],
         description: ``,
-        available: true,
+        available: false,
         featured: false
     },
     {
