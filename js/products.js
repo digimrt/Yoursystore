@@ -789,7 +789,7 @@ const products = [
 
     /* discount */
 
-   /* {
+    {
         id: 49,
         name: 'Perfume set with hair clip',
         category: null,
@@ -801,8 +801,8 @@ const products = [
         description: ``,
         available: true,
         discount: true
-    },*/
-   /* {
+    },
+    /*{
         id: 50,
         name: 'Eyebrows set',
         category: null,
@@ -840,7 +840,7 @@ const products = [
          description: ``,
          available: true,
          discount: true
-     },*/
+     },
     {
         id: 53,
         name: 'Perfume set with hair clip',
@@ -853,7 +853,7 @@ const products = [
         description: ``,
         available: true,
         discount: true
-    },
+    },*/
    /* {
         id: 54,
         name: 'Cleaning set with perfume sol de janeiro',
