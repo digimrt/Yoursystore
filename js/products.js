@@ -566,7 +566,7 @@ const products = [
             'img/romantic.JPG'
         ],
         description: ``,
-        available: false,
+        available: true,
         discount: false
     },
     {
@@ -592,7 +592,7 @@ const products = [
             'img/rush.JPG'
         ],
         description: ``,
-        available: true,
+        available: false,
         discount: false
     },
     {
@@ -789,7 +789,7 @@ const products = [
 
     /* discount */
 
-    {
+   /* {
         id: 49,
         name: 'Perfume set with hair clip',
         category: null,
@@ -802,7 +802,7 @@ const products = [
         available: true,
         discount: true
     },
-    /*{
+    {
         id: 50,
         name: 'Eyebrows set',
         category: null,
@@ -828,7 +828,7 @@ const products = [
         available: true,
         discount: true
     },
-    /*  {
+     /* {
          id: 52,
          name: 'Perfume set with tint kiko',
          category: null,
