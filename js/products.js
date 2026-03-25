@@ -801,8 +801,8 @@ const products = [
         description: ``,
         available: true,
         discount: true
-    },
-    {
+    },*/
+   /* {
         id: 50,
         name: 'Eyebrows set',
         category: null,
