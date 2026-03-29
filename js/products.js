@@ -407,7 +407,7 @@ const products = [
     {
         id: 29,
         name: 'Gel got2b',
-        category: 'skincare',
+        category: 'makeup',
         price: 320,
         originalPrice: null,
         images: [
