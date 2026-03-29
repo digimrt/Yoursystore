@@ -2,6 +2,34 @@
 const products = [
     // makeup
     {
+        id: 75,
+        name: 'Mascara curl & volume',
+        category: 'makeup',
+        price: 400,
+        originalPrice: null,
+        images: [
+            'img/mascaracurl.JPG'
+        ],
+        description: ``,
+        available: true,
+        featured: true,
+        discount: false
+    },
+    {
+        id: 76,
+        name: 'Mascara waterproof',
+        category: 'makeup',
+        price: 400,
+        originalPrice: null,
+        images: [
+            'img/mascarawaterproof.JPG'
+        ],
+        description: ``,
+        available: false,
+        featured: true,
+        discount: false
+    },
+    {
         id: 1,
         name: 'Lip gloss - Salty tan',
         category: 'makeup',
@@ -38,7 +66,7 @@ const products = [
             'img/raspberry-jelly.JPG'
         ],
         description: ``,
-        available: false,
+        available: true,
         featured: false
     },
     {
@@ -186,7 +214,7 @@ const products = [
             'img/mesmerize.JPG'
         ],
         description: ``,
-        available: false
+        available: true
     },
     {
         id: 15,
@@ -198,7 +226,7 @@ const products = [
             'img/exhilrate.JPG'
         ],
         description: ``,
-        available: false,
+        available: true,
         featured: false
     },
     {
@@ -253,7 +281,7 @@ const products = [
             'img/happy.JPG'
         ],
         description: ``,
-        available: false,
+        available: true,
         featured: false
     },
     {
@@ -380,13 +408,55 @@ const products = [
         id: 29,
         name: 'Gel got2b',
         category: 'skincare',
-        price: 250,
+        price: 320,
         originalPrice: null,
         images: [
             'img/gelgot2b.JPG'
         ],
         description: ``,
-        available: false,
+        available: true,
+        discount: false
+    },
+    {
+        id: 72,
+        name: 'Clear Butt Cream',
+        category: 'skincare',
+        price: 650,
+        originalPrice: null,
+        images: [
+            'img/ClearButtCream.JPG'
+        ],
+        description: ``,
+        available: true,
+        featured: true,
+        discount: false
+    },
+    {
+        id: 73,
+        name: 'Disques Coton Demaquiller',
+        category: 'skincare',
+        price: 200,
+        originalPrice: null,
+        images: [
+            'img/DisquesCotonDemaquiller.JPG'
+        ],
+        description: ``,
+        available: true,
+        featured: true,
+        discount: false
+    },
+    {
+        id: 74,
+        name: 'Clean your skin',
+        category: 'skincare',
+        price: 350,
+        originalPrice: null,
+        images: [
+            'img/Cleanyourskin.JPG'
+        ],
+        description: ``,
+        available: true,
+        featured: true,
         discount: false
     },
     {
