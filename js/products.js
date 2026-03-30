@@ -1060,7 +1060,7 @@ const products = [
 ومستخلصات نباتية مهدئة.
 مناسبة لـ: البشرة الحساسة والتي تحتاج إلى تغذية عميقة.
 `,
-        available: true,
+        available: false,
         featured: true,
         discount: false
     },
