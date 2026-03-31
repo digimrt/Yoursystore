@@ -482,7 +482,7 @@ const products = [
             'img/dove-deodorant.JPG'
         ],
         description: ``,
-        available: true,
+        available: false,
         discount: false
     },
     {
