@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="تواصل معنا -  Yoursy Store">
+    <title>اتصل بنا | Yoursy Store</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="img/logo1.PNG">
+    <link rel="apple-touch-icon" href="img/logo1.PNG">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700;900&family=Inter:wght@400;500;600&family=Outfit:wght@500;700;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        border: 'var(--border)',
+                        background: 'var(--background)',
+                        foreground: 'var(--foreground)',
+                        primary: { DEFAULT: 'var(--primary)', foreground: 'var(--primary-foreground)' },
+                        secondary: { DEFAULT: 'var(--secondary)', foreground: 'var(--secondary-foreground)' },
+                        accent: { DEFAULT: 'var(--accent)', foreground: 'var(--accent-foreground)' },
+                        muted: { DEFAULT: 'var(--muted)', foreground: 'var(--muted-foreground)' },
+                        card: { DEFAULT: 'var(--card)', foreground: 'var(--card-foreground)' }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Cairo', 'sans-serif'],
+                        heading: ['Outfit', 'Cairo', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/tailwind.css">
+</head>
+
+<body class="bg-background text-foreground min-h-screen">
+    <!-- Navbar -->
+    <nav class="navbar" data-testid="navbar">
+        <div class="container">
+            <div class="flex items-center justify-between h-16">
+                <a href="index.html" class="flex items-center gap-2" data-testid="logo">
+                    <img src="img/logo.PNG" alt="Yoursy Store" class="logo-img" style="height: 70px; width: auto;">
+                </a>
+
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="index.html" class="nav-link" data-i18n="nav_home" data-testid="nav-home">الرئيسية</a>
+                    <a href="products.html" class="nav-link" data-i18n="nav_products"
+                        data-testid="nav-products">المنتجات</a>
+                    <a href="contact.html" class="nav-link active" data-i18n="nav_contact"
+                        data-testid="nav-contact">اتصل بنا</a>
+                </div>
+
+                <div class="flex items-center gap-3">
+                    <select data-lang-select class="input py-2 px-3 text-sm w-auto bg-secondary cursor-pointer"
+                        data-testid="lang-select">
+                        <option value="ar">العربية</option>
+                        <option value="fr">Français</option>
+                        <option value="en">English</option>
+                    </select>
+
+                    <button onclick="toggleTheme()" data-theme-toggle
+                        class="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center hover:bg-accent hover:text-white transition-colors"
+                        data-testid="theme-toggle">
+                        <i class="fa-regular fa-moon"></i>
+                    </button>
+
+                    <button onclick="openCartDrawer()"
+                        class="relative w-10 h-10 rounded-lg bg-secondary flex items-center justify-center hover:bg-accent hover:text-white transition-colors"
+                        data-testid="cart-btn">
+                        <i class="fa-solid fa-shopping-cart"></i>
+                        <span data-cart-count class="cart-badge hidden">0</span>
+                    </button>
+
+                    <button onclick="toggleMobileMenu()" data-menu-toggle
+                        class="md:hidden w-10 h-10 rounded-lg bg-secondary flex items-center justify-center"
+                        data-testid="mobile-menu-toggle">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <div class="flex flex-col gap-2">
+                    <a href="index.html" class="px-4 py-3 rounded-lg bg-secondary font-medium"
+                        data-i18n="nav_home">الرئيسية</a>
+                    <a href="products.html" class="px-4 py-3 rounded-lg bg-secondary font-medium"
+                        data-i18n="nav_products">المنتجات</a>
+                    <a href="contact.html" class="px-4 py-3 rounded-lg bg-accent text-white font-medium"
+                        data-i18n="nav_contact">اتصل بنا</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="container py-12">
+        <div class="text-center">
+            <h1 class="text-3xl md:text-4xl font-bold font-heading mb-4" data-i18n="contact_title">اتصل بنا</h1>
+            <p class="text-muted-foreground max-w-xl mx-auto" data-i18n="contact_par">نحن هنا لمساعدتك. تواصل معنا عبر
+                أي من الطرق التالية</p>
+        </div>
+    </section>
+
+    <!-- Contact Content -->
+    <section class="container pb-16">
+        <div class="grid lg:grid-cols-2 gap-12">
+            <!-- Contact Form -->
+            <div class="bg-card border border-border rounded-2xl p-8" data-testid="contact-form-container">
+                <h2 class="text-2xl font-bold font-heading mb-6" data-i18n="snd_msg">أرسل لنا رسالة</h2>
+
+                <form id="contact-form" class="space-y-6" data-testid="contact-form">
+                    <!-- Name -->
+                    <div>
+                        <label class="block font-medium mb-2" data-i18n="contact_name">الاسم</label>
+                        <input type="text" name="name" required class="input" placeholder="أدخل اسمك الكامل"
+                            data-i18n-placeholder="contact_name_placeholder" data-testid="contact-name">
+                    </div>
+
+                    <!-- Email -->
+                    <div>
+                        <label class="block font-medium mb-2" data-i18n="contact_email">البريد الإلكتروني</label>
+                        <input type="email" name="email" class="input" placeholder="example@email.com"
+                            data-testid="contact-email">
+                    </div>
+
+                    <!-- Phone -->
+                    <div>
+                        <label class="block font-medium mb-2" data-i18n="contact_phone">رقم الهاتف</label>
+                        <input type="tel" name="phone" required class="input" placeholder="+222 XX XX XX XX" dir="ltr"
+                            data-testid="contact-phone">
+                    </div>
+
+                    <!-- Message -->
+                    <div>
+                        <label class="block font-medium mb-2" data-i18n="contact_message">الرسالة</label>
+                        <textarea name="message" required class="input min-h-[150px] resize-none"
+                            placeholder="اكتب رسالتك هنا..." data-i18n-placeholder="contact_message_placeholder"
+                            data-testid="contact-message"></textarea>
+                    </div>
+
+                    <!-- Submit -->
+                    <button type="submit"
+                        class="w-full py-4 bg-primary text-primary-foreground rounded-lg font-bold text-lg hover:opacity-90 transition-opacity active:scale-95"
+                        data-testid="contact-submit">
+                        <i class="fa-solid fa-paper-plane me-2"></i>
+                        <span data-i18n="contact_send">إرسال</span>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="space-y-8">
+                <!-- Quick Contact -->
+                <div class="bg-card border border-border rounded-2xl p-8">
+                    <h2 class="text-2xl font-bold font-heading mb-6" data-i18n="contact_info">معلومات التواصل</h2>
+
+                    <div class="space-y-6">
+                        <!-- WhatsApp -->
+                        <a href="https://wa.me/22230764882" target="_blank"
+                            class="flex items-center gap-4 p-4 bg-green-600/10 rounded-xl hover:bg-green-600/20 transition-colors group"
+                            data-testid="contact-whatsapp">
+                            <div class="w-14 h-14 bg-green-600 rounded-xl flex items-center justify-center">
+                                <i class="fa-brands fa-whatsapp text-2xl text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold group-hover:text-green-600 transition-colors"
+                                    data-i18n="contact_whatsapp">واتساب</h3>
+                                <p class="text-muted-foreground" dir="ltr">+222 30 76 48 82</p>
+                            </div>
+                            <i
+                                class="fa-solid fa-arrow-left ms-auto text-muted-foreground group-hover:text-green-600 transition-colors"></i>
+                        </a>
+
+                        <!-- TikTok -->
+                        <a href="https://www.tiktok.com/@yoursystoree" target="_blank"
+                            class="flex items-center gap-4 p-4 bg-black/10 dark:bg-white/10 rounded-xl hover:bg-black/20 dark:hover:bg-white/20 transition-colors group"
+                            data-testid="contact-tiktok">
+                            <div class="w-14 h-14 bg-black rounded-xl flex items-center justify-center">
+                                <i class="fa-brands fa-tiktok text-2xl text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold group-hover:text-black dark:group-hover:text-white transition-colors"
+                                    data-i18n="contact_tiktok">تيك توك</h3>
+                                <p class="text-muted-foreground">@yoursystoree</p>
+                            </div>
+                            <i
+                                class="fa-solid fa-arrow-left ms-auto text-muted-foreground group-hover:text-black dark:group-hover:text-white transition-colors"></i>
+                        </a>
+
+                        <!-- Location -->
+                        <div class="flex items-center gap-4 p-4 bg-muted rounded-xl">
+                            <div class="w-14 h-14 bg-accent rounded-xl flex items-center justify-center">
+                                <i class="fa-solid fa-location-dot text-2xl text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold" data-i18n="contact_location">الموقع</h3>
+                                <p class="text-muted-foreground" data-i18n="contact_location_place">عين الطلح قرب مجمع
+                                    الطينطان</p>
+                            </div>
+                        </div>
+
+                        <!-- Working Hours -->
+                        <div class="flex items-center gap-4 p-4 bg-muted rounded-xl">
+                            <div class="w-14 h-14 bg-accent rounded-xl flex items-center justify-center">
+                                <i class="fa-solid fa-clock text-2xl text-white"></i>
+                            </div>
+                            <div>
+                                <h3 data-i18n="work_hours" class="font-bold">ساعات العمل</h3>
+                                <p data-i18n="work_hours_time" class="text-muted-foreground">في أي وقت</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social Media -->
+                <div class="bg-card border border-border rounded-2xl p-8">
+                    <h2 class="text-2xl font-bold font-heading mb-6" data-i18n="footer_followus">تابعونا</h2>
+
+                    <div class="flex gap-4 flex-wrap">
+                        <a href="https://wa.me/22230764882" target="_blank"
+                            class="w-14 h-14 rounded-xl bg-secondary flex items-center justify-center hover:bg-green-600 hover:text-white transition-colors"
+                            data-testid="social-whatsapp">
+                            <i class="fa-brands fa-whatsapp text-xl"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@yoursystoree" target="_blank"
+                            class="w-14 h-14 rounded-xl bg-secondary flex items-center justify-center hover:bg-black hover:text-white transition-colors"
+                            data-testid="social-tiktok">
+                            <i class="fa-brands fa-tiktok text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="flex items-center justify-center md:justify-start gap-2 mb-4">
+                        <img src="img/logo.PNG" alt="Yoursy Store" class="logofooter" style="height: 80px; width: auto;">
+                    </div>
+                    <div class="flex gap-4 justify-center md:justify-start">
+                        <a href="https://wa.me/22230764882" target="_blank"
+                            class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-accent hover:text-white"><i
+                                class="fa-brands fa-whatsapp"></i></a>
+                        <a href="https://www.tiktok.com/@yoursystoree" target="_blank"
+                            class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-accent hover:text-white"><i
+                                class="fa-brands fa-tiktok"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-bold mb-4 text-center md:text-right" data-i18n="quick_links">روابط سريعة</h4>
+                    <ul class="space-y-2 text-center md:text-right">
+                        <li><a href="index.html" class="text-muted-foreground hover:text-accent"
+                                data-i18n="nav_home">الرئيسية</a></li>
+                        <li><a href="products.html" class="text-muted-foreground hover:text-accent"
+                                data-i18n="nav_products">المنتجات</a></li>
+                        <li><a href="contact.html" class="text-muted-foreground hover:text-accent"
+                                data-i18n="nav_contact">اتصل بنا</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold mb-4 text-center md:text-right" data-i18n="categories_footer">الفئات</h4>
+                    <ul class="space-y-2 text-center md:text-right">
+                        <li><a href="products.html?category=makeup" class="text-muted-foreground hover:text-accent"
+                                data-i18n="cat_makeup">MAKEUP</a></li>
+                        <li><a href="products.html?category=skincare" class="text-muted-foreground hover:text-accent"
+                                data-i18n="cat_skincare">SKIN CARE</a></li>
+                        <li><a href="products.html?category=perfumes" class="text-muted-foreground hover:text-accent"
+                                data-i18n="cat_perfumes">PERFUMES</a></li>
+                        <li><a href="products.html?category=new" class="text-muted-foreground hover:text-accent"
+                                data-i18n="cat_new">جديد</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold mb-4 text-center md:text-right" data-i18n="contact_us">اتصل بنا</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-3 text-muted-foreground justify-center md:justify-start">
+                            <i class="fa-solid fa-location-dot text-accent"></i>
+                            <span data-i18n="store_address">عين الطلح قرب مجمع الطينطان</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-muted-foreground justify-center md:justify-start">
+                            <i class="fa-brands fa-whatsapp text-accent"></i>
+                            <span dir="ltr">+222 30 76 48 82</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-muted-foreground justify-center md:justify-start">
+                            <i class="fa-brands fa-tiktok text-accent"></i>
+                            <a href="https://www.tiktok.com/@yoursystoree" target="_blank"
+                                class="hover:text-accent">@yoursystoree</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-border mt-8 pt-6 text-center text-muted-foreground">
+                <p>© 2026 Yoursy Store. <span data-i18n="all_rights">جميع الحقوق محفوظة</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Drawer -->
+    <div id="cart-overlay" class="cart-overlay hidden" onclick="closeCartDrawer()"></div>
+    <div id="cart-drawer" class="cart-drawer translate-x-full" data-testid="cart-drawer">
+        <div class="h-full flex flex-col p-6">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-xl font-bold" data-i18n="cart_title">سلة التسوق</h3>
+                <button onclick="closeCartDrawer()"
+                    class="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center hover:bg-accent hover:text-white transition-colors">
+                    <i class="fa-solid fa-times"></i>
+                </button>
+            </div>
+            <div id="cart-drawer-content" class="flex-1 overflow-y-auto"></div>
+        </div>
+    </div>
+
+    <!-- Scroll to Top -->
+    <button id="scroll-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+        class="scroll-to-top opacity-0 pointer-events-none">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="js/translations.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/main.js"></script>
+    <!-- تم حذف دالة handleContactSubmit المكررة لأنها موجودة في main.js -->
+</body>
+
+</html>

@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="تفاصيل المنتج -  Yoursy Store">
+    <title>تفاصيل المنتج | Yoursy Store</title>
+
+    <link rel="icon" type="image/png" href="img/logo1.PNG">
+    <link rel="apple-touch-icon" href="img/logo1.PNG">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700;900&family=Inter:wght@400;500;600&family=Outfit:wght@500;700;900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        border: 'var(--border)',
+                        background: 'var(--background)',
+                        foreground: 'var(--foreground)',
+                        primary: { DEFAULT: 'var(--primary)', foreground: 'var(--primary-foreground)' },
+                        secondary: { DEFAULT: 'var(--secondary)', foreground: 'var(--secondary-foreground)' },
+                        accent: { DEFAULT: 'var(--accent)', foreground: 'var(--accent-foreground)' },
+                        muted: { DEFAULT: 'var(--muted)', foreground: 'var(--muted-foreground)' },
+                        card: { DEFAULT: 'var(--card)', foreground: 'var(--card-foreground)' }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Cairo', 'sans-serif'],
+                        heading: ['Outfit', 'Cairo', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="bg-background text-foreground min-h-screen">
+    <nav class="navbar" data-testid="navbar">
+        <div class="container">
+            <div class="flex items-center justify-between h-16">
+                <a href="index.html" class="flex items-center gap-2" data-testid="logo">
+                    <img src="img/logo.PNG" alt="Yoursy Store" class="logo-img" style="height: 45px; width: auto;">
+                </a>
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="index.html" class="nav-link" data-i18n="nav_home">الرئيسية</a>
+                    <a href="products.html" class="nav-link active" data-i18n="nav_products">المنتجات</a>
+                    <a href="contact.html" class="nav-link" data-i18n="nav_contact">اتصل بنا</a>
+                </div>
+                <div class="flex items-center gap-3">
+                    <select data-lang-select class="input py-2 px-3 text-sm w-auto bg-secondary cursor-pointer">
+                        <option value="ar">العربية</option>
+                        <option value="fr">Français</option>
+                        <option value="en">English</option>
+                    </select>
+                    <button onclick="toggleTheme()" data-theme-toggle
+                        class="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center hover:bg-accent hover:text-white transition-colors">
+                        <i class="fa-regular fa-moon"></i>
+                    </button>
+                    <button onclick="openCartDrawer()"
+                        class="relative w-10 h-10 rounded-lg bg-secondary flex items-center justify-center hover:bg-accent hover:text-white transition-colors">
+                        <i class="fa-solid fa-shopping-cart"></i>
+                        <span data-cart-count class="cart-badge hidden">0</span>
+                    </button>
+                    <button onclick="toggleMobileMenu()" data-menu-toggle
+                        class="md:hidden w-10 h-10 rounded-lg bg-secondary flex items-center justify-center">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <div class="flex flex-col gap-2">
+                    <a href="index.html" class="px-4 py-3 rounded-lg bg-secondary font-medium">الرئيسية</a>
+                    <a href="products.html" class="px-4 py-3 rounded-lg bg-accent text-white font-medium">المنتجات</a>
+                    <a href="contact.html" class="px-4 py-3 rounded-lg bg-secondary font-medium">اتصل بنا</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Back Button -->
+    <section class="container py-4">
+        <button onclick="goBackToProducts()"
+            class="back-to-products-btn flex items-center gap-2 px-4 py-2 bg-secondary rounded-lg hover:bg-accent hover:text-white transition-colors text-sm font-medium">
+            <i class="fa-solid fa-arrow-right"></i>
+            <span data-i18n="back_to_products">العودة للمنتجات</span>
+        </button>
+    </section>
+
+    <section class="container pb-16">
+        <div id="product-detail" class="grid md:grid-cols-2 gap-8 lg:gap-12">
+            <div class="relative">
+                <div class="aspect-square rounded-xl overflow-hidden bg-muted">
+                    <img id="product-image" src="" alt="" class="w-full h-full object-cover">
+                </div>
+                <div id="product-badges" class="absolute top-4 start-4 flex flex-col gap-2"></div>
+            </div>
+
+            <div class="flex flex-col">
+                <a id="product-category-link" href="#"
+                    class="inline-flex items-center gap-1 text-sm text-accent mb-2 hover:underline">
+                    <i class="fa-solid fa-tag"></i>
+                    <span id="product-category"></span>
+                </a>
+                <h1 id="product-name" class="text-2xl md:text-3xl font-bold font-heading mb-4"></h1>
+                <div class="flex items-center gap-4 mb-6">
+                    <span id="product-price" class="text-3xl font-bold text-accent"></span>
+                    <span id="product-original-price" class="text-xl text-muted-foreground line-through hidden"></span>
+                    <span id="product-discount"
+                        class="px-3 py-1 bg-accent text-white text-sm font-bold rounded-full hidden"></span>
+                </div>
+                <div id="product-stock" class="flex items-center gap-2 mb-6">
+                    <i class="fa-solid fa-check-circle text-green-500"></i>
+                    <span class="text-green-600 font-medium" data-i18n="in_stock_label">متوفر</span>
+                </div>
+
+                <div id="product-description-section" class="mb-8">
+                    <h3 class="font-bold mb-2" data-i18n="product_description">الوصف</h3>
+                    <p id="product-description" class="text-muted-foreground leading-relaxed"></p>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4" data-product-id="" id="product-actions">
+                    <button data-add-btn onclick="addToCartFromDetail()"
+                        class="flex-1 py-4 px-8 bg-primary text-primary-foreground rounded-lg font-bold text-lg transition-all hover:opacity-90 active:scale-95">
+                        <i class="fa-solid fa-cart-plus me-2"></i>
+                        <span data-i18n="add_to_cart">أضف للسلة</span>
+                    </button>
+                    <div data-qty-controls
+                        class="hidden flex-1 flex items-center justify-center gap-4 bg-secondary rounded-lg py-2">
+                        <button onclick="decrementFromDetail()"
+                            class="w-12 h-12 rounded-lg bg-background text-foreground font-bold text-xl transition-all hover:bg-accent hover:text-white active:scale-95"><i
+                                class="fa-solid fa-minus"></i></button>
+                        <span data-qty-display class="w-12 text-center font-bold text-2xl">0</span>
+                        <button onclick="incrementFromDetail()"
+                            class="w-12 h-12 rounded-lg bg-background text-foreground font-bold text-xl transition-all hover:bg-accent hover:text-white active:scale-95"><i
+                                class="fa-solid fa-plus"></i></button>
+                    </div>
+                    <button data-buy-now onclick="buyNowWhatsApp()"
+                        class="py-4 px-8 bg-green-600 text-white rounded-lg font-bold text-lg transition-all hover:bg-green-700 active:scale-95">
+                        <i class="fa-brands fa-whatsapp me-2"></i> <span data-i18n="buy_now">اشتري الآن</span>
+                    </button>
+                </div>
+
+                <div class="mt-8 pt-6 border-t border-border">
+                    <div class="flex items-center gap-4">
+                        <span class="font-medium" data-i18n="product_share">مشاركة:</span>
+                        <button onclick="shareProduct('facebook')"
+                            class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors"><i
+                                class="fa-brands fa-facebook-f"></i></button>
+                        <button onclick="shareProduct('twitter')"
+                            class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-sky-500 hover:text-white transition-colors"><i
+                                class="fa-brands fa-twitter"></i></button>
+                        <button onclick="shareProduct('whatsapp')"
+                            class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-green-600 hover:text-white transition-colors"><i
+                                class="fa-brands fa-whatsapp"></i></button>
+                        <button onclick="copyProductLink()"
+                            class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-accent hover:text-white transition-colors"><i
+                                class="fa-solid fa-link"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="product-not-found" class="hidden text-center py-16">
+            <i class="fa-solid fa-box-open text-6xl text-muted-foreground mb-4"></i>
+            <h2 class="text-2xl font-bold mb-2">المنتج غير موجود</h2>
+            <p class="text-muted-foreground mb-6">عذراً، لم نتمكن من إيجاد هذا المنتج</p>
+            <a href="products.html" class="btn btn-primary">تصفح المنتجات</a>
+        </div>
+    </section>
+
+    <section class="container pb-16" id="variants-section" style="display: none;">
+        <div class="relative mb-8">
+            <div
+                class="absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent">
+            </div>
+            <div class="relative flex justify-center">
+                <div class="bg-accent/10 backdrop-blur-sm px-6 py-3 rounded-full border border-accent/30 shadow-sm">
+                    <i class="fa-solid fa-cubes text-accent ml-2"></i>
+                    <span class="text-lg font-bold text-accent" data-i18n="product_variants">⚡ الأنواع المتاحة</span>
+                </div>
+            </div>
+        </div>
+        <div id="variants-grid" class="products-grid"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="flex items-center justify-center md:justify-start gap-2 mb-4">
+                        <img src="img/logo.PNG" alt="Yoursy Store" class="logofooter" style="height: 80px; width: auto;">
+                    </div>
+                    <div class="flex gap-4 justify-center md:justify-start">
+                        <a href="https://wa.me/22230764882" target="_blank"
+                            class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-accent hover:text-white"><i
+                                class="fa-brands fa-whatsapp"></i></a>
+                        <a href="https://www.tiktok.com/@yoursystoree" target="_blank"
+                            class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-accent hover:text-white"><i
+                                class="fa-brands fa-tiktok"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-bold mb-4 text-center md:text-right" data-i18n="quick_links">روابط سريعة</h4>
+                    <ul class="space-y-2 text-center md:text-right">
+                        <li><a href="index.html" class="text-muted-foreground hover:text-accent"
+                                data-i18n="nav_home">الرئيسية</a></li>
+                        <li><a href="products.html" class="text-muted-foreground hover:text-accent"
+                                data-i18n="nav_products">المنتجات</a></li>
+                        <li><a href="contact.html" class="text-muted-foreground hover:text-accent"
+                                data-i18n="nav_contact">اتصل بنا</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold mb-4 text-center md:text-right" data-i18n="categories_footer">الفئات</h4>
+                    <ul class="space-y-2 text-center md:text-right">
+                        <li><a href="products.html?category=makeup" class="text-muted-foreground hover:text-accent"
+                                data-i18n="cat_makeup">MAKEUP</a></li>
+                        <li><a href="products.html?category=skincare" class="text-muted-foreground hover:text-accent"
+                                data-i18n="cat_skincare">SKIN CARE</a></li>
+                        <li><a href="products.html?category=perfumes" class="text-muted-foreground hover:text-accent"
+                                data-i18n="cat_perfumes">PERFUMES</a></li>
+                        <li><a href="products.html?category=new" class="text-muted-foreground hover:text-accent"
+                                data-i18n="cat_new">جديد</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold mb-4 text-center md:text-right" data-i18n="contact_us">اتصل بنا</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-3 text-muted-foreground justify-center md:justify-start">
+                            <i class="fa-solid fa-location-dot text-accent"></i>
+                            <span data-i18n="store_address">عين الطلح قرب مجمع الطينطان</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-muted-foreground justify-center md:justify-start">
+                            <i class="fa-brands fa-whatsapp text-accent"></i>
+                            <span dir="ltr">+222 30 76 48 82</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-muted-foreground justify-center md:justify-start">
+                            <i class="fa-brands fa-tiktok text-accent"></i>
+                            <a href="https://www.tiktok.com/@yoursystoree" target="_blank"
+                                class="hover:text-accent">@yoursystoree</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-border mt-8 pt-6 text-center text-muted-foreground">
+                <p>© 2026 Yoursy Store. <span data-i18n="all_rights">جميع الحقوق محفوظة</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="cart-overlay" class="cart-overlay hidden" onclick="closeCartDrawer()"></div>
+    <div id="cart-drawer" class="cart-drawer translate-x-full">
+        <div class="h-full flex flex-col p-6">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-xl font-bold" data-i18n="cart_title">سلة التسوق</h3>
+                <button onclick="closeCartDrawer()"
+                    class="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center hover:bg-accent hover:text-white transition-colors"><i
+                        class="fa-solid fa-times"></i></button>
+            </div>
+            <div id="cart-drawer-content" class="flex-1 overflow-y-auto"></div>
+        </div>
+    </div>
+
+    <div id="tiktok-modal" class="modal hidden">
+        <div class="modal-backdrop" onclick="this.parentElement.classList.add('hidden')"></div>
+        <div class="modal-content text-center">
+            <i class="fa-solid fa-exclamation-triangle text-5xl text-warning mb-4"></i>
+            <h3 class="text-xl font-bold mb-2" data-i18n="tiktok_warning">يرجى فتح الرابط في متصفح خارجي</h3>
+            <p class="text-muted-foreground mb-6">للحصول على أفضل تجربة تسوق، يرجى فتح الموقع في متصفح خارجي</p>
+            <button data-open-external class="btn btn-accent w-full"><i
+                    class="fa-solid fa-external-link-alt me-2"></i><span data-i18n="tiktok_open">فتح في
+                    المتصفح</span></button>
+        </div>
+    </div>
+
+    <button id="scroll-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+        class="scroll-to-top opacity-0 pointer-events-none"><i class="fa-solid fa-arrow-up"></i></button>
+
+    <script src="js/translations.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+        let currentProduct = null;
+
+        function getProductIdFromURL() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get('id');
+        }
+
+        function getScrollToParam() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get('scrollTo');
+        }
+
+        function goBackToProducts() {
+            if (!currentProduct) return;
+            const category = currentProduct.category;
+            const productId = currentProduct.id;
+            let url = `products.html?category=${category}&scrollTo=${productId}`;
+            window.location.href = url;
+        }
+
+        function getProductVariantsList(productId) {
+            const product = getProductById(productId);
+            if (!product || !product.variants || product.variants.length === 0) return [];
+            return product.variants.map(variantId => getProductById(variantId)).filter(v => v);
+        }
+
+        function isVariant(productId) {
+            const product = getProductById(productId);
+            return product && product.variantOf !== null && product.variantOf !== undefined;
+        }
+
+        function getParentProduct(productId) {
+            const product = getProductById(productId);
+            if (product && product.variantOf) {
+                return getProductById(product.variantOf);
+            }
+            return null;
+        }
+
+        function renderVariants(product) {
+            const section = document.getElementById('variants-section');
+            const grid = document.getElementById('variants-grid');
+
+            if (!product.variants || product.variants.length === 0) {
+                section.style.display = 'none';
+                return;
+            }
+
+            section.style.display = 'block';
+
+            grid.innerHTML = product.variants.map(variant => {
+                const variantPrice = variant.price || product.price;
+                const hasDiscount = product.originalPrice && product.originalPrice > variantPrice;
+                const discountPercent = hasDiscount ? Math.round((1 - variantPrice / product.originalPrice) * 100) : 0;
+                const variantImage = variant.image || product.image;
+                const quantityInCart = getCartItemQuantity(product.id, variant.id);
+
+                return `
+            <div class="product-card group bg-card border border-border/50 rounded-xl overflow-hidden transition-all duration-300 hover:shadow-xl hover:border-accent/30" data-product-id="${product.id}" data-variant-id="${variant.id}">
+                <div class="block relative aspect-square overflow-hidden">
+                    <img src="${variantImage}" alt="${getVariantName(variant)}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    ${hasDiscount ? `<span class="absolute top-2 ${getCurrentLanguage() === 'ar' ? 'left-2' : 'right-2'} bg-accent text-white text-xs font-bold px-2 py-1 rounded">-${discountPercent}%</span>` : ''}
+                    ${product.isNew ? `<span class="absolute top-2 ${getCurrentLanguage() === 'ar' ? 'right-2' : 'left-2'} bg-green-600 text-white text-xs font-bold px-2 py-1 rounded">${t('slider_new')}</span>` : ''}
+                </div>
+                <div class="p-4">
+                    <h3 class="font-semibold text-foreground mb-1 line-clamp-2 text-center">
+                        ${getVariantName(variant)}
+                    </h3>
+                    <div class="flex items-center justify-center gap-2 mb-3">
+                        <span class="text-accent font-bold text-lg">${formatPrice(variantPrice)}</span>
+                        ${hasDiscount ? `<span class="text-muted-foreground line-through text-sm">${formatPrice(product.originalPrice)}</span>` : ''}
+                    </div>
+                    ${variant.inStock !== false ? `
+                        <div class="flex flex-col gap-2">
+                            <div class="flex items-center justify-center gap-3 ${quantityInCart > 0 ? 'flex' : 'hidden'}" data-qty-controls-variant-${variant.id}>
+                                <button onclick="decrementQuantity('${product.id}', '${variant.id}'); updateVariantQuantityUI('${product.id}', '${variant.id}')" class="w-10 h-10 rounded-lg bg-secondary text-foreground font-bold transition-all hover:bg-accent hover:text-white active:scale-95"><i class="fa-solid fa-minus"></i></button>
+                                <span class="w-8 text-center font-bold text-lg" data-qty-display-variant-${variant.id}>${quantityInCart}</span>
+                                <button onclick="incrementQuantity('${product.id}', '${variant.id}'); updateVariantQuantityUI('${product.id}', '${variant.id}')" class="w-10 h-10 rounded-lg bg-secondary text-foreground font-bold transition-all hover:bg-accent hover:text-white active:scale-95"><i class="fa-solid fa-plus"></i></button>
+                            </div>
+                            <button data-add-btn-variant-${variant.id} onclick="addToCart('${product.id}', 1, '${variant.id}'); updateVariantQuantityUI('${product.id}', '${variant.id}')" 
+                                class="w-full py-2.5 px-4 bg-primary text-primary-foreground rounded-lg font-medium transition-all duration-200 hover:opacity-90 active:scale-95 ${quantityInCart > 0 ? 'hidden' : ''}">
+                                <i class="fa-solid fa-cart-plus me-2"></i>
+                                <span>${t('add_to_cart')}</span>
+                            </button>
+                        </div>
+                    ` : `
+                        <button disabled class="w-full py-2.5 px-4 bg-gray-400 text-white rounded-lg font-medium cursor-not-allowed">
+                            <i class="fa-solid fa-ban me-2"></i>
+                            <span>${t('out_of_stock')}</span>
+                        </button>
+                    `}
+                </div>
+            </div>
+        `;
+            }).join('');
+
+            updateCartUI();
+        }
+
+        function updateVariantQuantityUI(productId, variantId) {
+            const quantity = getCartItemQuantity(productId, variantId);
+            const addBtn = document.querySelector(`[data-add-btn-variant-${variantId}]`);
+            const qtyControls = document.querySelector(`[data-qty-controls-variant-${variantId}]`);
+            const qtyDisplay = document.querySelector(`[data-qty-display-variant-${variantId}]`);
+
+            if (addBtn && qtyControls) {
+                if (quantity > 0) {
+                    addBtn.classList.add('hidden');
+                    qtyControls.classList.remove('hidden');
+                    if (qtyDisplay) qtyDisplay.textContent = quantity;
+                } else {
+                    addBtn.classList.remove('hidden');
+                    qtyControls.classList.add('hidden');
+                }
+            }
+        }
+
+        function addParentProductLink(parentProduct) {
+            const productInfoDiv = document.querySelector('#product-detail .flex.flex-col');
+            if (productInfoDiv && !document.getElementById('parent-product-link')) {
+                const parentLinkHtml = `
+                    <div id="parent-product-link" class="mb-4 p-3 bg-muted rounded-lg">
+                        <a href="product.html?id=${parentProduct.id}" class="text-accent hover:underline flex items-center gap-2">
+                            <i class="fa-solid fa-arrow-right"></i>
+                            <span>${getCurrentLanguage() === 'ar' ? 'عرض المنتج الأصلي' : getCurrentLanguage() === 'fr' ? 'Voir le produit original' : 'View original product'}</span>
+                            <i class="fa-solid fa-arrow-left"></i>
+                        </a>
+                    </div>
+                `;
+                productInfoDiv.insertAdjacentHTML('afterbegin', parentLinkHtml);
+            }
+        }
+
+        function renderProductDetail(product) {
+            if (!product) {
+                document.getElementById('product-detail').classList.add('hidden');
+                document.getElementById('variants-section').style.display = 'none';
+                document.getElementById('product-not-found').classList.remove('hidden');
+                return;
+            }
+
+            const buyNowBtn = document.querySelector('[data-buy-now]');
+            const addToCartBtn = document.querySelector('#product-actions [data-add-btn]');
+            const qtyControls = document.querySelector('#product-actions [data-qty-controls]');
+            const productActionsDiv = document.getElementById('product-actions');
+
+            const hasVariants = product.variants && product.variants.length > 0;
+
+            if (hasVariants) {
+                if (buyNowBtn) buyNowBtn.style.display = 'none';
+                if (addToCartBtn) addToCartBtn.style.display = 'none';
+                if (qtyControls) qtyControls.style.display = 'none';
+
+                if (!document.getElementById('browse-variants-btn')) {
+                    const browseBtn = document.createElement('button');
+                    browseBtn.id = 'browse-variants-btn';
+                    browseBtn.onclick = () => {
+                        const variantsSection = document.getElementById('variants-section');
+                        if (variantsSection) {
+                            variantsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    };
+                    browseBtn.className = "flex-1 py-4 px-8 bg-primary text-primary-foreground rounded-lg font-bold text-lg transition-all hover:opacity-90 active:scale-95 flex items-center justify-center gap-2";
+                    browseBtn.innerHTML = `
+                        <i class="fa-solid fa-list me-2"></i>
+                        <span>${t('browse_variants')}</span>
+                    `;
+                    productActionsDiv.insertBefore(browseBtn, productActionsDiv.firstChild);
+                }
+            } else if (product.inStock === false || product.comingSoon === true) {
+                if (buyNowBtn) buyNowBtn.style.display = 'none';
+                if (addToCartBtn) addToCartBtn.style.display = 'none';
+                if (qtyControls) qtyControls.style.display = 'none';
+
+                if (!document.getElementById('out-of-stock-btn')) {
+                    const outOfStockBtn = document.createElement('button');
+                    outOfStockBtn.id = 'out-of-stock-btn';
+                    outOfStockBtn.disabled = true;
+                    outOfStockBtn.className = "flex-1 py-4 px-8 bg-gray-400 text-white rounded-lg font-bold text-lg cursor-not-allowed";
+
+                    const btnText = product.comingSoon === true ? t('coming_soon') : t('out_of_stock');
+                    const btnIcon = product.comingSoon === true ? 'fa-clock' : 'fa-ban';
+
+                    outOfStockBtn.innerHTML = `
+                        <i class="fa-solid ${btnIcon} me-2"></i>
+                        <span>${btnText}</span>
+                    `;
+                    productActionsDiv.insertBefore(outOfStockBtn, productActionsDiv.firstChild);
+                }
+            }
+
+            currentProduct = product;
+            const name = getProductName(product);
+            const description = getProductDescription(product);
+            document.title = `${name} | Yoursy Store`;
+            document.getElementById('product-image').src = product.image;
+            document.getElementById('product-image').alt = name;
+
+            const badgesContainer = document.getElementById('product-badges');
+            badgesContainer.innerHTML = '';
+            if (product.originalPrice && product.originalPrice > product.price) {
+                const discountPercent = Math.round((1 - product.price / product.originalPrice) * 100);
+                badgesContainer.innerHTML += `<span class="px-3 py-1 bg-accent text-white text-sm font-bold rounded-full">-${discountPercent}%</span>`;
+            }
+            if (product.isNew) badgesContainer.innerHTML += `<span class="px-3 py-1 bg-green-600 text-white text-sm font-bold rounded-full">${t('slider_new')}</span>`;
+
+            document.getElementById('product-category').textContent = t(getCategoryKey(product.category));
+            document.getElementById('product-category-link').href = `products.html?category=${product.category}`;
+            document.getElementById('product-name').textContent = name;
+            document.getElementById('product-price').textContent = formatPrice(product.price);
+
+            if (product.originalPrice && product.originalPrice > product.price) {
+                document.getElementById('product-original-price').textContent = formatPrice(product.originalPrice);
+                document.getElementById('product-original-price').classList.remove('hidden');
+                document.getElementById('product-discount').textContent = `-${Math.round((1 - product.price / product.originalPrice) * 100)}%`;
+                document.getElementById('product-discount').classList.remove('hidden');
+            } else {
+                document.getElementById('product-original-price').classList.add('hidden');
+                document.getElementById('product-discount').classList.add('hidden');
+            }
+
+            document.getElementById('product-description').innerHTML = (description || '').replace(/\n/g, '<br>');
+
+            // إخفاء قسم الوصف إذا كان الوصف فارغاً
+            const descriptionSection = document.getElementById('product-description-section');
+            const descriptionText = document.getElementById('product-description').innerHTML.trim();
+            if (descriptionSection && (!descriptionText || descriptionText === '')) {
+                descriptionSection.style.display = 'none';
+            }
+
+            const stockDiv = document.getElementById('product-stock');
+
+            if (stockDiv) {
+                let inStock = false;
+                let isComingSoon = false;
+
+                if (product.variants && product.variants.length > 0) {
+                    inStock = product.variants.some(v => v.inStock === true);
+                } else {
+                    inStock = product.inStock;
+                    isComingSoon = product.comingSoon === true;
+                }
+
+                if (inStock) {
+                    stockDiv.innerHTML = `
+                        <i class="fa-solid fa-check-circle text-green-500"></i>
+                        <span class="text-green-600 font-medium">${t('in_stock_label')}</span>
+                    `;
+                } else if (isComingSoon) {
+                    stockDiv.innerHTML = `
+                        <i class="fa-solid fa-clock text-blue-500"></i>
+                        <span class="text-blue-600 font-medium">${t('coming_soon')}</span>
+                    `;
+                } else {
+                    stockDiv.innerHTML = `
+                        <i class="fa-solid fa-times-circle text-red-500"></i>
+                        <span class="text-red-600 font-medium">${t('out_of_stock_label')}</span>
+                    `;
+                }
+            }
+            document.getElementById('product-actions').setAttribute('data-product-id', product.id);
+
+
+            renderVariants(product);
+            updateProductDetailCartUI();
+
+            if (isVariant(product.id)) {
+                const parentProduct = getParentProduct(product.id);
+                if (parentProduct) {
+                    addParentProductLink(parentProduct);
+                }
+            }
+        }
+
+        function updateProductDetailCartUI() {
+            if (!currentProduct) return;
+
+            const hasVariants = currentProduct.variants && currentProduct.variants.length > 0;
+
+            if (hasVariants) {
+                return;
+            }
+
+            const quantity = getCartItemQuantity(currentProduct.id);
+
+            const addBtn = document.querySelector('#product-actions [data-add-btn]');
+            const qtyControls = document.querySelector('#product-actions [data-qty-controls]');
+            const qtyDisplay = document.querySelector('#product-actions [data-qty-display]');
+            const buyNowBtn = document.querySelector('[data-buy-now]');
+
+            if ((!currentProduct.variants || currentProduct.variants.length === 0) && (currentProduct.inStock === false || currentProduct.comingSoon === true)) {
+                if (addBtn) addBtn.style.display = 'none';
+                if (qtyControls) qtyControls.style.display = 'none';
+                if (buyNowBtn) buyNowBtn.style.display = 'none';
+                return;
+            }
+
+            if (quantity > 0) {
+                if (addBtn) addBtn.classList.add('hidden');
+                if (qtyControls) qtyControls.classList.remove('hidden');
+                if (qtyDisplay) qtyDisplay.textContent = quantity;
+            } else {
+                if (addBtn) addBtn.classList.remove('hidden');
+                if (qtyControls) qtyControls.classList.add('hidden');
+            }
+        }
+
+        function addToCartFromDetail() {
+            if (currentProduct) {
+                addToCart(currentProduct.id);
+                updateProductDetailCartUI();
+            }
+        }
+
+        function incrementFromDetail() {
+            if (currentProduct) {
+                incrementQuantity(currentProduct.id);
+                updateProductDetailCartUI();
+            }
+        }
+
+        function decrementFromDetail() {
+            if (currentProduct) {
+                decrementQuantity(currentProduct.id);
+                updateProductDetailCartUI();
+            }
+        }
+
+        function buyNowWhatsApp() {
+            if (!currentProduct) return;
+            const lang = getCurrentLanguage();
+            const name = getProductName(currentProduct);
+            const price = formatPrice(currentProduct.price);
+            let message = '';
+            if (lang === 'ar') message = `السلام عليكم، أريد شراء:%0A%0A• ${name}%0Aالسعر: ${price}`;
+            else if (lang === 'fr') message = `Bonjour, je voudrais acheter:%0A%0A• ${name}%0APrix: ${price}`;
+            else message = `Hello, I would like to buy:%0A%0A• ${name}%0APrice: ${price}`;
+            const url = `https://wa.me/22230764882?text=${message}`;
+            if (isTikTokBrowser()) showTikTokWarning(url);
+            else window.open(url, '_blank');
+        }
+
+        function shareProduct(platform) {
+            const url = window.location.href;
+            const name = currentProduct ? getProductName(currentProduct) : 'Yoursy Store';
+            let shareUrl = '';
+            if (platform === 'facebook') shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+            else if (platform === 'twitter') shareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(name)}`;
+            else if (platform === 'whatsapp') shareUrl = `https://wa.me/?text=${encodeURIComponent(name + ' ' + url)}`;
+            if (shareUrl) window.open(shareUrl, '_blank', 'width=600,height=400');
+        }
+
+        function copyProductLink() {
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                showToast(getCurrentLanguage() === 'ar' ? 'تم نسخ الرابط' : 'Link copied');
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const productId = getProductIdFromURL();
+            const product = getProductById(productId);
+            renderProductDetail(product);
+
+            const scrollTo = getScrollToParam();
+            if (scrollTo === 'variants') {
+                setTimeout(() => {
+                    const variantsSection = document.getElementById('variants-section');
+                    if (variantsSection && variantsSection.style.display !== 'none') {
+                        variantsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    } else {
+                        setTimeout(() => {
+                            const variantsSection2 = document.getElementById('variants-section');
+                            if (variantsSection2 && variantsSection2.style.display !== 'none') {
+                                variantsSection2.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            }
+                        }, 1000);
+                    }
+                }, 500);
+            }
+
+            window.addEventListener('cartUpdated', () => {
+                updateProductDetailCartUI();
+                if (currentProduct && currentProduct.variants && currentProduct.variants.length > 0) {
+                    renderVariants(currentProduct);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

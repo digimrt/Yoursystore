@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="سلة التسوق - Yoursy Store">
+    <title>سلة التسوق | Yoursy Store</title>
+
+    <link rel="icon" type="image/png" href="img/logo1.PNG">
+    <link rel="apple-touch-icon" href="img/logo1.PNG">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700;900&family=Inter:wght@400;500;600&family=Outfit:wght@500;700;900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        border: 'var(--border)',
+                        background: 'var(--background)',
+                        foreground: 'var(--foreground)',
+                        primary: { DEFAULT: 'var(--primary)', foreground: 'var(--primary-foreground)' },
+                        secondary: { DEFAULT: 'var(--secondary)', foreground: 'var(--secondary-foreground)' },
+                        accent: { DEFAULT: 'var(--accent)', foreground: 'var(--accent-foreground)' },
+                        muted: { DEFAULT: 'var(--muted)', foreground: 'var(--muted-foreground)' },
+                        card: { DEFAULT: 'var(--card)', foreground: 'var(--card-foreground)' }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Cairo', 'sans-serif'],
+                        heading: ['Outfit', 'Cairo', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/tailwind.css">
+</head>
+
+<body class="bg-background text-foreground min-h-screen">
+    <nav class="navbar" data-testid="navbar">
+        <div class="container">
+            <div class="flex items-center justify-between h-16">
+                <a href="index.html" class="flex items-center gap-2" data-testid="logo">
+                    <img src="img/logo.PNG" alt="Yoursy Store" class="logo-img" style="height: 70px; width: auto;">
+                </a>
+
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="index.html" class="nav-link" data-i18n="nav_home" data-testid="nav-home">الرئيسية</a>
+                    <a href="products.html" class="nav-link" data-i18n="nav_products"
+                        data-testid="nav-products">المنتجات</a>
+                    <a href="contact.html" class="nav-link" data-i18n="nav_contact" data-testid="nav-contact">اتصل
+                        بنا</a>
+                </div>
+
+                <div class="flex items-center gap-3">
+                    <select data-lang-select class="input py-2 px-3 text-sm w-auto bg-secondary cursor-pointer"
+                        data-testid="lang-select">
+                        <option value="ar">العربية</option>
+                        <option value="fr">Français</option>
+                        <option value="en">English</option>
+                    </select>
+
+                    <button onclick="toggleTheme()" data-theme-toggle
+                        class="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center hover:bg-accent hover:text-white transition-colors"
+                        data-testid="theme-toggle">
+                        <i class="fa-regular fa-moon"></i>
+                    </button>
+
+                    <button onclick="toggleMobileMenu()" data-menu-toggle
+                        class="md:hidden w-10 h-10 rounded-lg bg-secondary flex items-center justify-center"
+                        data-testid="mobile-menu-toggle">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <div class="flex flex-col gap-2">
+                    <a href="index.html" class="px-4 py-3 rounded-lg bg-secondary font-medium"
+                        data-i18n="nav_home">الرئيسية</a>
+                    <a href="products.html" class="px-4 py-3 rounded-lg bg-secondary font-medium"
+                        data-i18n="nav_products">المنتجات</a>
+                    <a href="contact.html" class="px-4 py-3 rounded-lg bg-secondary font-medium"
+                        data-i18n="nav_contact">اتصل بنا</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="container py-8 md:py-12">
+        <h1 class="text-3xl md:text-4xl font-bold font-heading mb-8" data-i18n="cart_title">سلة التسوق</h1>
+
+        <div class="grid lg:grid-cols-3 gap-8">
+            <div class="lg:col-span-2">
+                <div id="continue-shopping-top" class="flex justify-between items-center mb-4 hidden">
+                    <h2 class="text-xl font-bold" data-i18n="your_products">منتجاتك</h2>
+                    <a href="products.html" class="px-4 py-2 bg-secondary rounded-lg hover:bg-accent hover:text-white transition-colors flex items-center gap-2">
+                        <i class="fa-solid fa-arrow-right"></i>
+                        <span data-i18n="cart_continue">متابعة التسوق</span>
+                    </a>
+                </div>
+                <div id="cart-items-container" data-testid="cart-items-container"></div>
+
+                <div id="empty-cart" class="hidden text-center py-16" data-testid="empty-cart">
+                    <i class="fa-solid fa-cart-shopping text-6xl text-muted-foreground mb-4"></i>
+                    <h2 class="text-2xl font-bold mb-2" data-i18n="cart_empty">السلة فارغة</h2>
+                    <a href="products.html" class="btn btn-primary" data-testid="continue-shopping">
+                        <i class="fa-solid fa-arrow-right me-2"></i>
+                        <span data-i18n="cart_continue">متابعة التسوق</span>
+                    </a>
+                </div>
+            </div>
+
+            <div id="order-summary" class="lg:sticky lg:top-24 h-fit" data-testid="order-summary">
+                <div class="bg-card border border-border rounded-xl p-6">
+                    <h2 class="text-xl font-bold mb-6" data-i18n="order_summary">ملخص الطلب</h2>
+
+                    <div class="flex justify-between items-center py-3 border-b border-border">
+                        <span class="text-muted-foreground" data-i18n="products_count">عدد المنتجات</span>
+                        <span id="items-count" class="font-medium">0</span>
+                    </div>
+
+                    <div class="flex justify-between items-center py-3 border-b border-border">
+                        <span class="text-lg font-bold" data-i18n="cart_total">المجموع</span>
+                        <span id="total" class="text-2xl font-bold text-accent">0 أوقية</span>
+                    </div>
+
+                    <div class="mt-4 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800 shadow-sm">
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-credit-card text-blue-600 dark:text-blue-400 text-lg"></i>
+                            <div>
+                                <p class="text-sm font-semibold text-blue-700 dark:text-blue-300" data-i18n="payment_notice">ملاحظة: الدفع قبل الاستلام</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="free-shipping-banner"
+                        class="hidden mt-4 p-3 bg-green-100 dark:bg-green-900/30 rounded-lg border border-green-300 dark:border-green-700">
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-truck-fast text-black-600 dark:text-white-400 text-xl"></i>
+                            <div>
+                                <p class="font-bold text-black-700 dark:text-white-300" data-i18n="free_shipping_title">
+                                    توصيل مجاني!</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="shipping-progress" class="mb-4 mt-4">
+                        <div class="w-full bg-muted rounded-full h-2">
+                            <div id="shipping-progress-bar" class="bg-accent h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4 mt-6">
+                        <h3 class="font-bold" data-i18n="checkout_title">طريقة الاستلام</h3>
+
+                        <div class="checkout-option cursor-pointer" onclick="selectDeliveryOption('pickup')"
+                            data-option="pickup" data-testid="checkout-pickup">
+                            <div class="flex items-center gap-3">
+                                <div class="w-5 h-5 rounded-full border-2 border-border flex items-center justify-center" id="pickup-radio">
+                                    <div class="w-3 h-3 rounded-full bg-accent hidden" id="pickup-dot"></div>
+                                </div>
+                                <div>
+                                    <span class="font-medium" data-i18n="checkout_pickup">سأستلم الطلب بنفسي</span>
+                                </div>
+                            </div>
+                            <div id="pickup-info" class="hidden mt-4 p-4 bg-muted rounded-lg">
+                                <p class="text-sm text-muted-foreground mb-2" data-i18n="checkout_store_location">موقع المتجر:</p>
+                                <p class="font-medium flex items-center gap-2">
+                                    <i class="fa-solid fa-location-dot text-accent"></i>
+                                    <span data-i18n="store_location">عين الطلح قرب مجمع الطينطان</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="checkout-option cursor-pointer" onclick="selectDeliveryOption('delivery')"
+                            data-option="delivery" data-testid="checkout-delivery">
+                            <div class="flex items-center gap-3">
+                                <div class="w-5 h-5 rounded-full border-2 border-border flex items-center justify-center" id="delivery-radio">
+                                    <div class="w-3 h-3 rounded-full bg-accent hidden" id="delivery-dot"></div>
+                                </div>
+                                <div>
+                                    <span class="font-medium" data-i18n="checkout_delivery">توصيل للمنزل</span>
+                                </div>
+                            </div>
+                            <div id="delivery-form" class="hidden mt-4">
+                                <label class="block text-sm text-muted-foreground mb-2" data-i18n="checkout_address">العنوان</label>
+                                <textarea id="delivery-address" class="input min-h-[100px] resize-none"
+                                    placeholder="أدخل عنوان التوصيل..."
+                                    data-i18n-placeholder="checkout_address_placeholder"
+                                    data-testid="delivery-address"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button onclick="handleCheckout()" id="checkout-btn"
+                        class="w-full mt-6 py-4 bg-green-600 text-white rounded-lg font-bold text-lg flex items-center justify-center gap-2 hover:bg-green-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                        disabled data-testid="checkout-btn">
+                        <i class="fa-brands fa-whatsapp text-2xl"></i>
+                        <span data-i18n="checkout_send">إرسال الطلب عبر واتساب</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="flex items-center justify-center md:justify-start gap-2 mb-4">
+                        <img src="img/logo.PNG" alt="Yoursy Store" class="logofooter" style="height: 80px; width: auto;">
+                    </div>
+                    <div class="flex gap-4 justify-center md:justify-start">
+                        <a href="https://wa.me/22230764882" target="_blank"
+                            class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-accent hover:text-white"><i
+                                class="fa-brands fa-whatsapp"></i></a>
+                        <a href="https://www.tiktok.com/@yoursystoree" target="_blank"
+                            class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-accent hover:text-white"><i
+                                class="fa-brands fa-tiktok"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-bold mb-4 text-center md:text-right" data-i18n="quick_links">روابط سريعة</h4>
+                    <ul class="space-y-2 text-center md:text-right">
+                        <li><a href="index.html" class="text-muted-foreground hover:text-accent"
+                                data-i18n="nav_home">الرئيسية</a></li>
+                        <li><a href="products.html" class="text-muted-foreground hover:text-accent"
+                                data-i18n="nav_products">المنتجات</a></li>
+                        <li><a href="contact.html" class="text-muted-foreground hover:text-accent"
+                                data-i18n="nav_contact">اتصل بنا</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold mb-4 text-center md:text-right" data-i18n="categories_footer">الفئات</h4>
+                    <ul class="space-y-2 text-center md:text-right">
+                        <li><a href="products.html?category=makeup" class="text-muted-foreground hover:text-accent"
+                                data-i18n="cat_makeup">MAKEUP</a></li>
+                        <li><a href="products.html?category=skincare" class="text-muted-foreground hover:text-accent"
+                                data-i18n="cat_skincare">SKIN CARE</a></li>
+                        <li><a href="products.html?category=perfumes" class="text-muted-foreground hover:text-accent"
+                                data-i18n="cat_perfumes">PERFUMES</a></li>
+                        <li><a href="products.html?category=new" class="text-muted-foreground hover:text-accent"
+                                data-i18n="cat_new">جديد</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold mb-4 text-center md:text-right" data-i18n="contact_us">اتصل بنا</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-3 text-muted-foreground justify-center md:justify-start">
+                            <i class="fa-solid fa-location-dot text-accent"></i>
+                            <span data-i18n="store_location">عين الطلح قرب مجمع الطينطان</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-muted-foreground justify-center md:justify-start">
+                            <i class="fa-brands fa-whatsapp text-accent"></i>
+                            <span dir="ltr">+222 30 76 48 82</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-muted-foreground justify-center md:justify-start">
+                            <i class="fa-brands fa-tiktok text-accent"></i>
+                            <a href="https://www.tiktok.com/@yoursystoree" target="_blank"
+                                class="hover:text-accent">@yoursystoree</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-border mt-8 pt-6 text-center text-muted-foreground">
+                <p>© 2026 Yoursy Store. <span data-i18n="all_rights">جميع الحقوق محفوظة</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="tiktok-modal" class="modal hidden" data-testid="tiktok-modal">
+        <div class="modal-backdrop" onclick="this.parentElement.classList.add('hidden')"></div>
+        <div class="modal-content text-center">
+            <i class="fa-solid fa-exclamation-triangle text-5xl text-warning mb-4"></i>
+            <h3 class="text-xl font-bold mb-2" data-i18n="tiktok_warning">يرجى فتح الرابط في متصفح خارجي</h3>
+            <p class="text-muted-foreground mb-6">للحصول على أفضل تجربة تسوق، يرجى فتح الموقع في متصفح خارجي</p>
+            <button data-open-external class="btn btn-accent w-full" data-testid="tiktok-open-btn">
+                <i class="fa-solid fa-external-link-alt me-2"></i>
+                <span data-i18n="tiktok_open">فتح في المتصفح</span>
+            </button>
+        </div>
+    </div>
+
+    <button id="scroll-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+        class="scroll-to-top opacity-0 pointer-events-none">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <script src="js/translations.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+        const addressField = document.getElementById('delivery-address');
+        if (addressField) {
+            addressField.addEventListener('input', function () {
+                if (typeof updateCheckoutButton === 'function') {
+                    updateCheckoutButton();
+                }
+            });
+        }
+
+        window.addEventListener('cartUpdated', function () {
+            if (typeof renderCartPage === 'function') {
+                renderCartPage();
+            }
+            toggleContinueShoppingButton();
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof renderCartPage === 'function') {
+                renderCartPage();
+            }
+            toggleContinueShoppingButton();
+        });
+
+        function toggleContinueShoppingButton() {
+            const items = getCartItems();
+            const topButton = document.getElementById('continue-shopping-top');
+            if (topButton) {
+                if (items.length > 0) {
+                    topButton.classList.remove('hidden');
+                } else {
+                    topButton.classList.add('hidden');
+                }
+            }
+        }
+
+        console.log('✅ Cart page loaded successfully');
+    </script>
+</body>
+
+</html>

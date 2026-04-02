@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="تصفح منتجاتنا المتنوعة - Yoursy Store">
+    <title>المنتجات | Yoursy Store</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="img/logo1.PNG">
+    <link rel="apple-touch-icon" href="img/logo1.PNG">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700;900&family=Inter:wght@400;500;600&family=Outfit:wght@500;700;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        border: 'var(--border)',
+                        background: 'var(--background)',
+                        foreground: 'var(--foreground)',
+                        primary: { DEFAULT: 'var(--primary)', foreground: 'var(--primary-foreground)' },
+                        secondary: { DEFAULT: 'var(--secondary)', foreground: 'var(--secondary-foreground)' },
+                        accent: { DEFAULT: 'var(--accent)', foreground: 'var(--accent-foreground)' },
+                        muted: { DEFAULT: 'var(--muted)', foreground: 'var(--muted-foreground)' },
+                        card: { DEFAULT: 'var(--card)', foreground: 'var(--card-foreground)' }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Cairo', 'sans-serif'],
+                        heading: ['Outfit', 'Cairo', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/tailwind.css">
+</head>
+
+<body class="bg-background text-foreground min-h-screen">
+    <!-- Navbar -->
+    <nav class="navbar" data-testid="navbar">
+        <div class="container">
+            <div class="flex items-center justify-between h-16">
+                <a href="index.html" class="flex items-center gap-2" data-testid="logo">
+                    <img src="img/logo.PNG" alt="Yoursy Store" class="logo-img" style="height: 70px; width: auto;">
+                </a>
+
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="index.html" class="nav-link" data-i18n="nav_home">الرئيسية</a>
+                    <a href="products.html" class="nav-link active" data-i18n="nav_products">المنتجات</a>
+                    <a href="contact.html" class="nav-link" data-i18n="nav_contact">اتصل بنا</a>
+                </div>
+
+                <div class="flex items-center gap-3">
+                    <select data-lang-select class="input py-2 px-3 text-sm w-auto bg-secondary cursor-pointer">
+                        <option value="ar">العربية</option>
+                        <option value="fr">Français</option>
+                        <option value="en">English</option>
+                    </select>
+
+                    <button onclick="toggleTheme()" data-theme-toggle
+                        class="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center hover:bg-accent hover:text-white transition-colors">
+                        <i class="fa-regular fa-moon"></i>
+                    </button>
+
+                    <button onclick="openCartDrawer()"
+                        class="relative w-10 h-10 rounded-lg bg-secondary flex items-center justify-center hover:bg-accent hover:text-white transition-colors">
+                        <i class="fa-solid fa-shopping-cart"></i>
+                        <span data-cart-count class="cart-badge hidden">0</span>
+                    </button>
+
+                    <button onclick="toggleMobileMenu()" data-menu-toggle
+                        class="md:hidden w-10 h-10 rounded-lg bg-secondary flex items-center justify-center">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <div class="flex flex-col gap-2">
+                    <a href="index.html" class="px-4 py-3 rounded-lg bg-secondary font-medium"
+                        data-i18n="nav_home">الرئيسية</a>
+                    <a href="products.html" class="px-4 py-3 rounded-lg bg-accent text-white font-medium"
+                        data-i18n="nav_products">المنتجات</a>
+                    <a href="contact.html" class="px-4 py-3 rounded-lg bg-secondary font-medium"
+                        data-i18n="nav_contact">اتصل بنا</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="container py-8">
+        <h1 class="text-3xl md:text-4xl font-bold font-heading mb-2" data-i18n="products_title">منتجاتنا</h1>
+    </section>
+
+    <!-- Search & Category Filters -->
+    <section class="container pb-8">
+        <div class="flex flex-col md:flex-row gap-4 md:items-center mb-6">
+            <div class="relative flex-1" data-search-container>
+                <input type="text" id="products-search" class="input py-3 px-4 pe-12 w-full"
+                    placeholder="البحث عن منتجات..." data-i18n-placeholder="search_placeholder"
+                    oninput="handleProductSearch(this.value)" data-testid="products-search-input">
+                <i class="fa-solid fa-search absolute top-1/2 -translate-y-1/2 end-4 text-muted-foreground"></i>
+            </div>
+            <div id="results-count" class="text-muted-foreground" data-testid="results-count"></div>
+        </div>
+
+        <!-- Category Filters (سيتم عرض الفئات بواسطة JavaScript) -->
+        <div id="category-filters" class="category-pills" data-testid="category-filters"></div>
+    </section>
+
+    <!-- Products Grid -->
+    <section class="container pb-16">
+        <div id="products-grid" class="products-grid" data-testid="products-grid"></div>
+
+        <!-- Empty State -->
+        <div id="empty-state" class="hidden text-center py-16" data-testid="empty-state">
+            <i class="fa-solid fa-box-open text-6xl text-muted-foreground mb-4"></i>
+            <h3 class="text-xl font-bold mb-2">لا توجد منتجات</h3>
+            <p class="text-muted-foreground">جرب البحث بكلمات مختلفة أو اختر فئة أخرى</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- القسم الأول: اللوغو والأيقونات -->
+                <div>
+                    <div class="flex items-center justify-center md:justify-start gap-2 mb-4">
+                        <img src="img/logo.PNG" alt="Yoursy Store" class="logofooter" style="height: 80px; width: auto;">
+                    </div>
+                    <div class="flex gap-4 justify-center md:justify-start">
+                        <a href="https://wa.me/22230764882" target="_blank"
+                            class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-accent hover:text-white"><i
+                                class="fa-brands fa-whatsapp"></i></a>
+                        <a href="https://www.tiktok.com/@yoursystoree" target="_blank"
+                            class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-accent hover:text-white"><i
+                                class="fa-brands fa-tiktok"></i></a>
+                    </div>
+                </div>
+
+                <!-- القسم الثاني: روابط سريعة -->
+                <div>
+                    <h4 class="font-bold mb-4 text-center md:text-right" data-i18n="quick_links">روابط سريعة</h4>
+                    <ul class="space-y-2 text-center md:text-right">
+                        <li><a href="index.html" class="text-muted-foreground hover:text-accent"
+                                data-i18n="nav_home">الرئيسية</a></li>
+                        <li><a href="products.html" class="text-muted-foreground hover:text-accent"
+                                data-i18n="nav_products">المنتجات</a></li>
+                        <li><a href="contact.html" class="text-muted-foreground hover:text-accent"
+                                data-i18n="nav_contact">اتصل بنا</a></li>
+                    </ul>
+                </div>
+
+                <!-- القسم الثالث: الفئات -->
+                <div>
+                    <h4 class="font-bold mb-4 text-center md:text-right" data-i18n="categories_footer">الفئات</h4>
+                    <ul class="space-y-2 text-center md:text-right">
+                        <li><a href="products.html?category=makeup" class="text-muted-foreground hover:text-accent"
+                                data-i18n="make_up">MAKEUP</a></li>
+                        <li><a href="products.html?category=skincare" class="text-muted-foreground hover:text-accent"
+                                data-i18n="skin_care"></a></li>
+                        <li><a href="products.html?category=perfumes" class="text-muted-foreground hover:text-accent"
+                                data-i18n="par_fums">PERFUMES</a></li>
+                        <li><a href="products.html?category=new" class="text-muted-foreground hover:text-accent"
+                                data-i18n="cat_new">جديد</a></li>
+                    </ul>
+                </div>
+
+                <!-- القسم الرابع: اتصل بنا -->
+                <div>
+                    <h4 class="font-bold mb-4 text-center md:text-right" data-i18n="contact_us">اتصل بنا</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-3 text-muted-foreground justify-center md:justify-start">
+                            <i class="fa-solid fa-location-dot text-accent"></i>
+                            <span data-i18n="store_address">عين الطلح قرب مجمع الطينطان</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-muted-foreground justify-center md:justify-start">
+                            <i class="fa-brands fa-whatsapp text-accent"></i>
+                            <span dir="ltr">+222 30 76 48 82</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-muted-foreground justify-center md:justify-start">
+                            <i class="fa-brands fa-tiktok text-accent"></i>
+                            <a href="https://www.tiktok.com/@yoursystoree" target="_blank"
+                                class="hover:text-accent">@yoursystoree</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="border-t border-border mt-8 pt-6 text-center text-muted-foreground">
+                <p>© 2026 Yoursy Store. <span data-i18n="all_rights">جميع الحقوق محفوظة</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Drawer -->
+    <div id="cart-overlay" class="cart-overlay hidden" onclick="closeCartDrawer()"></div>
+    <div id="cart-drawer" class="cart-drawer translate-x-full">
+        <div class="h-full flex flex-col p-6">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-xl font-bold" data-i18n="cart_title">سلة التسوق</h3>
+                <button onclick="closeCartDrawer()"
+                    class="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center hover:bg-accent hover:text-white transition-colors">
+                    <i class="fa-solid fa-times"></i>
+                </button>
+            </div>
+            <div id="cart-drawer-content" class="flex-1 overflow-y-auto"></div>
+        </div>
+    </div>
+
+    <!-- Scroll to Top -->
+    <button id="scroll-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+        class="scroll-to-top opacity-0 pointer-events-none">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="js/translations.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+        // لا حاجة لإضافة كود إضافي هنا، حيث أن main.js يتولى كل شيء
+        // الفئة "جديد" تمت إضافتها في products.js و main.js
+    </script>
+</body>
+
+</html>
