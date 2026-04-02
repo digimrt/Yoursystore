@@ -47,43 +47,84 @@
 </head>
 
 <body class="bg-background text-foreground min-h-screen">
+     <!-- Navbar -->
     <nav class="navbar" data-testid="navbar">
         <div class="container">
             <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
                 <a href="index.html" class="flex items-center gap-2" data-testid="logo">
-                    <img src="img/logo.PNG" alt="Yoursy Store" class="logo-img" style="height: 45px; width: auto;">
+                    <img src="img/logo.PNG" alt="Yoursy Store" class="logo-img" style="height: 70px; width: auto;">
                 </a>
+
+                <!-- Desktop Navigation -->
                 <div class="hidden md:flex items-center gap-8">
-                    <a href="index.html" class="nav-link" data-i18n="nav_home">الرئيسية</a>
-                    <a href="products.html" class="nav-link active" data-i18n="nav_products">المنتجات</a>
-                    <a href="contact.html" class="nav-link" data-i18n="nav_contact">اتصل بنا</a>
+                    <a href="index.html" class="nav-link active" data-i18n="nav_home"
+                        data-testid="nav-home">الرئيسية</a>
+                    <a href="products.html" class="nav-link" data-i18n="nav_products"
+                        data-testid="nav-products">المنتجات</a>
+                    <a href="contact.html" class="nav-link" data-i18n="nav_contact" data-testid="nav-contact">اتصل
+                        بنا</a>
                 </div>
+
+                <!-- Right Actions -->
                 <div class="flex items-center gap-3">
-                    <select data-lang-select class="input py-2 px-3 text-sm w-auto bg-secondary cursor-pointer">
+                    <!-- Search (Desktop) -->
+                    <div class="hidden md:block relative" data-search-container>
+                        <input type="text" class="input py-2 px-4 pe-10 w-64 text-sm" placeholder="البحث عن منتجات..."
+                            data-i18n-placeholder="search_placeholder" oninput="handleSearch(this)"
+                            data-testid="search-input">
+                        <i class="fa-solid fa-search absolute top-1/2 -translate-y-1/2 end-3 text-muted-foreground"></i>
+                    </div>
+
+                    <!-- Language Selector -->
+                    <select data-lang-select class="input py-2 px-3 text-sm w-auto bg-secondary cursor-pointer"
+                        data-testid="lang-select">
                         <option value="ar">العربية</option>
                         <option value="fr">Français</option>
                         <option value="en">English</option>
                     </select>
+
+                    <!-- Theme Toggle -->
                     <button onclick="toggleTheme()" data-theme-toggle
-                        class="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center hover:bg-accent hover:text-white transition-colors">
+                        class="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center hover:bg-accent hover:text-white transition-colors"
+                        data-testid="theme-toggle">
                         <i class="fa-regular fa-moon"></i>
                     </button>
+
+                    <!-- Cart Button -->
                     <button onclick="openCartDrawer()"
-                        class="relative w-10 h-10 rounded-lg bg-secondary flex items-center justify-center hover:bg-accent hover:text-white transition-colors">
+                        class="relative w-10 h-10 rounded-lg bg-secondary flex items-center justify-center hover:bg-accent hover:text-white transition-colors"
+                        data-testid="cart-btn">
                         <i class="fa-solid fa-shopping-cart"></i>
                         <span data-cart-count class="cart-badge hidden">0</span>
                     </button>
+
+                    <!-- Mobile Menu Toggle -->
                     <button onclick="toggleMobileMenu()" data-menu-toggle
-                        class="md:hidden w-10 h-10 rounded-lg bg-secondary flex items-center justify-center">
+                        class="md:hidden w-10 h-10 rounded-lg bg-secondary flex items-center justify-center"
+                        data-testid="mobile-menu-toggle">
                         <i class="fa-solid fa-bars"></i>
                     </button>
                 </div>
             </div>
+
+            <!-- Mobile Navigation -->
             <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <!-- Mobile Search -->
+                <div class="relative mb-4" data-search-container>
+                    <input type="text" class="input py-3 px-4 pe-10 w-full" placeholder="البحث عن منتجات..."
+                        data-i18n-placeholder="search_placeholder" oninput="handleSearch(this)"
+                        data-testid="mobile-search-input">
+                    <i class="fa-solid fa-search absolute top-1/2 -translate-y-1/2 end-4 text-muted-foreground"></i>
+                </div>
+
                 <div class="flex flex-col gap-2">
-                    <a href="index.html" class="px-4 py-3 rounded-lg bg-secondary font-medium">الرئيسية</a>
-                    <a href="products.html" class="px-4 py-3 rounded-lg bg-accent text-white font-medium">المنتجات</a>
-                    <a href="contact.html" class="px-4 py-3 rounded-lg bg-secondary font-medium">اتصل بنا</a>
+                    <a href="index.html" class="px-4 py-3 rounded-lg bg-accent text-white font-medium"
+                        data-i18n="nav_home">الرئيسية</a>
+                    <a href="products.html" class="px-4 py-3 rounded-lg bg-secondary font-medium"
+                        data-i18n="nav_products">المنتجات</a>
+                    <a href="contact.html" class="px-4 py-3 rounded-lg bg-secondary font-medium"
+                        data-i18n="nav_contact">اتصل بنا</a>
                 </div>
             </div>
         </div>
@@ -201,7 +242,8 @@
             <div class="footer-grid">
                 <div>
                     <div class="flex items-center justify-center md:justify-start gap-2 mb-4">
-                        <img src="img/logo.PNG" alt="Yoursy Store" class="logofooter" style="height: 80px; width: auto;">
+                        <img src="img/logo.PNG" alt="Yoursy Store" class="logofooter"
+                            style="height: 80px; width: auto;">
                     </div>
                     <div class="flex gap-4 justify-center md:justify-start">
                         <a href="https://wa.me/22230764882" target="_blank"
@@ -686,6 +728,34 @@
                 }
             });
         });
+        // تحديث ترجمة القائمة المتنقلة يدوياً
+function fixMobileMenuTranslation() {
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (!mobileMenu) return;
+    
+    const homeLink = mobileMenu.querySelector('a[href="index.html"]');
+    const productsLink = mobileMenu.querySelector('a[href="products.html"]');
+    const contactLink = mobileMenu.querySelector('a[href="contact.html"]');
+    
+    if (homeLink) homeLink.textContent = t('nav_home');
+    if (productsLink) productsLink.textContent = t('nav_products');
+    if (contactLink) contactLink.textContent = t('nav_contact');
+}
+
+// استدعاء الدالة عند تحميل الصفحة
+document.addEventListener('DOMContentLoaded', function() {
+    fixMobileMenuTranslation();
+});
+
+// استدعاء الدالة عند تغيير اللغة
+window.addEventListener('languageChanged', function() {
+    fixMobileMenuTranslation();
+});
+
+// استدعاء الدالة عند فتح القائمة
+document.querySelector('[data-menu-toggle]')?.addEventListener('click', function() {
+    setTimeout(fixMobileMenuTranslation, 50);
+});
     </script>
 </body>
 

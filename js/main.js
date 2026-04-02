@@ -57,6 +57,14 @@ function toggleMobileMenu() {
     
     if (mobileMenu) {
         mobileMenu.classList.toggle('hidden');
+        
+        // تحديث الترجمة عند فتح القائمة (لأنها كانت مخفية)
+        if (!mobileMenu.classList.contains('hidden')) {
+            if (typeof updatePageTranslations === 'function') {
+                updatePageTranslations();
+            }
+        }
+        
         if (menuIcon) {
             menuIcon.classList.toggle('fa-bars');
             menuIcon.classList.toggle('fa-times');
