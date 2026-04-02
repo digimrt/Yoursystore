@@ -72,6 +72,19 @@ const productsData = [
             { id: "blush_hope", name: { ar: "Hope", fr: "Hope", en: "Hope" }, price: 200, image: "img/hope.JPG", inStock: true },
             { id: "blush_happy", name: { ar: "Happy", fr: "Happy", en: "Happy" }, price: 200, image: "img/happy.JPG", inStock: true },
             { id: "blush_bliss", name: { ar: "Bliss", fr: "Bliss", en: "Bliss" }, price: 200, image: "img/bliss.JPG", inStock: true },
+        ]
+    },
+    {
+        id: "rhode_collection",
+        name: { ar: "Rhode", fr: "Rhode", en: "Rhode" },
+        price: 200,
+        originalPrice: null,
+        image: "img/toasted-teddy.JPG",
+        category: "makeup",
+        description: { ar: "", fr: "", en: "" },
+        inStock: true,
+        isNew: false,
+        variants: [
             { id: "blush_toastedteddy", name: { ar: "Toasted Teddy", fr: "Toasted Teddy", en: "Toasted Teddy" }, price: 200, image: "img/toasted-teddy.JPG", inStock: true },
             { id: "blush_freckle", name: { ar: "Freckle", fr: "Freckle", en: "Freckle" }, price: 200, image: "img/freckle.JPG", inStock: true },
             { id: "blush_juicebox", name: { ar: "Juice Box", fr: "Juice Box", en: "Juice Box" }, price: 200, image: "img/juice-box.JPG", inStock: true },
@@ -148,7 +161,8 @@ const productsData = [
         isNew: false,
         variants: [
             { id: "vaseline_original", name: { ar: "Original", fr: "Original", en: "Original" }, price: 200, image: "img/Vaselineoriginal.JPG", inStock: true },
-            { id: "vaseline_cacaobutter", name: { ar: "Cacao Butter", fr: "Cacao Butter", en: "Cacao Butter" }, price: 200, image: "img/cacaobutter.JPG", inStock: true }
+            { id: "vaseline_cacaobutter", name: { ar: "Cacao Butter", fr: "Cacao Butter", en: "Cacao Butter" }, price: 200, image: "img/cacaobutter.JPG", inStock: true },
+            { id: "vaseline_rosylips", name: { ar: "Rosy Lips", fr: "Rosy Lips", en: "Rosy Lips" }, price: 200, image: "img/vaseline.JPG", inStock: true }
         ]
     },
 
