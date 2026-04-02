@@ -257,7 +257,7 @@ const productsData = [
     // ============ INDIVIDUAL MAKEUP PRODUCTS ============
     {
         id: "mascara_curl",
-        name: { ar: "Mascara curl & volume", fr: "Mascara curl & volume", en: "Mascara curl & volume" },
+        name: { ar: "Mascara curl and volume", fr: "Mascara curl and volume", en: "Mascara curl and volume" },
         price: 400,
         originalPrice: null,
         image: "img/mascaracurl.JPG",
@@ -269,7 +269,7 @@ const productsData = [
     {
         id: "gel_got2b",
         name: { ar: "Gel Got2b", fr: "Gel Got2b", en: "Gel Got2b" },
-        price: 250,
+        price: 320,
         originalPrice: null,
         image: "img/gelgot2b.JPG",
         category: "makeup",
