@@ -401,11 +401,12 @@
 
             // All Products - عرض أول 8 منتجات فقط
             const allProductsContainer = document.getElementById('all-products');
-            if (allProductsContainer) {
-                const allProducts = getAllProducts();
-                const limitedProducts = allProducts.slice(0, 8);
-                allProductsContainer.innerHTML = limitedProducts.map(p => renderProductCard(p)).join('');
-            }
+if (allProductsContainer) {
+    // عرض جميع المنتجات ما عدا الجديدة (isNew)
+    const allProducts = getAllProducts().filter(p => p.isNew !== true);
+    const limitedProducts = allProducts.slice(0, 8);
+    allProductsContainer.innerHTML = limitedProducts.map(p => renderProductCard(p)).join('');
+}
 
             updateCartUI();
         });

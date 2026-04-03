@@ -303,6 +303,17 @@ const productsData = [
         isNew: false
     },
     {
+        id: "mini_setmusk",
+        name: { ar: "mini set musk ibraq", fr: "mini set musk ibraq", en: "mini set musk ibraq" },
+        price: 1300,
+        originalPrice: null,
+        image: "img/minisetmuskibraq.JPG",
+        category: "perfumes",
+        description: { ar: "", fr: "", en: "" },
+        comingSoon: true,
+        isNew: false
+    },
+    {
         id: "lipstick_tint",
         name: { ar: "Lipstick Tint", fr: "Lipstick Tint", en: "Lipstick Tint" },
         price: 150,
@@ -485,10 +496,11 @@ const productsData = [
 
 // ============ FUNCTIONS ============
 function getAllProducts() { 
-    // المنتجات الجديدة أولاً، ثم الباقي مع الحفاظ على ترتيبهم الأصلي
-    const newProducts = productsData.filter(p => p.isNew === true);
-    const oldProducts = productsData.filter(p => p.isNew !== true);
-    return [...newProducts, ...oldProducts];
+    // الترتيب: comingSoon أولاً، ثم isNew، ثم الباقي
+    const comingSoonProducts = productsData.filter(p => p.comingSoon === true);
+    const newProducts = productsData.filter(p => p.isNew === true && p.comingSoon !== true);
+    const otherProducts = productsData.filter(p => p.isNew !== true && p.comingSoon !== true);
+    return [...comingSoonProducts, ...newProducts, ...otherProducts];
 }
 
 function getProductById(id) {
