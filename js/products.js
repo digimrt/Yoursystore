@@ -35,7 +35,7 @@ const productsData = [
         inStock: true,
         isNew: false,
         variants: [
-            { id: "summer_rosewood", name: { ar: "Rosewood Nights", fr: "Rosewood Nights", en: "Rosewood Nights" }, price: 200, image: "img/rosewood-nights.JPG", inStock: true },
+            { id: "summer_rosewood", name: { ar: "Rosewood Nights", fr: "Rosewood Nights", en: "Rosewood Nights" }, price: 200, image: "img/rosewood-nights.JPG", inStock: false },
             { id: "summer_softmauve", name: { ar: "Soft Mauve", fr: "Soft Mauve", en: "Soft Mauve" }, price: 200, image: "img/soft-mauve.JPG", inStock: true },
             { id: "summer_pinkcloud", name: { ar: "Pink Cloud", fr: "Pink Cloud", en: "Pink Cloud" }, price: 200, image: "img/pinkcloud.JPG", inStock: true },
             { id: "summer_blushdreams", name: { ar: "Blush Dreams", fr: "Blush Dreams", en: "Blush Dreams" }, price: 200, image: "img/blush-dreams.JPG", inStock: true }
