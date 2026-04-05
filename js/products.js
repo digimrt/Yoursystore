@@ -5,10 +5,10 @@ const productsData = [
     // ============ MAKEUP - LIP GLOSS (منتج رئيسي مع متغيرات) ============
     {
         id: "lipgloss_collection",
-        name: { ar: "Lip Gloss", fr: "Lip Gloss", en: "Lip Gloss" },
+        name: { ar: "Lip Balm Rhode", fr: "Lip Balm Rhode", en: "Lip Balm Rhode" },
         price: 200,
         originalPrice: null,
-        image: "img/salty-tan.JPG",
+        image: "img/lipbalmrhode.JPG",
         category: "makeup",
         description: { ar: "", fr: "", en: "" },
         inStock: true,
@@ -29,7 +29,7 @@ const productsData = [
         name: { ar: "Summer Fridays", fr: "Summer Fridays", en: "Summer Fridays" },
         price: 200,
         originalPrice: null,
-        image: "img/rosewood-nights.JPG",
+        image: "img/summerfridaysbeauty.PNG",
         category: "makeup",
         description: { ar: "", fr: "", en: "" },
         inStock: true,
@@ -43,10 +43,10 @@ const productsData = [
     },
     {
         id: "rare_beauty_collection",
-        name: { ar: "Rare Beauty", fr: "Rare Beauty", en: "Rare Beauty" },
+        name: { ar: "Highlighter Rare Beauty", fr: "Highlighter Rare Beauty", en: "Highlighter Rare Beauty" },
         price: 300,
         originalPrice: null,
-        image: "img/enlighten.JPG",
+        image: "img/highlighterrarebeauty.JPG",
         category: "makeup",
         description: { ar: "", fr: "", en: "" },
         inStock: true,
@@ -59,10 +59,10 @@ const productsData = [
     },
     {
         id: "blush_collection",
-        name: { ar: "Blush", fr: "Blush", en: "Blush" },
+        name: { ar: "Rare Beauty Blush", fr: "Rare Beauty Blush", en: "Rare Beauty Blush" },
         price: 200,
         originalPrice: null,
-        image: "img/encourage.JPG",
+        image: "img/rarebeautyblushes.JPG",
         category: "makeup",
         description: { ar: "", fr: "", en: "" },
         inStock: true,
@@ -76,10 +76,10 @@ const productsData = [
     },
     {
         id: "rhode_collection",
-        name: { ar: "Rhode", fr: "Rhode", en: "Rhode" },
+        name: { ar: "Rhode Blush", fr: "Rhode Blush", en: "Rhode Blush" },
         price: 200,
         originalPrice: null,
-        image: "img/toasted-teddy.JPG",
+        image: "img/blushrhodes.JPG",
         category: "makeup",
         description: { ar: "", fr: "", en: "" },
         inStock: true,
@@ -151,10 +151,10 @@ const productsData = [
     },
     {
         id: "vaseline",
-        name: { ar: "Vaseline", fr: "Vaseline", en: "Vaseline" },
+        name: { ar: "Vaseline Lip Balm", fr: "Vaseline Lip Balm", en: "Vaseline Lip Balm" },
         price: 200,
         originalPrice: null,
-        image: "img/Vaselineoriginal.JPG",
+        image: "img/lipbalmvaseline.JPG",
         category: "skincare",
         description: { ar: "", fr: "", en: "" },
         inStock: true,
@@ -167,6 +167,50 @@ const productsData = [
     },
 
     // ============ SKIN CARE PRODUCTS ============
+    {
+        id: "mascara_waterprof",
+        name: { ar: "Mascara waterproof", fr: "Mascara waterproof", en: "Mascara waterproof" },
+        price: 400,
+        originalPrice: null,
+        image: "img/mascarawaterproof.JPG",
+        category: "makeup",
+        description: { ar: "", fr: "", en: "" },
+        inStock: true,
+        isNew: true
+    },
+    {
+        id: "mini_setmusk",
+        name: { ar: "Set Musk Ibraq", fr: "Set Musk Ibraq", en: "Set Musk Ibraq" },
+        price: 1400,
+        originalPrice: null,
+        image: "img/minisetmuskibraq.JPG",
+        category: "perfumes",
+        description: { ar: "حجم الزجاجة:30ml", fr: "Falcon de 30ml", en: "30ml bottle" },
+        inStock: true,
+        isNew: true
+    },
+    {
+        id: "body_butterglow",
+        name: { ar: "In The Night", fr: "In The Night", en: "In The Night" },
+        price: 900,
+        originalPrice: null,
+        image: "img/intonight.JPG",
+        category: "perfumes",
+        description: { ar: "", fr: "", en: "" },
+        inStock: true,
+        isNew: true
+    },
+    {
+        id: "body_butterglowstar",
+        name: { ar: "In The Stars", fr: "In The Stars", en: "In The Stars" },
+        price: 900,
+        originalPrice: null,
+        image: "img/intostar.JPG",
+        category: "perfumes",
+        description: { ar: "", fr: "", en: "" },
+        inStock: true,
+        isNew: true
+    },
     {
         id: "clear_butt_cream",
         name: { ar: "Clear Butt Cream", fr: "Clear Butt Cream", en: "Clear Butt Cream" },
@@ -292,28 +336,6 @@ const productsData = [
         isNew: false
     },
     {
-        id: "mascara_waterprof",
-        name: { ar: "Mascara waterproof", fr: "Mascara waterproof", en: "Mascara waterproof" },
-        price: 400,
-        originalPrice: null,
-        image: "img/mascarawaterproof.JPG",
-        category: "makeup",
-        description: { ar: "", fr: "", en: "" },
-        comingSoon: true,
-        isNew: false
-    },
-    {
-        id: "mini_setmusk",
-        name: { ar: "mini set musk ibraq", fr: "mini set musk ibraq", en: "mini set musk ibraq" },
-        price: 1300,
-        originalPrice: null,
-        image: "img/minisetmuskibraq.JPG",
-        category: "perfumes",
-        description: { ar: "", fr: "", en: "" },
-        comingSoon: true,
-        isNew: false
-    },
-    {
         id: "lipstick_tint",
         name: { ar: "Lipstick Tint", fr: "Lipstick Tint", en: "Lipstick Tint" },
         price: 150,
@@ -384,7 +406,7 @@ const productsData = [
             fr: "C'est la gamme de base et apaisante pour la peau. Elle se concentre sur la réparation de la barrière cutanée et le traitement des rougeurs et des sensibilités.\n\nFonction : Hydrater, apaiser et réparer.\n\nIngrédient clé : Extrait pur de centella asiatica.\n\nConvient à : Tous les types de peau, surtout les peaux sensibles et abîmées.",
             en: "This is the basic and soothing skincare line. It focuses on repairing the skin barrier and treating redness and sensitivity.\n\nFunction: Hydrate, soothe, and repair.\n\nKey ingredient: Pure centella asiatica extract.\n\nSuitable for: All skin types, especially sensitive and damaged skin."
         },
-        inStock: false,
+        inStock: true,
         isNew: false
     },
     {
@@ -444,7 +466,7 @@ const productsData = [
             fr: "Cette gamme unifie le teint et élimine les pigmentation et les marques d'acné.\n\nFonction : Éclaircir les taches sombres, unifier le teint et donner de l'éclat.\n\nIngrédient clé : Madécassoside et niacinamide.\n\nConvient à : Les peaux souffrant de pigmentation et de ternissement.",
             en: "This line evens out skin tone and eliminates pigmentation and acne scars.\n\nFunction: Brighten dark spots, even out skin tone, and give radiance.\n\nKey ingredient: Madecassoside and niacinamide.\n\nSuitable for: Skin suffering from pigmentation and dullness."
         },
-        inStock: false,
+        inStock: true,
         isNew: false
     },
     {
@@ -459,7 +481,7 @@ const productsData = [
             fr: "La marque \"Purito\" se concentre sur des ingrédients propres et sûrs pour renforcer la barrière cutanée.\n\nFonction : Nourrir la peau, renforcer la barrière naturelle et fournir des soins quotidiens équilibrés.\n\nIngrédients clés : Panthénol, centella et extraits de plantes apaisants.\n\nConvient à : Les peaux sensibles qui ont besoin d'une nutrition profonde.",
             en: "The \"Purito\" brand focuses on clean and safe ingredients to strengthen the skin barrier.\n\nFunction: Nourish the skin, strengthen the natural barrier, and provide balanced daily care.\n\nKey ingredients: Panthenol, centella, and soothing plant extracts.\n\nSuitable for: Sensitive skin that needs deep nourishment."
         },
-        inStock: false,
+        inStock: true,
         isNew: false
     },
     {
