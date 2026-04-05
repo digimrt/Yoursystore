@@ -10,9 +10,9 @@ function getCart() {
         if (!cart) return [];
         const parsedCart = JSON.parse(cart);
         return Array.isArray(parsedCart) ? parsedCart : [];
-    } catch (e) { 
+    } catch (e) {
         console.error('Error reading cart:', e);
-        return []; 
+        return [];
     }
 }
 
@@ -22,12 +22,12 @@ function saveCart(cart) {
         localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(validCart));
         updateCartUI();
         dispatchCartEvent();
-    } catch (e) { 
+    } catch (e) {
         console.error('Error saving cart:', e);
     }
 }
 
-function clearCart() { 
+function clearCart() {
     saveCart([]);
     showToast(t('cart_cleared') || 'تم تفريغ السلة');
 }
@@ -148,7 +148,7 @@ function getCartItems() {
         let variantName = item.variantName;
         let effectivePrice = item.price || product.price;
         let variantImage = item.image || product.image;
-        
+
         if (item.variantId) {
             variant = getVariantById(item.id, item.variantId);
             if (variant) {
@@ -157,13 +157,14 @@ function getCartItems() {
                 variantImage = variant.image || product.image;
             }
         }
-        
+
         return {
             ...product,
             id: product.id,
             variantId: item.variantId,
             variant: variant,
             variantName: variantName,
+            subtitle: product.subtitle,
             quantity: item.quantity,
             price: effectivePrice,
             image: variantImage
@@ -194,16 +195,16 @@ function updateFreeShippingUI(total) {
     const freeBanner = document.getElementById('free-shipping-banner');
     const shippingProgress = document.getElementById('shipping-progress');
     const progressBar = document.getElementById('shipping-progress-bar');
-    
+
     if (!freeBanner || !shippingProgress) return;
-    
+
     const isEligible = getFreeShippingStatus(total);
     const percentage = Math.min(100, (total / FREE_SHIPPING_THRESHOLD) * 100);
-    
+
     if (progressBar) {
         progressBar.style.width = `${percentage}%`;
     }
-    
+
     if (isEligible) {
         freeBanner.classList.remove('hidden');
         shippingProgress.classList.add('hidden');
@@ -230,16 +231,16 @@ function updateCartUI() {
             badge.style.display = 'none';
         }
     });
-    
+
     document.querySelectorAll('[data-product-id]').forEach(container => {
         const productId = container.getAttribute('data-product-id');
         const variantId = container.getAttribute('data-variant-id') || null;
         const quantity = getCartItemQuantity(productId, variantId);
-        
+
         const addBtn = container.querySelector('[data-add-btn]');
         const qtyControls = container.querySelector('[data-qty-controls]');
         const qtyDisplay = container.querySelector('[data-qty-display]');
-        
+
         if (addBtn && qtyControls) {
             if (quantity > 0) {
                 addBtn.classList.add('hidden');
@@ -251,11 +252,11 @@ function updateCartUI() {
             }
         }
     });
-    
+
     if (typeof renderCartPage === 'function') {
         renderCartPage();
     }
-    
+
     const drawer = document.getElementById('cart-drawer');
     if (drawer && drawer.classList.contains('open') && typeof renderCartDrawer === 'function') {
         renderCartDrawer();
@@ -267,32 +268,33 @@ function buildWhatsAppMessage(deliveryType, address = '') {
     const lang = getCurrentLanguage();
     const total = getCartTotal();
     const isFreeShipping = getFreeShippingStatus(total);
-    
+
     let message = '';
-    
+
     if (lang === 'ar') message = 'السلام عليكم، أريد طلب المنتجات التالية:%0A%0A';
     else if (lang === 'fr') message = 'Bonjour, je voudrais commander les produits suivants:%0A%0A';
     else message = 'Hello, I would like to order the following products:%0A%0A';
-    
+
     items.forEach(item => {
-        const name = getProductName(item);
-        const variantText = item.variantName ? ` (${item.variantName})` : '';
-        message += `• ${name}${variantText} x${item.quantity} - ${formatPrice(item.price * item.quantity)}%0A`;
-    });
-    
+    let name = getProductName(item);
+    const subtitle = item.subtitle ? ` (${getProductSubtitle(item)})` : '';
+    const variantText = item.variantName ? ` [${item.variantName}]` : '';
+    message += `• ${name}${subtitle}${variantText} x${item.quantity} - ${formatPrice(item.price * item.quantity)}%0A`;
+});
+
     message += '%0A';
-    
+
     if (isFreeShipping) {
         if (lang === 'ar') message += `✨ ملاحظة: التوصيل مجاني ✨%0A`;
         else if (lang === 'fr') message += `✨ Note: Livraison gratuite ✨%0A`;
         else message += `✨ Note: Free shipping ✨%0A`;
         message += '%0A';
     }
-    
+
     if (lang === 'ar') message += `المجموع: ${formatPrice(total)}%0A%0A`;
     else if (lang === 'fr') message += `Total: ${formatPrice(total)}%0A%0A`;
     else message += `Total: ${formatPrice(total)}%0A%0A`;
-    
+
     if (deliveryType === 'pickup') {
         if (lang === 'ar') message += `طريقة الاستلام: سأستلم الطلب من المتجر%0Aالعنوان: عين الطلح قرب مجمع الطينطان`;
         else if (lang === 'fr') message += `Méthode de livraison: Je récupérerai ma commande au magasin%0AAdresse: Ain Talh, près du complexe Tintane`;
@@ -311,7 +313,7 @@ function sendToWhatsApp(deliveryType, address = '') {
         showToast(t('cart_empty'), 'error');
         return;
     }
-    
+
     const message = buildWhatsAppMessage(deliveryType, address);
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
     if (isTikTokBrowser()) showTikTokWarning(url);
@@ -342,16 +344,16 @@ function showTikTokWarning(url) {
 function showToast(message, type = 'success') {
     const existingToasts = document.querySelectorAll('.toast-notification');
     existingToasts.forEach(toast => toast.remove());
-    
+
     const toast = document.createElement('div');
     toast.className = `toast-notification fixed bottom-4 ${getCurrentLanguage() === 'ar' ? 'left-4' : 'right-4'} z-50 px-6 py-3 rounded-lg shadow-lg transform transition-all duration-300 translate-y-full opacity-0`;
     if (type === 'success') toast.classList.add('bg-green-600', 'text-white');
     else if (type === 'error') toast.classList.add('bg-red-600', 'text-white');
     else toast.classList.add('bg-gray-800', 'text-white', 'dark:bg-gray-200', 'dark:text-gray-800');
-    
+
     toast.innerHTML = `<div class="flex items-center gap-2"><i class="fa-solid ${type === 'success' ? 'fa-check-circle' : type === 'error' ? 'fa-exclamation-circle' : 'fa-info-circle'}"></i><span>${message}</span></div>`;
     document.body.appendChild(toast);
-    
+
     requestAnimationFrame(() => toast.classList.remove('translate-y-full', 'opacity-0'));
     setTimeout(() => {
         toast.classList.add('translate-y-full', 'opacity-0');

@@ -391,7 +391,7 @@ const productsData = [
         image: "img/pack-daily-scent.JPG",
         category: "perfumes",
         description: { ar: "", fr: "", en: "" },
-        inStock: true,
+        inStock: false,
         isNew: false
     },
 
