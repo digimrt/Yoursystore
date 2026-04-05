@@ -164,7 +164,7 @@ function getCartItems() {
             variantId: item.variantId,
             variant: variant,
             variantName: variantName,
-            subtitle: product.subtitle,
+            subtitle: (product.variants && product.variants.length > 0) ? null : product.subtitle,
             quantity: item.quantity,
             price: effectivePrice,
             image: variantImage
@@ -277,9 +277,16 @@ function buildWhatsAppMessage(deliveryType, address = '') {
 
     items.forEach(item => {
     let name = getProductName(item);
-    const subtitle = item.subtitle ? ` (${getProductSubtitle(item)})` : '';
+    let subtitleText = '';
+    // فقط المنتجات التي ليس لها variants تظهر subtitle
+    if ((!item.variants || item.variants.length === 0) && item.subtitle) {
+        const sub = getProductSubtitle(item);
+        if (sub && sub.trim() !== '') {
+            subtitleText = ` (${sub})`;
+        }
+    }
     const variantText = item.variantName ? ` [${item.variantName}]` : '';
-    message += `• ${name}${subtitle}${variantText} x${item.quantity} - ${formatPrice(item.price * item.quantity)}%0A`;
+    message += `• ${name}${subtitleText}${variantText} x${item.quantity} - ${formatPrice(item.price * item.quantity)}%0A`;
 });
 
     message += '%0A';

@@ -325,7 +325,11 @@ function renderCartDrawer() {
         <div class="flex gap-3 p-3 bg-muted rounded-lg">
             <img src="${item.image}" alt="${getProductName(item)}${item.variantName ? ` - ${item.variantName}` : ''}" class="w-20 h-20 object-cover rounded">
             <div class="flex-1 min-w-0">
-                <h4 class="font-medium truncate">${getProductName(item)}${item.subtitle ? ` - ${getProductSubtitle(item)}` : ''}${item.variantName ? ` (${item.variantName})` : ''}</h4>
+                <h4 class="font-medium truncate">
+    ${getProductName(item)}
+    ${(!item.variants || item.variants.length === 0) && item.subtitle ? ` - ${getProductSubtitle(item)}` : ''}
+    ${item.variantName ? ` (${item.variantName})` : ''}
+</h4>
                 <p class="text-accent font-bold">${formatPrice(item.price)}</p>
                 <div class="flex items-center gap-2 mt-2">
                     <button onclick="decrementQuantity('${item.id}', '${item.variantId || ''}')" class="w-8 h-8 rounded bg-secondary flex items-center justify-center hover:bg-accent hover:text-white"><i class="fa-solid fa-minus text-xs"></i></button>
@@ -347,7 +351,7 @@ function renderCartDrawer() {
 }
 
 // ============ PAGE: CART ============
-let selectedDeliveryOption = null;
+let selectedDeliveryOption = 'delivery';
 
 function renderCartPage() {
     const items = getCartItems();
@@ -371,7 +375,7 @@ function renderCartPage() {
             <a href="product.html?id=${item.id}" class="shrink-0"><img src="${item.image}" alt="${getProductName(item)}${item.variantName ? ` - ${item.variantName}` : ''}" class="w-24 h-24 md:w-32 md:h-32 object-cover rounded-lg"></a>
             <div class="flex-1 min-w-0">
                 <a href="product.html?id=${item.id}" class="font-bold text-lg hover:text-accent transition-colors line-clamp-2">${getProductName(item)}</a>
-${item.subtitle ? `<p class="text-xs text-muted-foreground">${getProductSubtitle(item)}</p>` : ''}
+${(!item.variants || item.variants.length === 0) && item.subtitle ? `<p class="text-xs text-muted-foreground">${getProductSubtitle(item)}</p>` : ''}
 ${item.variantName ? `<p class="text-sm text-muted-foreground">${item.variantName}</p>` : ''}
                 <p class="text-accent font-bold text-xl mt-1">${formatPrice(item.price)}</p>
                 <div class="flex items-center justify-between mt-4">
