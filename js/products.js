@@ -191,7 +191,8 @@ const productsData = [
     },
     {
         id: "body_butterglow",
-        name: { ar: "In The Night", fr: "In The Night", en: "In The Night" },
+        name: { ar: "Body Butter glowing", fr: "Body Butter glowing", en: "Body Butter glowing" },
+        subtitle: { ar: "into the night", fr: "into the night", en: "into the night" },
         price: 900,
         originalPrice: null,
         image: "img/intonight.JPG",
@@ -202,7 +203,8 @@ const productsData = [
     },
     {
         id: "body_butterglowstar",
-        name: { ar: "In The Stars", fr: "In The Stars", en: "In The Stars" },
+        name: { ar: "Body Butter glowing", fr: "Body Butter Glowing", en: "Body Butter glowing" },
+        subtitle: { ar: "in the stars", fr: "in the stars", en: "in the stars" },
         price: 900,
         originalPrice: null,
         image: "img/intostar.JPG",
@@ -592,6 +594,11 @@ function getVariantName(variant) {
     if (!variant) return '';
     const lang = getCurrentLanguage();
     return variant.name[lang] || variant.name.en || '';
+}
+
+function getProductSubtitle(product) {
+    const lang = getCurrentLanguage();
+    return product.subtitle?.[lang] || product.subtitle?.en || '';
 }
 
 function getEffectivePrice(product, variantId = null) {
