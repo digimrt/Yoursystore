@@ -125,7 +125,7 @@ const productsData = [
         variants: [
             { id: "sol_62", name: { ar: "62", fr: "62", en: "62" }, price: 300, image: "img/sol-de-janeiro62.JPG", inStock: true },
             { id: "sol_87", name: { ar: "87", fr: "87", en: "87" }, price: 300, image: "img/sol-de-janeiro87.JPG", inStock: true },
-            { id: "sol_40", name: { ar: "40", fr: "40", en: "40" }, price: 300, image: "img/sol-de-janeiro40.JPG", inStock: true },
+            { id: "sol_40", name: { ar: "40", fr: "40", en: "40" }, price: 300, image: "img/sol-de-janeiro40.JPG", inStock: false },
             { id: "sol_59", name: { ar: "59", fr: "59", en: "59" }, price: 300, image: "img/sol-de-janeiro59.JPG", inStock: true },
             { id: "sol_71", name: { ar: "71", fr: "71", en: "71" }, price: 300, image: "img/sol-de-janeiro71.JPG", inStock: true },
             { id: "sol_48", name: { ar: "48", fr: "48", en: "48" }, price: 300, image: "img/sol-de-janeiro48.JPG", inStock: true },
