@@ -316,7 +316,7 @@ function renderCartDrawer() {
     }
 
     if (items.length === 0) {
-        content.innerHTML = `<div class="flex flex-col items-center justify-center h-full text-muted-foreground"><i class="fa-solid fa-cart-shopping text-6xl mb-4 opacity-50"></i><p class="text-lg">${t('cart_empty')}</p><a href="products.html" class="mt-4 px-6 py-2 bg-primary text-primary-foreground rounded-lg hover:opacity-90">${t('cart_continue')}</a></div>`;
+        content.innerHTML = `<div class="flex flex-col items-center justify-center h-full text-muted-foreground"><i class="fa-solid fa-cart-shopping text-6xl mb-4 opacity-50"></i><p class="text-lg">${t('cart_empty')}</p><a href="index.html" class="mt-4 px-6 py-2 bg-primary text-primary-foreground rounded-lg hover:opacity-90">${t('cart_continue')}</a></div>`;
         footer.innerHTML = '';
         return;
     }
