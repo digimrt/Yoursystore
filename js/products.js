@@ -1,7 +1,373 @@
 // Product Data for Yoursy Store
 // Pink Rose Theme - All Products with Variants
 
+
+
 const productsData = [
+    {
+        id: "Set_thousand_wishes",
+        name: { ar: "Set  a thousand wishes", fr: "Set  a thousand wishes", en: "Set  a thousand wishes" },
+        price: 2550,
+        originalPrice: 2700,
+        image: "img1/setthousandwishes.PNG",
+        category: "skincare",
+        description: { ar: "", fr: "", en: "" },
+        inStock: true,
+        isNew: true,
+        variants: []
+    },
+    {
+        id: "Set_inthestars",
+        name: { ar: "Set in the stars", fr: "Set in the stars", en: "Set in the stars" },
+        price: 2550,
+        originalPrice: 2700,
+        image: "img1/setinthestars.PNG",
+        category: "skincare",
+        description: { ar: "", fr: "", en: "" },
+        inStock: true,
+        isNew: true,
+        variants: []
+    },
+    {
+        id: "Set_intoonight",
+        name: { ar: "Set into the night", fr: "Set into the night", en: "Set into the night" },
+        price: 2550,
+        originalPrice: 2700,
+        image: "img1/setintoonight.PNG",
+        category: "skincare",
+        description: { ar: "", fr: "", en: "" },
+        inStock: true,
+        isNew: true,
+        variants: []
+    },
+
+    {
+        id: "body_butterglow",
+        name: { ar: "Scrub dove", fr: "Scrub dove", en: "Scrub dove" },
+        subtitle: { ar: "crushed macadamia and rice milk", fr: "crushed macadamia and rice milk", en: "crushed macadamia and rice milk" },
+        price: 750,
+        originalPrice: null,
+        image: "img1/crushedwith.JPG",
+        category: "skincare",
+        description: { ar: "", fr: "", en: "" },
+        inStock: true,
+        isNew: true
+    },
+    {
+        id: "body_butterglower",
+        name: { ar: "Scrub dove", fr: "Scrub dove", en: "Scrub dove" },
+        subtitle: { ar: " brown sugar and coconut butter", fr: " brown sugar and coconut butter", en: " brown sugar and coconut butter" },
+        price: 750,
+        originalPrice: null,
+        image: "img1/brownsugar.JPG",
+        category: "skincare",
+        description: { ar: "", fr: "", en: "" },
+        inStock: true,
+        isNew: true
+    },
+    {
+        id: "body_butterglowiing",
+        name: { ar: "Scrub dove", fr: "Scrub dove", en: "Scrub dove" },
+        subtitle: { ar: "colloidal oatmeal and calendula oil", fr: "colloidal oatmeal and calendula oil", en: "colloidal oatmeal and calendula oil" },
+        price: 750,
+        originalPrice: null,
+        image: "img1/oatmealll.JPG",
+        category: "skincare",
+        description: { ar: "", fr: "", en: "" },
+        inStock: true,
+        isNew: true
+    },
+    {
+        id: "body_dovewasher",
+        name: { ar: "Dove", fr: "Dove", en: "Dove" },
+        subtitle: { ar: "Pink", fr: "Pink", en: "Pink" },
+        price: 150,
+        originalPrice: null,
+        image: "img1/dovepinkk.JPG",
+        category: "skincare",
+        description: { ar: "", fr: "", en: "" },
+        inStock: true,
+        isNew: true
+    },
+    {
+        id: "body_dovewasherpampering",
+        name: { ar: "Dove", fr: "Dove", en: "Dove" },
+        subtitle: { ar: "Pampering", fr: "Pampering", en: "Pampering" },
+        price: 150,
+        originalPrice: null,
+        image: "img1/dovePamperingk.JPG",
+        category: "skincare",
+        description: { ar: "", fr: "", en: "" },
+        inStock: true,
+        isNew: true
+    },
+    {
+        id: "body_dovewasherrefreshing",
+        name: { ar: "Dove", fr: "Dove", en: "Dove" },
+        subtitle: { ar: "Refreshing", fr: "Refreshing", en: "Refreshing" },
+        price: 150,
+        originalPrice: null,
+        image: "img1/doveRefreshingk.JPG",
+        category: "skincare",
+        description: { ar: "", fr: "", en: "" },
+        inStock: true,
+        isNew: true
+    },
+    {
+        id: "body_dovewasherexfoliating",
+        name: { ar: "Dove", fr: "Dove", en: "Dove" },
+        subtitle: { ar: "Gentle Exfoliating", fr: "Gentle Exfoliating", en: "Gentle Exfoliating" },
+        price: 150,
+        originalPrice: null,
+        image: "img1/dovewasherexfoliating.JPG",
+        category: "skincare",
+        description: { ar: "", fr: "", en: "" },
+        inStock: true,
+        isNew: true
+    },
+    {
+        id: "body_washinthestarss",
+        name: { ar: "Body Wash", fr: "Body Wash", en: "Body Wash" },
+        subtitle: { ar: "In The Stars", fr: "In The Stars", en: "In The Stars" },
+        price: 900,
+        originalPrice: null,
+        image: "img1/bodywashinthestars.JPG",
+        category: "skincare",
+        description: { ar: "", fr: "", en: "" },
+        inStock: true,
+        isNew: true
+    },
+    {
+        id: "body_washinthestarss",
+        name: { ar: "Body Wash", fr: "Body Wash", en: "Body Wash" },
+        subtitle: { ar: "Into The Night", fr: "Into The Night", en: "Into The Night" },
+        price: 900,
+        originalPrice: null,
+        image: "img1/bodywashintothenightt.JPG",
+        category: "skincare",
+        description: { ar: "", fr: "", en: "" },
+        inStock: true,
+        isNew: true
+    },
+    {
+        id: "body_washthousandwishess",
+        name: { ar: "Body Wash", fr: "Body Wash", en: "Body Wash" },
+        subtitle: { ar: "A Thousand Wishes", fr: "A Thousand Wishes", en: "A Thousand Wishes" },
+        price: 900,
+        originalPrice: null,
+        image: "img1/dovathousandlotions.JPG",
+        category: "skincare",
+        description: { ar: "", fr: "", en: "" },
+        inStock: true,
+        isNew: true
+    },
+    {
+        id: "body_lotioninthestarss",
+        name: { ar: "Body Lotion", fr: "Body Lotion", en: "Body Lotion" },
+        subtitle: { ar: "In The Stars", fr: "In The Stars", en: "In The Stars" },
+        price: 900,
+        originalPrice: null,
+        image: "img1/starslotionwashbody.JPG",
+        category: "skincare",
+        description: { ar: "", fr: "", en: "" },
+        inStock: true,
+        isNew: true
+    },
+    {
+        id: "body_lotionintothenights",
+        name: { ar: "Body Lotion", fr: "Body Lotion", en: "Body Lotion" },
+        subtitle: { ar: "Into The Night", fr: "Into The Night", en: "Into The Night" },
+        price: 900,
+        originalPrice: null,
+        image: "img1/starslotionintonightwashbody.JPG",
+        category: "skincare",
+        description: { ar: "", fr: "", en: "" },
+        inStock: true,
+        isNew: true
+    },
+    {
+        id: "body_lotionthusandwishess",
+        name: { ar: "Body Lotion", fr: "Body Lotion", en: "Body Lotion" },
+        subtitle: { ar: "A Thousand Wishes", fr: "A Thousand Wishes", en: "A Thousand Wishes" },
+        price: 900,
+        originalPrice: null,
+        image: "img1/lotionthusandwishess.JPG",
+        category: "skincare",
+        description: { ar: "", fr: "", en: "" },
+        inStock: true,
+        isNew: true
+    },
+    {
+        id: "venusgillete4pieces",
+        name: { ar: "Venus Gillete", fr: "Venus Gillete", en: "Venus Gillete" },
+        subtitle: { ar: "Comfortglide Breeze 4P", fr: "Comfortglide Breeze 4P", en: "Comfortglide Breeze 4P" },
+        price: 620,
+        originalPrice: null,
+        image: "img1/venusgillett4piecs.PNG",
+        category: "skincare",
+        description: { ar: "", fr: "", en: "" },
+        inStock: true,
+        isNew: true
+    },
+    {
+        id: "venusgilletesmooths",
+        name: { ar: "Venus Gillete", fr: "Venus Gillete", en: "Venus Gillete" },
+        subtitle: { ar: "Smooth Sensitive", fr: "Smooth Sensitive", en: "Smooth Sensitive" },
+        price: 500,
+        originalPrice: null,
+        image: "img1/venusgillettsmoothsesitive.PNG",
+        category: "skincare",
+        description: { ar: "", fr: "", en: "" },
+        inStock: true,
+        isNew: true
+    },
+    {
+        id: "mixapommade",
+        name: { ar: "Mixa Cica Réperation", fr: "Mixa Cica Réperation", en: "Mixa Cica Réperation" },
+        subtitle: { ar: "", fr: "", en: "" },
+        price: 550,
+        originalPrice: null,
+        image: "img/mixareperatiojn.JPG",
+        category: "skincare",
+        description: { ar: "", fr: "", en: "" },
+        inStock: true,
+        isNew: true
+    },
+    {
+        id: "finefraganceinthestars",
+        name: { ar: "Fine Fragrance Mist", fr: "Fine Fragrance Mist", en: "Fine Fragrance Mist" },
+        subtitle: { ar: "In The Stars", fr: "In The Stars", en: "In The Stars" },
+        price: 900,
+        originalPrice: null,
+        image: "img/finefraganceinthestars.JPG",
+        category: "perfumes",
+        description: { ar: "", fr: "", en: "" },
+        inStock: true,
+        isNew: true
+    },
+    {
+        id: "purewonderpafume",
+        name: { ar: "Fine Fragrance Mist", fr: "Fine Fragrance Mist", en: "Fine Fragrance Mist" },
+        subtitle: { ar: "Pure Wonder", fr: "Pure Wonder", en: "Pure Wonder" },
+        price: 900,
+        originalPrice: null,
+        image: "img/purewonderpafume.JPG",
+        category: "perfumes",
+        description: { ar: "", fr: "", en: "" },
+        inStock: true,
+        isNew: true
+    },
+    {
+        id: "athousandwishesparfumee",
+        name: { ar: "Fine Fragrance Mist", fr: "Fine Fragrance Mist", en: "Fine Fragrance Mist" },
+        subtitle: { ar: "A Thousand Wishes", fr: "A Thousand Wishes", en: "A Thousand Wishes" },
+        price: 900,
+        originalPrice: null,
+        image: "img/athousandwishesparfumee.JPG",
+        category: "perfumes",
+        description: { ar: "", fr: "", en: "" },
+        inStock: true,
+        isNew: true
+    },
+    {
+        id: "ifyoumuskparfume",
+        name: { ar: "Fine Fragrance Mist", fr: "Fine Fragrance Mist", en: "Fine Fragrance Mist" },
+        subtitle: { ar: "If You Musk", fr: "If You Musk", en: "If You Musk" },
+        price: 900,
+        originalPrice: null,
+        image: "img/ifyoumuskparfume.JPG",
+        category: "perfumes",
+        description: { ar: "", fr: "", en: "" },
+        inStock: true,
+        isNew: true
+    },
+    {
+        id: "atthebeachparfume",
+        name: { ar: "Fine Fragrance Mist", fr: "Fine Fragrance Mist", en: "Fine Fragrance Mist" },
+        subtitle: { ar: "At The Beach", fr: "At The Beach", en: "At The Beach" },
+        price: 900,
+        originalPrice: null,
+        image: "img/atthebeachparfume.JPG",
+        category: "perfumes",
+        description: { ar: "", fr: "", en: "" },
+        inStock: true,
+        isNew: true
+    },
+    {
+        id: "strawberryflirtparfumee",
+        name: { ar: "Fine Fragrance Mist", fr: "Fine Fragrance Mist", en: "Fine Fragrance Mist" },
+        subtitle: { ar: "Strawberry Flirt", fr: "Strawberry Flirt", en: "Strawberry Flirt" },
+        price: 900,
+        originalPrice: null,
+        image: "img/strawberryflirtparfumee.JPG",
+        category: "perfumes",
+        description: { ar: "", fr: "", en: "" },
+        inStock: true,
+        isNew: true
+    },
+    {
+        id: "midnightaddictionparfumee",
+        name: { ar: "Fine Fragrance Mist", fr: "Fine Fragrance Mist", en: "Fine Fragrance Mist" },
+        subtitle: { ar: "Midnight Addiction", fr: "Midnight Addiction", en: "Midnight Addiction" },
+        price: 900,
+        originalPrice: null,
+        image: "img/midnightaddictionparfumee.JPG",
+        category: "perfumes",
+        description: { ar: "", fr: "", en: "" },
+        inStock: true,
+        isNew: true
+    },
+    {
+        id: "platinumparfumee",
+        name: { ar: "Fine Fragrance Mist", fr: "Fine Fragrance Mist", en: "Fine Fragrance Mist" },
+        subtitle: { ar: "Platinum", fr: "Platinum", en: "Platinum" },
+        price: 900,
+        originalPrice: null,
+        image: "img/platinumparfumee.JPG",
+        category: "perfumes",
+        description: { ar: "", fr: "", en: "" },
+        inStock: true,
+        isNew: true
+    },
+    {
+        id: "vanillaromanceparfumee",
+        name: { ar: "Fine Fragrance Mist", fr: "Fine Fragrance Mist", en: "Fine Fragrance Mist" },
+        subtitle: { ar: "Vanilla Romance", fr: "Vanilla Romance", en: "Vanilla Romance" },
+        price: 900,
+        originalPrice: null,
+        image: "img/vanillaromanceparfumee.JPG",
+        category: "perfumes",
+        description: { ar: "", fr: "", en: "" },
+        inStock: true,
+        isNew: true
+    },
+    {
+        id: "warmvanlsugar",
+        name: { ar: "Fine Fragrance Mist", fr: "Fine Fragrance Mist", en: "Fine Fragrance Mist" },
+        subtitle: { ar: "Warm Vanilla Sugar", fr: "Warm Vanilla Sugar", en: "Warm Vanilla Sugar" },
+        price: 900,
+        originalPrice: null,
+        image: "img/warmvanlsugar.JPG",
+        category: "perfumes",
+        description: { ar: "", fr: "", en: "" },
+        inStock: true,
+        isNew: true
+    },
+    {
+        id: "Intothenightparfumee",
+        name: { ar: "Fine Fragrance Mist", fr: "Fine Fragrance Mist", en: "Fine Fragrance Mist" },
+        subtitle: { ar: "Into The Night", fr: "Into The Night", en: "Into The Night" },
+        price: 900,
+        originalPrice: null,
+        image: "img/Intothenightparfumee.JPG",
+        category: "perfumes",
+        description: { ar: "", fr: "", en: "" },
+        inStock: true,
+        isNew: true
+    },
+    
+
+
     // ============ MAKEUP - LIP GLOSS (منتج رئيسي مع متغيرات) ============
     {
         id: "lipgloss_collection",
@@ -36,7 +402,7 @@ const productsData = [
         isNew: false,
         variants: [
             { id: "summer_rosewood", name: { ar: "Rosewood Nights", fr: "Rosewood Nights", en: "Rosewood Nights" }, price: 200, image: "img/rosewood-nights.JPG", inStock: false },
-            { id: "summer_softmauve", name: { ar: "Soft Mauve", fr: "Soft Mauve", en: "Soft Mauve" }, price: 200, image: "img/soft-mauve.JPG", inStock: true },
+            { id: "summer_softmauve", name: { ar: "Soft Mauve", fr: "Soft Mauve", en: "Soft Mauve" }, price: 200, image: "img/soft-mauve.JPG", inStock: false },
             { id: "summer_pinkcloud", name: { ar: "Pink Cloud", fr: "Pink Cloud", en: "Pink Cloud" }, price: 200, image: "img/pinkcloud.JPG", inStock: true },
             { id: "summer_blushdreams", name: { ar: "Blush Dreams", fr: "Blush Dreams", en: "Blush Dreams" }, price: 200, image: "img/blush-dreams.JPG", inStock: true }
         ]
@@ -408,7 +774,7 @@ const productsData = [
             fr: "C'est la gamme de base et apaisante pour la peau. Elle se concentre sur la réparation de la barrière cutanée et le traitement des rougeurs et des sensibilités.\n\nFonction : Hydrater, apaiser et réparer.\n\nIngrédient clé : Extrait pur de centella asiatica.\n\nConvient à : Tous les types de peau, surtout les peaux sensibles et abîmées.",
             en: "This is the basic and soothing skincare line. It focuses on repairing the skin barrier and treating redness and sensitivity.\n\nFunction: Hydrate, soothe, and repair.\n\nKey ingredient: Pure centella asiatica extract.\n\nSuitable for: All skin types, especially sensitive and damaged skin."
         },
-        inStock: true,
+        inStock: false,
         isNew: false
     },
     {
@@ -498,8 +864,8 @@ const productsData = [
             fr: "L'un des gommages physiques les plus célèbres au monde, primé à plusieurs reprises grâce à sa formule efficace et végétale.\n\n1. Fonction principale du produit :\nCe gommage élimine les cellules mortes et les impuretés obstruant les pores, transformant une peau terne et fatiguée en une peau plus lumineuse et plus douce.\n\n2. Ingrédients clés :\n• Varech (Sea Kelp) : Riche en minéraux qui purifient et nourrissent la peau.\n• Argile verte française : Agit comme un aimant pour extraire le sébum et les impuretés des pores.\n• Zeste de citron et canne à sucre : Exfolient en douceur et aident à éclaircir le teint.\n• Cellules souches de sauge de nuit : Offrent une protection et des antioxydants à la peau.\n\n3. Avantages :\n• 100% Végétalien : Sans cruauté et sans ingrédients d'origine animale.\n• Clean Beauty : Sans parabènes, sulfates, phtalates ni huiles minérales.\n• Résultats immédiats : Une douceur visible de la texture de la peau dès la première utilisation.",
             en: "One of the most famous physical scrubs in the world, award-winning thanks to its effective and plant-based formula.\n\n1. Main product function:\nThis scrub removes dead skin cells and impurities clogging pores, helping to transform dull, tired skin into brighter, smoother skin.\n\n2. Key ingredients:\n• Sea Kelp: Rich in minerals that purify and nourish the skin.\n• French Green Clay: Acts like a magnet to draw out oil and impurities from pores.\n• Lemon peel and sugar cane: Gently exfoliate and help brighten skin tone.\n• Night primrose stem cells: Provide protection and antioxidants to the skin.\n\n3. Benefits:\n• 100% Vegan: Cruelty-free and contains no animal ingredients.\n• Clean Beauty: Free from parabens, sulfates, phthalates, and mineral oils.\n• Immediate results: Noticeable smoothness in skin texture after first use."
         },
-        inStock: true,
-        isNew: true
+        inStock: false,
+        isNew: false
     },
     {
         id: "gluta_collagen",

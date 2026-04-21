@@ -143,7 +143,7 @@
     </nav>
 
     <!-- Hero Banner (Single Banner - No Slider)-->
-    <section class="container mt-4 md:mt-8">
+    <!--<section class="container mt-4 md:mt-8">
         <div class="relative h-[300px] md:h-[500px] rounded-xl overflow-hidden group">
             <img src="https://upload.skin-seoul.com/wp-content/uploads/2025/06/1-3.jpg" alt="عروض خاصة - منتجات العناية"
                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
@@ -167,9 +167,9 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
-    <!-- Categories Section -->
+    <!-- Categories Section 
     <section class="container py-12 md:py-16">
         <h2 class="text-2xl md:text-3xl font-bold font-heading mb-8 text-center" data-i18n="shop_cat">تسوق حسب الفئة
         </h2>
@@ -202,7 +202,7 @@
                 </div>
             </a>
         </div>
-    </section>
+    </section>-->
 
     <!-- New Arrivals Section (Horizontal Scroll) -->
     <section class="container py-12 md:py-16">
@@ -282,7 +282,8 @@
             <div class="footer-grid">
                 <div>
                     <div class="flex items-center justify-center md:justify-start gap-2 mb-4">
-                        <img src="img/logo.PNG" alt="Yoursy Store" class="logofooter" style="height: 80px; width: auto;">
+                        <img src="img/logo.PNG" alt="Yoursy Store" class="logofooter"
+                            style="height: 80px; width: auto;">
                     </div>
                     <div class="flex gap-4 justify-center md:justify-start">
                         <a href="https://wa.me/22230764882" target="_blank"
@@ -399,14 +400,12 @@
                 newContainer.innerHTML = newProducts.map(p => renderProductCard(p)).join('');
             }
 
-            // All Products - عرض أول 8 منتجات فقط
+            // All Products - عرض جميع المنتجات (مع استبعاد الجديدة إذا أردت)
             const allProductsContainer = document.getElementById('all-products');
-if (allProductsContainer) {
-    // عرض جميع المنتجات ما عدا الجديدة (isNew)
-    const allProducts = getAllProducts().filter(p => p.isNew !== true);
-    const limitedProducts = allProducts.slice(0, 8);
-    allProductsContainer.innerHTML = limitedProducts.map(p => renderProductCard(p)).join('');
-}
+            if (allProductsContainer) {
+                const allProducts = getAllProducts().filter(p => p.isNew !== true);
+                allProductsContainer.innerHTML = allProducts.map(p => renderProductCard(p)).join('');
+            }
 
             updateCartUI();
         });
