@@ -475,7 +475,7 @@ const productsData = [
             { id: "vs_rush", name: { ar: "Rush", fr: "Rush", en: "Rush" }, price: 600, image: "img/rush.JPG", inStock: false },
             { id: "vs_aquakiss", name: { ar: "Aqua Kiss", fr: "Aqua Kiss", en: "Aqua Kiss" }, price: 600, image: "img/aqua-kiss.JPG", inStock: true },
             { id: "vs_amber", name: { ar: "Amber Romance", fr: "Amber Romance", en: "Amber Romance" }, price: 600, image: "img/amber-romance.JPG", inStock: false },
-            { id: "vs_velvet", name: { ar: "Velvet Petals", fr: "Velvet Petals", en: "Velvet Petals" }, price: 600, image: "img/velvetpetals.JPG", inStock: true }
+            { id: "vs_velvet", name: { ar: "Velvet Petals", fr: "Velvet Petals", en: "Velvet Petals" }, price: 600, image: "img/velvetpetals.JPG", inStock: false }
         ]
     },
     {
@@ -631,7 +631,7 @@ const productsData = [
         image: "img/venus-gillette.JPG",
         category: "skincare",
         description: { ar: "", fr: "", en: "" },
-        inStock: true,
+        inStock: false,
         isNew: false
     },
     {
@@ -834,7 +834,7 @@ const productsData = [
             fr: "Cette gamme unifie le teint et élimine les pigmentation et les marques d'acné.\n\nFonction : Éclaircir les taches sombres, unifier le teint et donner de l'éclat.\n\nIngrédient clé : Madécassoside et niacinamide.\n\nConvient à : Les peaux souffrant de pigmentation et de ternissement.",
             en: "This line evens out skin tone and eliminates pigmentation and acne scars.\n\nFunction: Brighten dark spots, even out skin tone, and give radiance.\n\nKey ingredient: Madecassoside and niacinamide.\n\nSuitable for: Skin suffering from pigmentation and dullness."
         },
-        inStock: true,
+        inStock: false,
         isNew: false
     },
     {
