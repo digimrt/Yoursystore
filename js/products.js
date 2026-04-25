@@ -206,8 +206,8 @@ const productsData = [
         image: "img1/venusgillett4piecs.PNG",
         category: "skincare",
         description: { ar: "", fr: "", en: "" },
-        inStock: true,
-        isNew: true
+        inStock: false,
+        isNew: false
     },
     {
         id: "venusgilletesmooths",
@@ -494,7 +494,7 @@ const productsData = [
             { id: "sol_40", name: { ar: "40", fr: "40", en: "40" }, price: 300, image: "img/sol-de-janeiro40.JPG", inStock: false },
             { id: "sol_59", name: { ar: "59", fr: "59", en: "59" }, price: 300, image: "img/sol-de-janeiro59.JPG", inStock: true },
             { id: "sol_71", name: { ar: "71", fr: "71", en: "71" }, price: 300, image: "img/sol-de-janeiro71.JPG", inStock: true },
-            { id: "sol_48", name: { ar: "48", fr: "48", en: "48" }, price: 300, image: "img/sol-de-janeiro48.JPG", inStock: true },
+            { id: "sol_48", name: { ar: "48", fr: "48", en: "48" }, price: 300, image: "img/sol-de-janeiro48.JPG", inStock: false },
             { id: "sol_39", name: { ar: "39", fr: "39", en: "39" }, price: 300, image: "img/sol-de-janeiro39.JPG", inStock: false }
         ]
     },
@@ -631,7 +631,7 @@ const productsData = [
         image: "img/venus-gillette.JPG",
         category: "skincare",
         description: { ar: "", fr: "", en: "" },
-        inStock: false,
+        inStock: true,
         isNew: false
     },
     {
