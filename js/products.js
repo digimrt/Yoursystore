@@ -61,7 +61,7 @@ const productsData = [
         subtitle: { ar: "Relaxing", fr: "Relaxing", en: "Relaxing" },
         price: 150,
         originalPrice: null,
-        image: "img/doveRelaxingk.JPG",
+        image: "img1/doveRelaxingk.JPG",
         category: "skincare",
         description: { ar: "", fr: "", en: "" },
         inStock: true,
