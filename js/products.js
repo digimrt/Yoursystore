@@ -4,55 +4,9 @@
 
 
 const productsData = [
-    {
-        id: "Set_thousand_wishes",
-        name: { ar: "Set  a thousand wishes", fr: "Set  a thousand wishes", en: "Set  a thousand wishes" },
-        price: 2550,
-        originalPrice: 2700,
-        image: "img1/setthousandwishes.PNG",
-        category: "skincare",
-        description: { ar: "", fr: "", en: "" },
-        inStock: true,
-        isNew: true,
-        variants: []
-    },
-    {
-        id: "Set_inthestars",
-        name: { ar: "Set in the stars", fr: "Set in the stars", en: "Set in the stars" },
-        price: 2550,
-        originalPrice: 2700,
-        image: "img1/setinthestars.PNG",
-        category: "skincare",
-        description: { ar: "", fr: "", en: "" },
-        inStock: true,
-        isNew: true,
-        variants: []
-    },
-    {
-        id: "Set_intoonight",
-        name: { ar: "Set into the night", fr: "Set into the night", en: "Set into the night" },
-        price: 2550,
-        originalPrice: 2700,
-        image: "img1/setintoonight.PNG",
-        category: "skincare",
-        description: { ar: "", fr: "", en: "" },
-        inStock: true,
-        isNew: true,
-        variants: []
-    },
+    
 
-    {
-        id: "body_butterglow",
-        name: { ar: "Scrub dove", fr: "Scrub dove", en: "Scrub dove" },
-        subtitle: { ar: "crushed macadamia and rice milk", fr: "crushed macadamia and rice milk", en: "crushed macadamia and rice milk" },
-        price: 750,
-        originalPrice: null,
-        image: "img1/crushedwith.JPG",
-        category: "skincare",
-        description: { ar: "", fr: "", en: "" },
-        inStock: true,
-        isNew: true
-    },
+    
     {
         id: "body_butterglower",
         name: { ar: "Scrub dove", fr: "Scrub dove", en: "Scrub dove" },
@@ -63,7 +17,7 @@ const productsData = [
         category: "skincare",
         description: { ar: "", fr: "", en: "" },
         inStock: true,
-        isNew: true
+        isNew: false
     },
     {
         id: "body_butterglowiing",
@@ -75,7 +29,7 @@ const productsData = [
         category: "skincare",
         description: { ar: "", fr: "", en: "" },
         inStock: true,
-        isNew: true
+        isNew: false
     },
     {
         id: "body_dovewasher",
@@ -87,7 +41,7 @@ const productsData = [
         category: "skincare",
         description: { ar: "", fr: "", en: "" },
         inStock: true,
-        isNew: true
+        isNew: false
     },
     {
         id: "body_dovewasherpampering",
@@ -99,7 +53,7 @@ const productsData = [
         category: "skincare",
         description: { ar: "", fr: "", en: "" },
         inStock: true,
-        isNew: true
+        isNew: false
     },
     {
         id: "body_dovewasherrefreshing",
@@ -111,7 +65,7 @@ const productsData = [
         category: "skincare",
         description: { ar: "", fr: "", en: "" },
         inStock: true,
-        isNew: true
+        isNew: false
     },
     {
         id: "body_dovewasherexfoliating",
@@ -123,7 +77,7 @@ const productsData = [
         category: "skincare",
         description: { ar: "", fr: "", en: "" },
         inStock: true,
-        isNew: true
+        isNew: false
     },
     {
         id: "body_washinthestarss",
@@ -135,10 +89,10 @@ const productsData = [
         category: "skincare",
         description: { ar: "", fr: "", en: "" },
         inStock: true,
-        isNew: true
+        isNew: false
     },
     {
-        id: "body_washinthestarss",
+        id: "body_washintothenight",
         name: { ar: "Body Wash", fr: "Body Wash", en: "Body Wash" },
         subtitle: { ar: "Into The Night", fr: "Into The Night", en: "Into The Night" },
         price: 900,
@@ -147,7 +101,7 @@ const productsData = [
         category: "skincare",
         description: { ar: "", fr: "", en: "" },
         inStock: true,
-        isNew: true
+        isNew: false
     },
     {
         id: "body_washthousandwishess",
@@ -159,7 +113,7 @@ const productsData = [
         category: "skincare",
         description: { ar: "", fr: "", en: "" },
         inStock: true,
-        isNew: true
+        isNew: false
     },
     {
         id: "body_lotioninthestarss",
@@ -171,19 +125,7 @@ const productsData = [
         category: "skincare",
         description: { ar: "", fr: "", en: "" },
         inStock: true,
-        isNew: true
-    },
-    {
-        id: "body_lotionintothenights",
-        name: { ar: "Body Lotion", fr: "Body Lotion", en: "Body Lotion" },
-        subtitle: { ar: "Into The Night", fr: "Into The Night", en: "Into The Night" },
-        price: 900,
-        originalPrice: null,
-        image: "img1/starslotionintonightwashbody.JPG",
-        category: "skincare",
-        description: { ar: "", fr: "", en: "" },
-        inStock: true,
-        isNew: true
+        isNew: false
     },
     {
         id: "body_lotionthusandwishess",
@@ -195,31 +137,7 @@ const productsData = [
         category: "skincare",
         description: { ar: "", fr: "", en: "" },
         inStock: true,
-        isNew: true
-    },
-    {
-        id: "venusgillete4pieces",
-        name: { ar: "Venus Gillete", fr: "Venus Gillete", en: "Venus Gillete" },
-        subtitle: { ar: "Comfortglide Breeze 4P", fr: "Comfortglide Breeze 4P", en: "Comfortglide Breeze 4P" },
-        price: 620,
-        originalPrice: null,
-        image: "img1/venusgillett4piecs.PNG",
-        category: "skincare",
-        description: { ar: "", fr: "", en: "" },
-        inStock: false,
         isNew: false
-    },
-    {
-        id: "venusgilletesmooths",
-        name: { ar: "Venus Gillete", fr: "Venus Gillete", en: "Venus Gillete" },
-        subtitle: { ar: "Smooth Sensitive", fr: "Smooth Sensitive", en: "Smooth Sensitive" },
-        price: 500,
-        originalPrice: null,
-        image: "img1/venusgillettsmoothsesitive.PNG",
-        category: "skincare",
-        description: { ar: "", fr: "", en: "" },
-        inStock: true,
-        isNew: true
     },
     {
         id: "mixapommade",
@@ -231,7 +149,7 @@ const productsData = [
         category: "skincare",
         description: { ar: "", fr: "", en: "" },
         inStock: true,
-        isNew: true
+        isNew: false
     },
     {
         id: "finefraganceinthestars",
@@ -243,7 +161,7 @@ const productsData = [
         category: "perfumes",
         description: { ar: "", fr: "", en: "" },
         inStock: true,
-        isNew: true
+        isNew: false
     },
     {
         id: "purewonderpafume",
@@ -255,7 +173,7 @@ const productsData = [
         category: "perfumes",
         description: { ar: "", fr: "", en: "" },
         inStock: true,
-        isNew: true
+        isNew: false
     },
     {
         id: "athousandwishesparfumee",
@@ -267,7 +185,7 @@ const productsData = [
         category: "perfumes",
         description: { ar: "", fr: "", en: "" },
         inStock: true,
-        isNew: true
+        isNew: false
     },
     {
         id: "ifyoumuskparfume",
@@ -279,7 +197,7 @@ const productsData = [
         category: "perfumes",
         description: { ar: "", fr: "", en: "" },
         inStock: true,
-        isNew: true
+        isNew: false
     },
     {
         id: "atthebeachparfume",
@@ -291,7 +209,7 @@ const productsData = [
         category: "perfumes",
         description: { ar: "", fr: "", en: "" },
         inStock: true,
-        isNew: true
+        isNew: false
     },
     {
         id: "strawberryflirtparfumee",
@@ -303,7 +221,7 @@ const productsData = [
         category: "perfumes",
         description: { ar: "", fr: "", en: "" },
         inStock: true,
-        isNew: true
+        isNew: false
     },
     {
         id: "midnightaddictionparfumee",
@@ -315,7 +233,7 @@ const productsData = [
         category: "perfumes",
         description: { ar: "", fr: "", en: "" },
         inStock: true,
-        isNew: true
+        isNew: false
     },
     {
         id: "platinumparfumee",
@@ -327,7 +245,7 @@ const productsData = [
         category: "perfumes",
         description: { ar: "", fr: "", en: "" },
         inStock: true,
-        isNew: true
+        isNew: false
     },
     {
         id: "vanillaromanceparfumee",
@@ -339,7 +257,7 @@ const productsData = [
         category: "perfumes",
         description: { ar: "", fr: "", en: "" },
         inStock: true,
-        isNew: true
+        isNew: false
     },
     {
         id: "warmvanlsugar",
@@ -351,7 +269,7 @@ const productsData = [
         category: "perfumes",
         description: { ar: "", fr: "", en: "" },
         inStock: true,
-        isNew: true
+        isNew: false
     },
     {
         id: "Intothenightparfumee",
@@ -363,7 +281,7 @@ const productsData = [
         category: "perfumes",
         description: { ar: "", fr: "", en: "" },
         inStock: true,
-        isNew: true
+        isNew: false
     },
     
 
@@ -388,23 +306,6 @@ const productsData = [
             { id: "lipgloss_peachpit", name: { ar: "Peach Pit", fr: "Peach Pit", en: "Peach Pit" }, price: 200, image: "img/peach-pit.JPG", inStock: true },
             { id: "lipgloss_juava", name: { ar: "Juava Spritz", fr: "Juava Spritz", en: "Juava Spritz" }, price: 200, image: "img/juava-spritz.JPG", inStock: true },
             { id: "lipgloss_vanilla", name: { ar: "Vanilla", fr: "Vanilla", en: "Vanilla" }, price: 200, image: "img/vanilla.JPG", inStock: true }
-        ]
-    },
-    {
-        id: "summer_fridays_collection",
-        name: { ar: "Summer Fridays", fr: "Summer Fridays", en: "Summer Fridays" },
-        price: 200,
-        originalPrice: null,
-        image: "img/summerfridaysbeauty.PNG",
-        category: "makeup",
-        description: { ar: "", fr: "", en: "" },
-        inStock: true,
-        isNew: false,
-        variants: [
-            { id: "summer_rosewood", name: { ar: "Rosewood Nights", fr: "Rosewood Nights", en: "Rosewood Nights" }, price: 200, image: "img/rosewood-nights.JPG", inStock: false },
-            { id: "summer_softmauve", name: { ar: "Soft Mauve", fr: "Soft Mauve", en: "Soft Mauve" }, price: 200, image: "img/soft-mauve.JPG", inStock: false },
-            { id: "summer_pinkcloud", name: { ar: "Pink Cloud", fr: "Pink Cloud", en: "Pink Cloud" }, price: 200, image: "img/pinkcloud.JPG", inStock: true },
-            { id: "summer_blushdreams", name: { ar: "Blush Dreams", fr: "Blush Dreams", en: "Blush Dreams" }, price: 200, image: "img/blush-dreams.JPG", inStock: true }
         ]
     },
     {
@@ -533,63 +434,7 @@ const productsData = [
     },
 
     // ============ SKIN CARE PRODUCTS ============
-    {
-        id: "mascara_waterprof",
-        name: { ar: "Mascara waterproof", fr: "Mascara waterproof", en: "Mascara waterproof" },
-        price: 400,
-        originalPrice: null,
-        image: "img/mascarawaterproof.JPG",
-        category: "makeup",
-        description: { ar: "", fr: "", en: "" },
-        inStock: true,
-        isNew: true
-    },
-    {
-        id: "mini_setmusk",
-        name: { ar: "Set Musk Ibraq", fr: "Set Musk Ibraq", en: "Set Musk Ibraq" },
-        price: 1400,
-        originalPrice: null,
-        image: "img/minisetmuskibraq.JPG",
-        category: "perfumes",
-        description: { ar: "حجم الزجاجة:30ml", fr: "Falcon de 30ml", en: "30ml bottle" },
-        inStock: true,
-        isNew: true
-    },
-    {
-        id: "body_butterglow",
-        name: { ar: "Body Butter glowing", fr: "Body Butter glowing", en: "Body Butter glowing" },
-        subtitle: { ar: "into the night", fr: "into the night", en: "into the night" },
-        price: 900,
-        originalPrice: null,
-        image: "img/intonight.JPG",
-        category: "perfumes",
-        description: { ar: "", fr: "", en: "" },
-        inStock: true,
-        isNew: true
-    },
-    {
-        id: "body_butterglowstar",
-        name: { ar: "Body Butter glowing", fr: "Body Butter Glowing", en: "Body Butter glowing" },
-        subtitle: { ar: "in the stars", fr: "in the stars", en: "in the stars" },
-        price: 900,
-        originalPrice: null,
-        image: "img/intostar.JPG",
-        category: "perfumes",
-        description: { ar: "", fr: "", en: "" },
-        inStock: true,
-        isNew: true
-    },
-    {
-        id: "clear_butt_cream",
-        name: { ar: "Clear Butt Cream", fr: "Clear Butt Cream", en: "Clear Butt Cream" },
-        price: 650,
-        originalPrice: null,
-        image: "img/ClearButtCream.JPG",
-        category: "skincare",
-        description: { ar: "", fr: "", en: "" },
-        inStock: true,
-        isNew: true
-    },
+    
     {
         id: "disques_coton",
         name: { ar: "Disques Coton Demaquiller", fr: "Disques Coton Demaquiller", en: "Disques Coton Demaquiller" },
@@ -599,18 +444,7 @@ const productsData = [
         category: "skincare",
         description: { ar: "", fr: "", en: "" },
         inStock: true,
-        isNew: true
-    },
-    {
-        id: "clean_yourskin",
-        name: { ar: "Clean Your Skin", fr: "Clean Your Skin", en: "Clean Your Skin" },
-        price: 350,
-        originalPrice: null,
-        image: "img/Cleanyourskin.JPG",
-        category: "skincare",
-        description: { ar: "", fr: "", en: "" },
-        inStock: true,
-        isNew: true
+        isNew: false
     },
     {
         id: "dove_deodorant",
@@ -620,32 +454,6 @@ const productsData = [
         image: "img/dove-deodorant.JPG",
         category: "skincare",
         description: { ar: "", fr: "", en: "" },
-        inStock: true,
-        isNew: false
-    },
-    {
-        id: "venus_gillette",
-        name: { ar: "Venus Gillette", fr: "Venus Gillette", en: "Venus Gillette" },
-        price: 500,
-        originalPrice: null,
-        image: "img/venus-gillette.JPG",
-        category: "skincare",
-        description: { ar: "", fr: "", en: "" },
-        inStock: true,
-        isNew: false
-    },
-    {
-        id: "biodance",
-        name: { ar: "Biodance", fr: "Biodance", en: "Biodance" },
-        price: 300,
-        originalPrice: null,
-        image: "img/biodance.JPG",
-        category: "skincare",
-        description: {
-            ar: "ماسك كوري مخصص لترطيب البشرة بعمق وتحسين مرونتها. يحتوي على مكونات نشطة تساعد على تغذية الجلد ومنحه مظهرًا أكثر امتلاءً ونضارة.\n\nالمكونات البارزة:\n• كولاجين منخفض الجزيئات: يساعد على شد البشرة وتحسين مرونتها.\n• حمض الهيالورونيك منخفض الجزيئات: يرطب البشرة بعمق ويحافظ على الماء داخل الجلد.\n• Galactomyces Ferment (بروبيوتيك): يدعم صحة البشرة ويمنحها إشراقة ويُحسّن مظهر المسام.\n\nالفوائد الأساسية:\n• ترطيب قوي للبشرة\n• تقليل مظهر المسام\n• شد وتحسين مرونة الجلد\n• يمنح البشرة مظهرًا ناعمًا وممتلئًا\n\nطريقة الاستخدام:\n1. ضعي الماسك على بشرة نظيفة بعد التونر.\n2. اتركيه حوالي 4 ساعات حتى ينشف.\n3. أزيليه ودلّكي السيروم المتبقي حتى تمتصه البشرة.\n\nالحجم: 34 غرام",
-            fr: "Masque coréen spécialement conçu pour hydrater la peau en profondeur et améliorer son élasticité. Il contient des ingrédients actifs qui aident à nourrir la peau et à lui donner un aspect plus rebondi et plus éclatant.\n\nIngrédients phares:\n• Collagène bas poids moléculaire : aide à raffermir la peau et à améliorer son élasticité.\n• Acide hyaluronique bas poids moléculaire : hydrate la peau en profondeur et retient l'eau dans la peau.\n• Galactomyces Ferment (probiotique) : soutient la santé de la peau, lui donne de l'éclat et améliore l'apparence des pores.\n\nBienfaits principaux:\n• Hydratation intense de la peau\n• Réduction de l'apparence des pores\n• Raffermissement et amélioration de l'élasticité de la peau\n• Donne à la peau un aspect doux et rebondi\n\nMode d'emploi:\n1. Appliquez le masque sur une peau propre après la lotion tonique.\n2. Laissez agir environ 4 heures jusqu'à ce qu'il sèche.\n3. Retirez-le et massez le sérum restant jusqu'à absorption complète.\n\nTaille : 34 grammes",
-            en: "A Korean mask specially designed to deeply hydrate the skin and improve its elasticity. It contains active ingredients that help nourish the skin and give it a plumper, more radiant appearance.\n\nKey ingredients:\n• Low molecular weight collagen: helps firm the skin and improve its elasticity.\n• Low molecular weight hyaluronic acid: deeply hydrates the skin and retains water inside the skin.\n• Galactomyces Ferment (probiotic): supports skin health, gives it radiance, and improves the appearance of pores.\n\nMain benefits:\n• Intense skin hydration\n• Reduction in the appearance of pores\n• Firming and improving skin elasticity\n• Gives the skin a soft and plump appearance\n\nHow to use:\n1. Apply the mask to clean skin after toner.\n2. Leave on for about 4 hours until it dries.\n3. Remove it and massage the remaining serum until absorbed.\n\nSize: 34 grams"
-        },
         inStock: true,
         isNew: false
     },
@@ -681,17 +489,7 @@ const productsData = [
     },
 
     // ============ INDIVIDUAL MAKEUP PRODUCTS ============
-    {
-        id: "mascara_curl",
-        name: { ar: "Mascara curl and volume", fr: "Mascara curl and volume", en: "Mascara curl and volume" },
-        price: 400,
-        originalPrice: null,
-        image: "img/mascaracurl.JPG",
-        category: "makeup",
-        description: { ar: "", fr: "", en: "" },
-        inStock: true,
-        isNew: true
-    },
+    
     {
         id: "gel_got2b",
         name: { ar: "Gel Got2b", fr: "Gel Got2b", en: "Gel Got2b" },
@@ -761,22 +559,8 @@ const productsData = [
         isNew: false
     },
 
-    // ============ NEW ARRIVALS (isNew: true) ============
-    {
-        id: "madagascar_centella",
-        name: { ar: "Madagascar Centella", fr: "Madagascar Centella", en: "Madagascar Centella" },
-        price: 1100,
-        originalPrice: null,
-        image: "img/MadagascarCentella.JPG",
-        category: "skincare",
-        description: {
-            ar: "هي المجموعة الأساسية والمهدئة للبشرة. تركز على إصلاح الحاجز الواقي وعلاج الاحمرار والتحسس.\n\nالوظيفة: ترطيب، تهدئة، وإصلاح.\n\nالمكون الأساسي: مستخلص السنتيلا أسياتيكا النقي.\n\nمناسبة لـ: جميع أنواع البشرة، خاصة الحساسة والمتضررة.",
-            fr: "C'est la gamme de base et apaisante pour la peau. Elle se concentre sur la réparation de la barrière cutanée et le traitement des rougeurs et des sensibilités.\n\nFonction : Hydrater, apaiser et réparer.\n\nIngrédient clé : Extrait pur de centella asiatica.\n\nConvient à : Tous les types de peau, surtout les peaux sensibles et abîmées.",
-            en: "This is the basic and soothing skincare line. It focuses on repairing the skin barrier and treating redness and sensitivity.\n\nFunction: Hydrate, soothe, and repair.\n\nKey ingredient: Pure centella asiatica extract.\n\nSuitable for: All skin types, especially sensitive and damaged skin."
-        },
-        inStock: false,
-        isNew: false
-    },
+    // ============ NEW ARRIVALS (isNew: false) ============
+    
     {
         id: "tea_trica",
         name: { ar: "Tea-Trica", fr: "Tea-Trica", en: "Tea-Trica" },
@@ -790,22 +574,7 @@ const productsData = [
             en: "A specialized line for skin suffering from breakouts and sudden irritation.\n\nFunction: Control oil, soothe acne, and purify pores.\n\nKey ingredient: Blend of tea tree and centella asiatica (Trica).\n\nSuitable for: Oily and acne-prone skin."
         },
         inStock: true,
-        isNew: true
-    },
-    {
-        id: "poremizing",
-        name: { ar: "Poremizing", fr: "Poremizing", en: "Poremizing" },
-        price: 1100,
-        originalPrice: null,
-        image: "img/Poremizing.JPG",
-        category: "skincare",
-        description: {
-            ar: "تركز هذه المجموعة على تحسين مظهر المسام الواسعة وتنظيفها بعمق.\n\nالوظيفة: شد المسام، إزالة الرؤوس السوداء، وتحسين ملمس الجلد.\n\nالمكون الأساسي: ملح الهيمالايا الوردي.\n\nمناسبة لـ: البشرة الدهنية والمختلطة التي تعاني من مسام بارزة.",
-            fr: "Cette gamme se concentre sur l'amélioration de l'apparence des pores dilatés et leur nettoyage en profondeur.\n\nFonction : Resserrer les pores, éliminer les points noirs et améliorer la texture de la peau.\n\nIngrédient clé : Sel rose de l'Himalaya.\n\nConvient à : Les peaux grasses et mixtes souffrant de pores visibles.",
-            en: "This line focuses on improving the appearance of enlarged pores and deep cleaning them.\n\nFunction: Tighten pores, remove blackheads, and improve skin texture.\n\nKey ingredient: Himalayan pink salt.\n\nSuitable for: Oily and combination skin with visible pores."
-        },
-        inStock: true,
-        isNew: true
+        isNew: false
     },
     {
         id: "hyalu_cica",
@@ -820,23 +589,9 @@ const productsData = [
             en: "A line dedicated to skin suffering from dryness and loss of vitality.\n\nFunction: Deep hydration, prevention of water loss, and healthy glow.\n\nKey ingredient: Blend of hyaluronic acid and centella.\n\nSuitable for: Dry and dull skin."
         },
         inStock: true,
-        isNew: true
-    },
-    {
-        id: "tone_brightening",
-        name: { ar: "Tone Brightening", fr: "Tone Brightening", en: "Tone Brightening" },
-        price: 1100,
-        originalPrice: null,
-        image: "img/ToneBrightening.JPG",
-        category: "skincare",
-        description: {
-            ar: "تعمل هذه المجموعة على توحيد لون البشرة والتخلص من التصبغات وآثار الحبوب.\n\nالوظيفة: تفتيح البقع الداكنة، توحيد لون البشرة، وإعطاء إشراقة.\n\nالمكون الأساسي: مادة \"ماديكاسوسايد\" والنياسيناميد.\n\nمناسبة لـ: البشرة التي تعاني من التصبغات والبهتان.",
-            fr: "Cette gamme unifie le teint et élimine les pigmentation et les marques d'acné.\n\nFonction : Éclaircir les taches sombres, unifier le teint et donner de l'éclat.\n\nIngrédient clé : Madécassoside et niacinamide.\n\nConvient à : Les peaux souffrant de pigmentation et de ternissement.",
-            en: "This line evens out skin tone and eliminates pigmentation and acne scars.\n\nFunction: Brighten dark spots, even out skin tone, and give radiance.\n\nKey ingredient: Madecassoside and niacinamide.\n\nSuitable for: Skin suffering from pigmentation and dullness."
-        },
-        inStock: false,
         isNew: false
     },
+   
     {
         id: "purito_best",
         name: { ar: "Purito Best Kit", fr: "Purito Best Kit", en: "Purito Best Kit" },
@@ -880,7 +635,7 @@ const productsData = [
             en: "This product combines several famous elements in the beauty world:\n\n• Glutathione (Gluta): Known as a powerful antioxidant, often used to brighten and even out skin tone.\n\n• Collagen: Specifically \"Collagen Dipeptide\", an easily absorbable type that helps with skin elasticity and wrinkle reduction.\n\n• Red fruit extracts: Contains tomato, strawberry, raspberry, and acerola cherry, rich in vitamin C which enhances collagen absorption and protects the skin from oxidative stress.\n\nPackage details:\n• Quantity: The bag contains 30 sachets, each weighing 10 grams."
         },
         inStock: true,
-        isNew: true
+        isNew: false
     }
 ];
 
