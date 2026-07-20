@@ -6,6 +6,226 @@
 const productsData = [
     
 
+    {
+        id: "honey_waffles",
+        name: { ar: "Honey Waffles 03", fr: "Honey Waffles 03", en: "Honey Waffles 03" },
+        price: 350,
+        originalPrice: null,
+        image: "img1/waffleshoney.JPG",
+        category: "makeup",
+        description: { ar: "", fr: "", en: "" },
+        inStock: true,
+        isNew: false
+    },
+
+    {
+        id: "nearly_collection",
+        name: { ar: "Nearly", fr: "Nearly", en: "Nearly" },
+        price: 300,
+        originalPrice: null,
+        image: "img1/nearlyneturel.JPG",
+        category: "makeup", 
+        description: { ar: "", fr: "", en: "" },
+        inStock: true,
+        isNew: false,
+        variants: [
+            { id: "nearly_neutral", name: { ar: "neutral", fr: "neutral", en: "neutral" }, price: 300, image: "img1/nearlyneturel.JPG", inStock: true },
+            { id: "nearly_mauve", name: { ar: "Mauve", fr: "Mauve", en: "Mauve" }, price: 300, image: "img1/nearlymauve.JPG", inStock: true },
+            { id: "nearly_apricot", name: { ar: "Apricot", fr: "Apricot", en: "Apricot" }, price: 300, image: "img1/nearlyapricot.JPG", inStock: true },
+            { id: "nearly_rose", name: { ar: "rose", fr: "rose", en: "rose" }, price: 300, image: "img1/nearlyrose.JPG", inStock: true },
+
+            ]
+    },
+
+    {
+        id: "gorg_orange",
+        name: { ar: "Gorg Orange", fr: "Gorg Orange", en: "Gorg Orange" },
+        subtitle: null,
+        price: 260,
+        originalPrice: null,
+        image: "img1/gorgorange.JPG",
+        category: "makeup",
+        description: { ar: "", fr: "", en: "" },
+        inStock: true,
+        isNew: false
+    },
+    {
+        id: "wild_berry",
+        name: { ar: "Wild Berry", fr: "Wild Berry", en: "Wild Berry" },
+        subtitle: null,
+        price: 260,
+        originalPrice: null,
+        image: "img1/wildberry.JPG",
+        category: "makeup",
+        description: { ar: "", fr: "", en: "" },
+        inStock: true,
+        isNew: false
+    },
+    {
+        id: "nearly_mauve_prod",
+        name: { ar: "Nearly Mauve", fr: "Nearly Mauve", en: "Nearly Mauve" },
+        subtitle: null,
+        price: 260,
+        originalPrice: null,
+        image: "img1/nearlymauveprod.JPG",
+        category: "makeup",
+        description: { ar: "", fr: "", en: "" },
+        inStock: true,
+        isNew: false
+    },
+    {
+        id: "powder_rare_beauty",
+        name: { ar: "Powder Rare Beauty", fr: "Powder Rare Beauty", en: "Powder Rare Beauty" },
+        subtitle: { ar: "Natural", fr: "Natural", en: "Natural" }, // حقل الـ subtitle مستقل هنا
+        price: 300,
+        originalPrice: null,
+        image: "img1/powderrarebeauty.JPG",
+        category: "makeup",
+        description: { ar: "", fr: "", en: "" },
+        inStock: true,
+        isNew: false
+    },
+    {
+        id: "corrector_cherry_blossom",
+        name: { ar: "Corrector Cherry Blossom", fr: "Corrector Cherry Blossom", en: "Corrector Cherry Blossom" },
+        subtitle: null,
+        price: 360,
+        originalPrice: null,
+        image: "img1/correctorcherryblossom.JPG",
+        category: "makeup",
+        description: { ar: "", fr: "", en: "" },
+        inStock: true,
+        isNew: false
+    },
+    {
+        id: "concealer_nougat",
+        name: { ar: "Concealer Nougat", fr: "Concealer Nougat", en: "Concealer Nougat" },
+        subtitle: null,
+        price: 360,
+        originalPrice: null,
+        image: "img1/concealernougat.JPG",
+        category: "makeup",
+        description: { ar: "", fr: "", en: "" },
+        inStock: true,
+        isNew: false
+    },
+    {
+        id: "gloss_serum_nyx",
+        name: { ar: "Gloss Serum NYX", fr: "Gloss Serum NYX", en: "Gloss Serum NYX" },
+        subtitle: null,
+        price: 260,
+        originalPrice: null,
+        image: "img1/glosserumnyx.JPG",
+        category: "makeup",
+        description: { ar: "", fr: "", en: "" },
+        inStock: true,
+        isNew: false
+    },
+    {
+        id: "pack_stay_matte_rimmel",
+        name: { ar: "Pack Stay Matte Rimmel London", fr: "Pack Stay Matte Rimmel London", en: "Pack Stay Matte Rimmel London" },
+        subtitle: null,
+        price: 1000,
+        originalPrice: null,
+        image: "img1/packstaymatterimmel.JPG",
+        category: "makeup",
+        description: { ar: "", fr: "", en: "" },
+        inStock: true,
+        isNew: false
+    },
+    {
+        id: "eyeliner_sheglam",
+        name: { ar: "Eyeliner Sheglam", fr: "Eyeliner Sheglam", en: "Eyeliner Sheglam" },
+        subtitle: null,
+        price: 250,
+        originalPrice: null,
+        image: "img1/eyelinersheglam.JPG",
+        category: "makeup",
+        description: { ar: "", fr: "", en: "" },
+        inStock: true,
+        isNew: false
+    },
+    {
+        id: "kohl_christine",
+        name: { ar: "Kohl Christine", fr: "Kohl Christine", en: "Kohl Christine" },
+        subtitle: null,
+        price: 300,
+        originalPrice: null,
+        image: "img1/kohlchristine.JPG",
+        category: "makeup",
+        description: { ar: "", fr: "", en: "" },
+        inStock: true,
+        isNew: false
+    },
+
+    // ================= فئة الـ SKINCARE =================
+    {
+        id: "dove_spray",
+        name: { ar: "Dove Spray", fr: "Dove Spray", en: "Dove Spray" },
+        subtitle: null,
+        price: 300,
+        originalPrice: null,
+        image: "img1/doveoriginal.JPG",
+        category: "skincare",
+        description: { ar: "", fr: "", en: "" },
+        inStock: true,
+        isNew: false,
+        variants: [
+            { id: "dove_original", name: { ar: "Original", fr: "Original", en: "Original" }, price: 300, image: "img1/doveoriginal.JPG", inStock: true },
+            { id: "dove_apple", name: { ar: "Apple  White Tea Scent", fr: "Apple & White Tea Scent", en: "Apple & White Tea Scent" }, price: 300, image: "img1/doveapple.JPG", inStock: true },
+            { id: "dove_cucumber", name: { ar: "Cucumber and Green Tea Scent", fr: "Cucumber & Green Tea Scent", en: "Cucumber & Green Tea Scent" }, price: 300, image: "img1/dovecucumber.JPG", inStock: true },
+            { id: "dove_pomegranate", name: { ar: "Pomegranate and Lemon Verbena Scent", fr: "Pomegranate & Lemon Verbena Scent", en: "Pomegranate & Lemon Verbena Scent" }, price: 300, image: "img1/dovepomegranate.JPG", inStock: true }
+        ]
+    },
+    {
+        id: "creme_deodorant",
+        name: { ar: "Creme Deodorant", fr: "Creme Deodorant", en: "Creme Deodorant" },
+        subtitle: null,
+        price: 300,
+        originalPrice: null,
+        image: "img1/cremedeodorant.JPG",
+        category: "skincare",
+        description: { ar: "", fr: "", en: "" },
+        inStock: true,
+        isNew: false
+    },
+    // منتجات Gillette Venus مع حقل subtitle منفصل لكل منها
+    {
+        id: "gillette_venus_breeze",
+        name: { ar: "Gillette Venus", fr: "Gillette Venus", en: "Gillette Venus" },
+        subtitle: { ar: "Comfortglide Breeze", fr: "Comfortglide Breeze", en: "Comfortglide Breeze" },
+        price: 550,
+        originalPrice: null,
+        image: "img1/gillettevenus_breeze.JPG",
+        category: "skincare",
+        description: { ar: "", fr: "", en: "" },
+        inStock: true,
+        isNew: false
+    },
+    {
+        id: "gillette_venus_coconut",
+        name: { ar: "Gillette Venus", fr: "Gillette Venus", en: "Gillette Venus" },
+        subtitle: { ar: "Comfortglide Coconut", fr: "Comfortglide Coconut", en: "Comfortglide Coconut" },
+        price: 750,
+        originalPrice: null,
+        image: "img1/gillettevenus_coconut.JPG",
+        category: "skincare",
+        description: { ar: "", fr: "", en: "" },
+        inStock: true,
+        isNew: false
+    },
+    {
+        id: "gillette_venus_tropical",
+        name: { ar: "Gillette Venus", fr: "Gillette Venus", en: "Gillette Venus" },
+        subtitle: { ar: "Pro Comfortglide Tropical", fr: "Pro Comfortglide Tropical", en: "Pro Comfortglide Tropical" },
+        price: 670,
+        originalPrice: null,
+        image: "img1/gillettevenus_tropical.JPG",
+        category: "skincare",
+        description: { ar: "", fr: "", en: "" },
+        inStock: true,
+        isNew: false
+    },
     
     {
         id: "body_butterglower",
@@ -40,7 +260,7 @@ const productsData = [
         image: "img1/dovepinkk.JPG",
         category: "skincare",
         description: { ar: "", fr: "", en: "" },
-        inStock: true,
+        inStock: false,
         isNew: false
     },
     {
@@ -160,7 +380,7 @@ const productsData = [
         image: "img/mixareperatiojn.JPG",
         category: "skincare",
         description: { ar: "", fr: "", en: "" },
-        inStock: true,
+        inStock: false,
         isNew: false
     },
     {
@@ -184,7 +404,7 @@ const productsData = [
         image: "img/purewonderpafume.JPG",
         category: "perfumes",
         description: { ar: "", fr: "", en: "" },
-        inStock: true,
+        inStock: false,
         isNew: false
     },
     {
@@ -196,7 +416,7 @@ const productsData = [
         image: "img/athousandwishesparfumee.JPG",
         category: "perfumes",
         description: { ar: "", fr: "", en: "" },
-        inStock: true,
+        inStock: false,
         isNew: false
     },
     {
@@ -232,7 +452,7 @@ const productsData = [
         image: "img/strawberryflirtparfumee.JPG",
         category: "perfumes",
         description: { ar: "", fr: "", en: "" },
-        inStock: true,
+        inStock: false,
         isNew: false
     },
     {
@@ -311,13 +531,13 @@ const productsData = [
         isNew: false,
         variants: [
             { id: "lipgloss_saltytan", name: { ar: "Salty Tan", fr: "Salty Tan", en: "Salty Tan" }, price: 200, image: "img/salty-tan.JPG", inStock: true },
-            { id: "lipgloss_espresso", name: { ar: "Espresso", fr: "Espresso", en: "Espresso" }, price: 200, image: "img/espresso.JPG", inStock: true },
-            { id: "lipgloss_raspberry", name: { ar: "Raspberry Jelly", fr: "Raspberry Jelly", en: "Raspberry Jelly" }, price: 200, image: "img/raspberry-jelly.JPG", inStock: true },
+            { id: "lipgloss_espresso", name: { ar: "Espresso", fr: "Espresso", en: "Espresso" }, price: 200, image: "img/espresso.JPG", inStock: false },
+            { id: "lipgloss_raspberry", name: { ar: "Raspberry Jelly", fr: "Raspberry Jelly", en: "Raspberry Jelly" }, price: 200, image: "img/raspberry-jelly.JPG", inStock: false },
             { id: "lipgloss_ribbon", name: { ar: "Ribbon", fr: "Ribbon", en: "Ribbon" }, price: 200, image: "img/ribbon.JPG", inStock: true },
-            { id: "lipgloss_toast", name: { ar: "Toast", fr: "Toast", en: "Toast" }, price: 200, image: "img/toast.JPG", inStock: true },
+            { id: "lipgloss_toast", name: { ar: "Toast", fr: "Toast", en: "Toast" }, price: 200, image: "img/toast.JPG", inStock: false },
             { id: "lipgloss_peachpit", name: { ar: "Peach Pit", fr: "Peach Pit", en: "Peach Pit" }, price: 200, image: "img/peach-pit.JPG", inStock: true },
-            { id: "lipgloss_juava", name: { ar: "Juava Spritz", fr: "Juava Spritz", en: "Juava Spritz" }, price: 200, image: "img/juava-spritz.JPG", inStock: true },
-            { id: "lipgloss_vanilla", name: { ar: "Vanilla", fr: "Vanilla", en: "Vanilla" }, price: 200, image: "img/vanilla.JPG", inStock: true }
+            { id: "lipgloss_juava", name: { ar: "Juava Spritz", fr: "Juava Spritz", en: "Juava Spritz" }, price: 200, image: "img/juava-spritz.JPG", inStock: false },
+            { id: "lipgloss_vanilla", name: { ar: "Vanilla", fr: "Vanilla", en: "Vanilla" }, price: 200, image: "img/vanilla.JPG", inStock: false }
         ]
     },
     {
@@ -385,10 +605,11 @@ const productsData = [
         variants: [
             { id: "vs_romantic", name: { ar: "Romantic", fr: "Romantic", en: "Romantic" }, price: 600, image: "img/romantic.JPG", inStock: true },
             { id: "vs_coconut", name: { ar: "Coconut Passion", fr: "Coconut Passion", en: "Coconut Passion" }, price: 600, image: "img/coconut-passion.JPG", inStock: true },
-            { id: "vs_rush", name: { ar: "Rush", fr: "Rush", en: "Rush" }, price: 600, image: "img/rush.JPG", inStock: false },
+            { id: "vs_rush", name: { ar: "Rush", fr: "Rush", en: "Rush" }, price: 600, image: "img/rush.JPG", inStock: true },
             { id: "vs_aquakiss", name: { ar: "Aqua Kiss", fr: "Aqua Kiss", en: "Aqua Kiss" }, price: 600, image: "img/aqua-kiss.JPG", inStock: true },
-            { id: "vs_amber", name: { ar: "Amber Romance", fr: "Amber Romance", en: "Amber Romance" }, price: 600, image: "img/amber-romance.JPG", inStock: false },
-            { id: "vs_velvet", name: { ar: "Velvet Petals", fr: "Velvet Petals", en: "Velvet Petals" }, price: 600, image: "img/velvetpetals.JPG", inStock: false }
+            { id: "vs_amber", name: { ar: "Amber Romance", fr: "Amber Romance", en: "Amber Romance" }, price: 600, image: "img/amber-romance.JPG", inStock: true },
+            { id: "vs_velvet", name: { ar: "Velvet Petals", fr: "Velvet Petals", en: "Velvet Petals" }, price: 600, image: "img/velvetpetals.JPG", inStock: true },
+            { id: "vs_Teptation", name: { ar: "Teptation", fr: "Teptation", en: "Teptation" }, price: 600, image: "img1/teptation.JPG", inStock: true }
         ]
     },
     {
@@ -402,11 +623,11 @@ const productsData = [
         inStock: true,
         isNew: false,
         variants: [
-            { id: "sol_62", name: { ar: "62", fr: "62", en: "62" }, price: 300, image: "img/sol-de-janeiro62.JPG", inStock: true },
-            { id: "sol_87", name: { ar: "87", fr: "87", en: "87" }, price: 300, image: "img/sol-de-janeiro87.JPG", inStock: true },
+            { id: "sol_62", name: { ar: "62", fr: "62", en: "62" }, price: 300, image: "img/sol-de-janeiro62.JPG", inStock: false },
+            { id: "sol_87", name: { ar: "87", fr: "87", en: "87" }, price: 300, image: "img/sol-de-janeiro87.JPG", inStock: false },
             { id: "sol_40", name: { ar: "40", fr: "40", en: "40" }, price: 300, image: "img/sol-de-janeiro40.JPG", inStock: false },
-            { id: "sol_59", name: { ar: "59", fr: "59", en: "59" }, price: 300, image: "img/sol-de-janeiro59.JPG", inStock: true },
-            { id: "sol_71", name: { ar: "71", fr: "71", en: "71" }, price: 300, image: "img/sol-de-janeiro71.JPG", inStock: true },
+            { id: "sol_59", name: { ar: "59", fr: "59", en: "59" }, price: 300, image: "img/sol-de-janeiro59.JPG", inStock: false },
+            { id: "sol_71", name: { ar: "71", fr: "71", en: "71" }, price: 300, image: "img/sol-de-janeiro71.JPG", inStock: false },
             { id: "sol_48", name: { ar: "48", fr: "48", en: "48" }, price: 300, image: "img/sol-de-janeiro48.JPG", inStock: false },
             { id: "sol_39", name: { ar: "39", fr: "39", en: "39" }, price: 300, image: "img/sol-de-janeiro39.JPG", inStock: false }
         ]
@@ -422,7 +643,7 @@ const productsData = [
         inStock: true,
         isNew: false,
         variants: [
-            { id: "oil_yara", name: { ar: "يارا", fr: "Yara", en: "Yara" }, price: 150, image: "img/yara.JPG", inStock: true },
+            { id: "oil_yara", name: { ar: "يارا", fr: "Yara", en: "Yara" }, price: 150, image: "img/yara.JPG", inStock: false },
             { id: "oil_sefirlhoub", name: { ar: "سفير الحب", fr: "Sefir El Houb", en: "Sefir El Houb" }, price: 150, image: "img/sefirlhoub.JPG", inStock: true },
             { id: "oil_mousouf", name: { ar: "موصوف", fr: "Mousouf", en: "Mousouf" }, price: 150, image: "img/mousouf.JPG", inStock: true },
             { id: "oil_roseparis", name: { ar: "روز باريس", fr: "Rose Paris", en: "Rose Paris" }, price: 150, image: "img/roseparis.JPG", inStock: true }
@@ -485,7 +706,7 @@ const productsData = [
             fr: "Fonctionne comme un pansement qui absorbe les liquides du bouton.\n\n• Sa fonction :\n• Absorbe le pus et les huiles du bouton.\n• Protège le bouton du toucher et des bactéries.\n• Aide à le sécher plus rapidement.\n\n• Idéal pour les boutons ouverts ou avec tête blanche.\n\n• Généralement doux pour les peaux sensibles.",
             en: "Works like a bandage that absorbs fluids from the pimple.\n\n• Its function:\n• Absorbs pus and oils from the pimple.\n• Protects the pimple from touch and bacteria.\n• Helps it dry faster.\n\n• Best for open pimples or those with a white head.\n\n• Usually gentle on sensitive skin."
         },
-        inStock: true,
+        inStock: false,
         isNew: false
     },
 
@@ -556,7 +777,7 @@ const productsData = [
         image: "img/pack-daily-scent.JPG",
         category: "perfumes",
         description: { ar: "", fr: "", en: "" },
-        inStock: false,
+        inStock: true,
         isNew: false
     },
 
