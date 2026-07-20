@@ -774,7 +774,7 @@ const productsData = [
         name: { ar: "Pack Daily Scent", fr: "Pack Daily Scent", en: "Pack Daily Scent" },
         price: 600,
         originalPrice: null,
-        image: "img/pack-daily-scent.JPG",
+        image: "img1/pack_daily_scent.JPG",
         category: "perfumes",
         description: { ar: "", fr: "", en: "" },
         inStock: true,
