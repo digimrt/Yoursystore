@@ -536,7 +536,7 @@ const productsData = [
             { id: "lipgloss_ribbon", name: { ar: "Ribbon", fr: "Ribbon", en: "Ribbon" }, price: 200, image: "img/ribbon.JPG", inStock: true },
             { id: "lipgloss_toast", name: { ar: "Toast", fr: "Toast", en: "Toast" }, price: 200, image: "img/toast.JPG", inStock: false },
             { id: "lipgloss_peachpit", name: { ar: "Peach Pit", fr: "Peach Pit", en: "Peach Pit" }, price: 200, image: "img/peach-pit.JPG", inStock: true },
-            { id: "lipgloss_juava", name: { ar: "Juava Spritz", fr: "Juava Spritz", en: "Juava Spritz" }, price: 200, image: "img/juava-spritz.JPG", inStock: false },
+            { id: "lipgloss_juava", name: { ar: "Juava Spritz", fr: "Juava Spritz", en: "Juava Spritz" }, price: 200, image: "img/juava-spritz.JPG", inStock: true },
             { id: "lipgloss_vanilla", name: { ar: "Vanilla", fr: "Vanilla", en: "Vanilla" }, price: 200, image: "img/vanilla.JPG", inStock: false }
         ]
     },
