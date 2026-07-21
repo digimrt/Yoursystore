@@ -411,7 +411,7 @@ const productsData = [
         image: "img/finefraganceinthestars.JPG",
         category: "perfumes",
         description: { ar: "", fr: "", en: "" },
-        inStock: false,
+        inStock: true,
         isNew: false
     },
     {
@@ -531,7 +531,7 @@ const productsData = [
         image: "img/Intothenightparfumee.JPG",
         category: "perfumes",
         description: { ar: "", fr: "", en: "" },
-        inStock: true,
+        inStock: false,
         isNew: false
     },
     
