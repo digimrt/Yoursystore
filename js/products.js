@@ -4,6 +4,25 @@
 
 
 const productsData = [
+
+    {
+        id: "lip_balm",
+        name: { ar: "Lip Balm", fr: "Lip Balm", en: "Lip Balm" },
+        subtitle: null,
+        price: 260,
+        originalPrice: null,
+        image: "img1/lipbalmwildcherry.JPG",
+        category: "makeup",
+        description: { ar: "", fr: "", en: "" },
+        inStock: true,
+        isNew: false,
+        variants: [
+            { id: "lip_balm_wild_cherry", name: { ar: "Wild Cherry", fr: "Wild Cherry", en: "Wild Cherry" }, price: 260, image: "img1/lipbalmwildcherry.JPG", inStock: true },
+            { id: "lip_balm_strawberry", name: { ar: "Strawberry Shortcake", fr: "Strawberry Shortcake", en: "Strawberry Shortcake" }, price: 260, image: "img1/lipbalmstrawberry.JPG", inStock: true },
+            { id: "lip_balm_vanilla", name: { ar: "Vanilla Toffee", fr: "Vanilla Toffee", en: "Vanilla Toffee" }, price: 260, image: "img1/lipbalmvanilla.JPG", inStock: true },
+            { id: "lip_balm_gummy", name: { ar: "Yummy Gummy", fr: "Yummy Gummy", en: "Yummy Gummy" }, price: 260, image: "img1/lipbalmgummy.JPG", inStock: true }
+        ]
+    },
     
 
     {
@@ -236,7 +255,7 @@ const productsData = [
         image: "img1/brownsugar.JPG",
         category: "skincare",
         description: { ar: "", fr: "", en: "" },
-        inStock: true,
+        inStock: false,
         isNew: false
     },
     {
@@ -248,7 +267,7 @@ const productsData = [
         image: "img1/oatmealll.JPG",
         category: "skincare",
         description: { ar: "", fr: "", en: "" },
-        inStock: true,
+        inStock: false,
         isNew: false
     },
     {
@@ -392,7 +411,7 @@ const productsData = [
         image: "img/finefraganceinthestars.JPG",
         category: "perfumes",
         description: { ar: "", fr: "", en: "" },
-        inStock: true,
+        inStock: false,
         isNew: false
     },
     {
@@ -567,7 +586,7 @@ const productsData = [
         inStock: true,
         isNew: false,
         variants: [
-            { id: "blush_encourage", name: { ar: "Encourage", fr: "Encourage", en: "Encourage" }, price: 200, image: "img/encourage.JPG", inStock: true },
+            { id: "blush_encourage", name: { ar: "Encourage", fr: "Encourage", en: "Encourage" }, price: 200, image: "img/encourage.JPG", inStock: false },
             { id: "blush_hope", name: { ar: "Hope", fr: "Hope", en: "Hope" }, price: 200, image: "img/hope.JPG", inStock: true },
             { id: "blush_happy", name: { ar: "Happy", fr: "Happy", en: "Happy" }, price: 200, image: "img/happy.JPG", inStock: true },
             { id: "blush_bliss", name: { ar: "Bliss", fr: "Bliss", en: "Bliss" }, price: 200, image: "img/bliss.JPG", inStock: true },
