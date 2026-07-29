@@ -43,7 +43,7 @@
         }
     </script>
 
-    <link rel="stylesheet" href="css/style.css?v=3">
+    <link rel="stylesheet" href="css/style.css?v=4">
 </head>
 
 <body class="bg-background text-foreground min-h-screen">
@@ -299,10 +299,10 @@
     <button id="scroll-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
         class="scroll-to-top opacity-0 pointer-events-none"><i class="fa-solid fa-arrow-up"></i></button>
 
-    <script src="js/products.js?v=3"></script>
-    <script src="js/main.js?v=3"></script>
-    <script src="js/cart.js?v=3"></script>
-    <script src="js/translations.js?v=3"></script>
+    <script src="js/products.js?v=4"></script>
+    <script src="js/main.js?v=4"></script>
+    <script src="js/cart.js?v=4"></script>
+    <script src="js/translations.js?v=4"></script>
 
     <script>
         let currentProduct = null;
@@ -355,10 +355,23 @@
 
             section.style.display = 'block';
 
+            const baseDiscount = product.discount || GLOBAL_DISCOUNT_PERCENT || 0;
+
             grid.innerHTML = product.variants.map(variant => {
+                // حساب الخصم الخاص بالمتغير: يستخدم خصم المتغير إذا وجد، وإلا يستخدم خصم المنتج الرئيسي، وإلا لا خصم
+                let variantDiscount = 0;
+                if (variant.inStock !== false) {
+                    variantDiscount = variant.discount || baseDiscount;
+                }
+                const hasDiscount = variantDiscount > 0;
                 const variantPrice = variant.price || product.price;
-                const hasDiscount = product.originalPrice && product.originalPrice > variantPrice;
-                const discountPercent = hasDiscount ? Math.round((1 - variantPrice / product.originalPrice) * 100) : 0;
+                let displayPrice = variantPrice;
+                let originalPrice = variantPrice;
+                if (hasDiscount) {
+                    displayPrice = Math.round(variantPrice * (1 - variantDiscount / 100));
+                    originalPrice = variantPrice;
+                }
+
                 const variantImage = variant.image || product.image;
                 const quantityInCart = getCartItemQuantity(product.id, variant.id);
 
@@ -366,7 +379,7 @@
             <div class="product-card group bg-card border border-border/50 rounded-xl overflow-hidden transition-all duration-300 hover:shadow-xl hover:border-accent/30" data-product-id="${product.id}" data-variant-id="${variant.id}">
                 <div class="block relative aspect-square overflow-hidden">
                     <img src="${variantImage}" alt="${getVariantName(variant)}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                    ${hasDiscount ? `<span class="absolute top-2 ${getCurrentLanguage() === 'ar' ? 'left-2' : 'right-2'} bg-accent text-white text-xs font-bold px-2 py-1 rounded">-${discountPercent}%</span>` : ''}
+                    ${hasDiscount ? `<span class="absolute top-2 ${getCurrentLanguage() === 'ar' ? 'left-2' : 'right-2'} bg-accent text-white text-xs font-bold px-2 py-1 rounded">-${variantDiscount}%</span>` : ''}
                     ${product.isNew ? `<span class="absolute top-2 ${getCurrentLanguage() === 'ar' ? 'right-2' : 'left-2'} bg-green-600 text-white text-xs font-bold px-2 py-1 rounded">${t('slider_new')}</span>` : ''}
                 </div>
                 <div class="p-4">
@@ -374,8 +387,8 @@
                         ${getVariantName(variant)}
                     </h3>
                     <div class="flex items-center justify-center gap-2 mb-3">
-                        <span class="text-accent font-bold text-lg">${formatPrice(variantPrice)}</span>
-                        ${hasDiscount ? `<span class="text-muted-foreground line-through text-sm">${formatPrice(product.originalPrice)}</span>` : ''}
+                        <span class="text-accent font-bold text-lg">${formatPrice(displayPrice)}</span>
+                        ${hasDiscount ? `<span class="text-muted-foreground line-through text-sm">${formatPrice(originalPrice)}</span>` : ''}
                     </div>
                     ${variant.inStock !== false ? `
                         <div class="flex flex-col gap-2">
@@ -527,6 +540,17 @@
                 subtitleElement.classList.add('hidden');
             }
 
+            // تحديد حالة المخزون
+            let inStock = false;
+            let isComingSoon = false;
+
+            if (product.variants && product.variants.length > 0) {
+                inStock = product.variants.some(v => v.inStock === true);
+            } else {
+                inStock = product.inStock;
+                isComingSoon = product.comingSoon === true;
+            }
+
             // تحديد نسبة الخصم: خاصية المنتج أولاً، ثم الخصم العام
             let discountPercent = 0;
             if (inStock && !isComingSoon) {
@@ -552,15 +576,7 @@
                 document.getElementById('product-discount').classList.add('hidden');
             }
 
-            if (product.originalPrice && product.originalPrice > product.price) {
-                document.getElementById('product-original-price').textContent = formatPrice(product.originalPrice);
-                document.getElementById('product-original-price').classList.remove('hidden');
-                document.getElementById('product-discount').textContent = `-${Math.round((1 - product.price / product.originalPrice) * 100)}%`;
-                document.getElementById('product-discount').classList.remove('hidden');
-            } else {
-                document.getElementById('product-original-price').classList.add('hidden');
-                document.getElementById('product-discount').classList.add('hidden');
-            }
+            // هذا الجزء كان مكرراً، أزلناه
 
             document.getElementById('product-description').innerHTML = (description || '').replace(/\n/g, '<br>');
 
@@ -574,16 +590,6 @@
             const stockDiv = document.getElementById('product-stock');
 
             if (stockDiv) {
-                let inStock = false;
-                let isComingSoon = false;
-
-                if (product.variants && product.variants.length > 0) {
-                    inStock = product.variants.some(v => v.inStock === true);
-                } else {
-                    inStock = product.inStock;
-                    isComingSoon = product.comingSoon === true;
-                }
-
                 if (inStock) {
                     stockDiv.innerHTML = `
                         <i class="fa-solid fa-check-circle text-green-500"></i>
