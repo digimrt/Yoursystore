@@ -43,7 +43,7 @@
         }
     </script>
 
-    <link rel="stylesheet" href="css/style.css?v=2">
+    <link rel="stylesheet" href="css/style.css?v=3">
 </head>
 
 <body class="bg-background text-foreground min-h-screen">
@@ -299,10 +299,10 @@
     <button id="scroll-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
         class="scroll-to-top opacity-0 pointer-events-none"><i class="fa-solid fa-arrow-up"></i></button>
 
-    <script src="js/products.js?v=2"></script>
-    <script src="js/main.js?v=2"></script>
-    <script src="js/cart.js?v=2"></script>
-    <script src="js/translations.js?v=2"></script>
+    <script src="js/products.js?v=3"></script>
+    <script src="js/main.js?v=3"></script>
+    <script src="js/cart.js?v=3"></script>
+    <script src="js/translations.js?v=3"></script>
 
     <script>
         let currentProduct = null;
@@ -527,7 +527,11 @@
                 subtitleElement.classList.add('hidden');
             }
 
-            const discountPercent = GLOBAL_DISCOUNT_PERCENT || 0;
+            // تحديد نسبة الخصم: خاصية المنتج أولاً، ثم الخصم العام
+            let discountPercent = 0;
+            if (inStock && !isComingSoon) {
+                discountPercent = product.discount || GLOBAL_DISCOUNT_PERCENT || 0;
+            }
             let displayPrice = product.price;
             let originalPrice = product.originalPrice;
 

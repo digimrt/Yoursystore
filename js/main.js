@@ -149,9 +149,11 @@ function renderProductCard(product) {
     }
   }
 
-  // حساب الخصم (فقط إذا كان المنتج متوفراً)
-  const discountPercent =
-    !isOutOfStock && !isComingSoon ? GLOBAL_DISCOUNT_PERCENT || 0 : 0;
+  // تحديد نسبة الخصم: خاصية المنتج أولاً، ثم الخصم العام
+  let discountPercent = 0;
+  if (!isOutOfStock && !isComingSoon) {
+    discountPercent = product.discount || GLOBAL_DISCOUNT_PERCENT || 0;
+  }
   const hasDiscount = discountPercent > 0;
   let displayPrice = product.price;
   let originalPrice = product.originalPrice;

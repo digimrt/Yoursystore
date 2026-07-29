@@ -207,7 +207,8 @@ const productsData = [
         category: "skincare",
         description: { ar: "", fr: "", en: "" },
         inStock: true,
-        isNew: false
+        isNew: false,
+        discount: 10  // ✅ خصم 10%
     },
     {
         id: "gillette_venus_breeze",
@@ -219,7 +220,8 @@ const productsData = [
         category: "skincare",
         description: { ar: "", fr: "", en: "" },
         inStock: true,
-        isNew: false
+        isNew: false,
+        discount: 10  // ✅ خصم 10%
     },
     {
         id: "gillette_venus_coconut",
@@ -231,7 +233,8 @@ const productsData = [
         category: "skincare",
         description: { ar: "", fr: "", en: "" },
         inStock: true,
-        isNew: false
+        isNew: false,
+        discount: 10  // ✅ خصم 10%
     },
     {
         id: "gillette_venus_tropical",
@@ -243,7 +246,8 @@ const productsData = [
         category: "skincare",
         description: { ar: "", fr: "", en: "" },
         inStock: true,
-        isNew: false
+        isNew: false,
+        discount: 10  // ✅ خصم 10%
     },
     
     {
@@ -740,7 +744,8 @@ const productsData = [
         category: "makeup",
         description: { ar: "", fr: "", en: "" },
         inStock: true,
-        isNew: false
+        isNew: false,
+        discount: 10  // ✅ خصم 10%
     },
     {
         id: "lipstick_tint",
@@ -762,7 +767,8 @@ const productsData = [
         category: "makeup",
         description: { ar: "", fr: "", en: "" },
         inStock: true,
-        isNew: false
+        isNew: false,
+        discount: 10  // ✅ خصم 10%
     },
     {
         id: "eyebrows_pen",
@@ -797,7 +803,8 @@ const productsData = [
         category: "perfumes",
         description: { ar: "", fr: "", en: "" },
         inStock: true,
-        isNew: false
+        isNew: false,
+        discount: 10  // ✅ خصم 10%
     },
 
     // ============ NEW ARRIVALS (isNew: false) ============
@@ -815,7 +822,8 @@ const productsData = [
             en: "A specialized line for skin suffering from breakouts and sudden irritation.\n\nFunction: Control oil, soothe acne, and purify pores.\n\nKey ingredient: Blend of tea tree and centella asiatica (Trica).\n\nSuitable for: Oily and acne-prone skin."
         },
         inStock: true,
-        isNew: false
+        isNew: false,
+        discount: 10  // ✅ خصم 10%
     },
     {
         id: "hyalu_cica",
@@ -830,7 +838,8 @@ const productsData = [
             en: "A line dedicated to skin suffering from dryness and loss of vitality.\n\nFunction: Deep hydration, prevention of water loss, and healthy glow.\n\nKey ingredient: Blend of hyaluronic acid and centella.\n\nSuitable for: Dry and dull skin."
         },
         inStock: true,
-        isNew: false
+        isNew: false,
+        discount: 10  // ✅ خصم 10%
     },
    
     {
@@ -846,7 +855,8 @@ const productsData = [
             en: "The \"Purito\" brand focuses on clean and safe ingredients to strengthen the skin barrier.\n\nFunction: Nourish the skin, strengthen the natural barrier, and provide balanced daily care.\n\nKey ingredients: Panthenol, centella, and soothing plant extracts.\n\nSuitable for: Sensitive skin that needs deep nourishment."
         },
         inStock: true,
-        isNew: false
+        isNew: false,
+        discount: 10  // ✅ خصم 10%
     },
     {
         id: "brightening_scrub",
@@ -861,7 +871,8 @@ const productsData = [
             en: "One of the most famous physical scrubs in the world, award-winning thanks to its effective and plant-based formula.\n\n1. Main product function:\nThis scrub removes dead skin cells and impurities clogging pores, helping to transform dull, tired skin into brighter, smoother skin.\n\n2. Key ingredients:\n• Sea Kelp: Rich in minerals that purify and nourish the skin.\n• French Green Clay: Acts like a magnet to draw out oil and impurities from pores.\n• Lemon peel and sugar cane: Gently exfoliate and help brighten skin tone.\n• Night primrose stem cells: Provide protection and antioxidants to the skin.\n\n3. Benefits:\n• 100% Vegan: Cruelty-free and contains no animal ingredients.\n• Clean Beauty: Free from parabens, sulfates, phthalates, and mineral oils.\n• Immediate results: Noticeable smoothness in skin texture after first use."
         },
         inStock: true,
-        isNew: false
+        isNew: false,
+        discount: 10  // ✅ خصم 10%
     },
     {
         id: "gluta_collagen",
@@ -876,7 +887,8 @@ const productsData = [
             en: "This product combines several famous elements in the beauty world:\n\n• Glutathione (Gluta): Known as a powerful antioxidant, often used to brighten and even out skin tone.\n\n• Collagen: Specifically \"Collagen Dipeptide\", an easily absorbable type that helps with skin elasticity and wrinkle reduction.\n\n• Red fruit extracts: Contains tomato, strawberry, raspberry, and acerola cherry, rich in vitamin C which enhances collagen absorption and protects the skin from oxidative stress.\n\nPackage details:\n• Quantity: The bag contains 30 sachets, each weighing 10 grams."
         },
         inStock: true,
-        isNew: false
+        isNew: false,
+        discount: 10  // ✅ خصم 10%
     }
 ];
 
