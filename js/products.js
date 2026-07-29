@@ -20,7 +20,7 @@ const productsData = [
         variants: [
             { id: "lip_balm_wild_cherry", name: { ar: "Wild Cherry", fr: "Wild Cherry", en: "Wild Cherry" }, price: 260, image: "img1/lipbalmwildcherry.JPG", inStock: true },
             { id: "lip_balm_strawberry", name: { ar: "Strawberry Shortcake", fr: "Strawberry Shortcake", en: "Strawberry Shortcake" }, price: 260, image: "img1/lipbalmstrawberry.JPG", inStock: true },
-            { id: "lip_balm_vanilla", name: { ar: "Vanilla Toffee", fr: "Vanilla Toffee", en: "Vanilla Toffee" }, price: 260, image: "img1/lipbalmvanilla.JPG", inStock: true },
+            { id: "lip_balm_vanilla", name: { ar: "Vanilla Toffee", fr: "Vanilla Toffee", en: "Vanilla Toffee" }, price: 260, image: "img1/lipbalmvanilla.JPG", inStock: false },
             { id: "lip_balm_gummy", name: { ar: "Yummy Gummy", fr: "Yummy Gummy", en: "Yummy Gummy" }, price: 260, image: "img1/lipbalmgummy.JPG", inStock: true }
         ]
     },
@@ -646,13 +646,15 @@ const productsData = [
         inStock: true,
         isNew: false,
         variants: [
+            { id: "sol_76", name: { ar: "76", fr: "76", en: "76" }, price: 300, image: "img1/sol-de-janeiro76.JPG", inStock: true },
             { id: "sol_62", name: { ar: "62", fr: "62", en: "62" }, price: 300, image: "img/sol-de-janeiro62.JPG", inStock: false },
-            { id: "sol_87", name: { ar: "87", fr: "87", en: "87" }, price: 300, image: "img/sol-de-janeiro87.JPG", inStock: false },
+            { id: "sol_87", name: { ar: "87", fr: "87", en: "87" }, price: 300, image: "img/sol-de-janeiro87.JPG", inStock: true },
             { id: "sol_40", name: { ar: "40", fr: "40", en: "40" }, price: 300, image: "img/sol-de-janeiro40.JPG", inStock: false },
             { id: "sol_59", name: { ar: "59", fr: "59", en: "59" }, price: 300, image: "img/sol-de-janeiro59.JPG", inStock: false },
-            { id: "sol_71", name: { ar: "71", fr: "71", en: "71" }, price: 300, image: "img/sol-de-janeiro71.JPG", inStock: false },
-            { id: "sol_48", name: { ar: "48", fr: "48", en: "48" }, price: 300, image: "img/sol-de-janeiro48.JPG", inStock: false },
-            { id: "sol_39", name: { ar: "39", fr: "39", en: "39" }, price: 300, image: "img/sol-de-janeiro39.JPG", inStock: false }
+            { id: "sol_71", name: { ar: "71", fr: "71", en: "71" }, price: 300, image: "img/sol-de-janeiro71.JPG", inStock: true },
+            { id: "sol_48", name: { ar: "48", fr: "48", en: "48" }, price: 300, image: "img/sol-de-janeiro48.JPG", inStock: true },
+            { id: "sol_39", name: { ar: "39", fr: "39", en: "39" }, price: 300, image: "img/sol-de-janeiro39.JPG", inStock: true }
+            
         ]
     },
     {
