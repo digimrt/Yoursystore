@@ -86,8 +86,10 @@
                     <i class="fa-solid fa-search absolute top-1/2 -translate-y-1/2 end-4 text-muted-foreground"></i>
                 </div>
                 <div class="flex flex-col gap-2">
-                    <a href="index.html" class="px-4 py-3 rounded-lg bg-secondary font-medium" data-i18n="nav_products">المنتجات</a>
-                    <a href="contact.html" class="px-4 py-3 rounded-lg bg-secondary font-medium" data-i18n="nav_contact">اتصل بنا</a>
+                    <a href="index.html" class="px-4 py-3 rounded-lg bg-secondary font-medium"
+                        data-i18n="nav_products">المنتجات</a>
+                    <a href="contact.html" class="px-4 py-3 rounded-lg bg-secondary font-medium"
+                        data-i18n="nav_contact">اتصل بنا</a>
                 </div>
             </div>
         </div>
@@ -206,7 +208,8 @@
             <div class="footer-grid">
                 <div>
                     <div class="flex items-center justify-center md:justify-start gap-2 mb-4">
-                        <img src="img/logo.PNG" alt="Yoursy Store" class="logofooter" style="height: 80px; width: auto;">
+                        <img src="img/logo.PNG" alt="Yoursy Store" class="logofooter"
+                            style="height: 80px; width: auto;">
                     </div>
                     <div class="flex gap-4 justify-center md:justify-start">
                         <a href="https://wa.me/22230764882" target="_blank"
@@ -511,7 +514,7 @@
             document.getElementById('product-category').textContent = t(getCategoryKey(product.category));
             document.getElementById('product-category-link').href = `index.html?category=${product.category}`;
             document.getElementById('product-name').textContent = name;
-            
+
             // عرض العنوان الفرعي إذا وجد
             const subtitleElement = document.getElementById('product-subtitle');
             if (product.subtitle) {
@@ -523,8 +526,27 @@
             } else if (subtitleElement) {
                 subtitleElement.classList.add('hidden');
             }
-            
-            document.getElementById('product-price').textContent = formatPrice(product.price);
+
+            const discountPercent = GLOBAL_DISCOUNT_PERCENT || 0;
+            let displayPrice = product.price;
+            let originalPrice = product.originalPrice;
+
+            if (discountPercent > 0) {
+                displayPrice = Math.round(product.price * (1 - discountPercent / 100));
+                originalPrice = product.price;
+            }
+
+            document.getElementById('product-price').textContent = formatPrice(displayPrice);
+
+            if (discountPercent > 0 && originalPrice > displayPrice) {
+                document.getElementById('product-original-price').textContent = formatPrice(originalPrice);
+                document.getElementById('product-original-price').classList.remove('hidden');
+                document.getElementById('product-discount').textContent = `-${discountPercent}%`;
+                document.getElementById('product-discount').classList.remove('hidden');
+            } else {
+                document.getElementById('product-original-price').classList.add('hidden');
+                document.getElementById('product-discount').classList.add('hidden');
+            }
 
             if (product.originalPrice && product.originalPrice > product.price) {
                 document.getElementById('product-original-price').textContent = formatPrice(product.originalPrice);

@@ -1,7 +1,8 @@
 // Product Data for Yoursy Store
 // Pink Rose Theme - All Products with Variants
 
-
+// نسبة الخصم العامة (مثلاً 30%)
+const GLOBAL_DISCOUNT_PERCENT = 30; // غيّر الرقم هنا لتغيير الخصم
 
 const productsData = [
 
@@ -95,13 +96,13 @@ const productsData = [
     {
         id: "powder_rare_beauty",
         name: { ar: "Powder Rare Beauty", fr: "Powder Rare Beauty", en: "Powder Rare Beauty" },
-        subtitle: { ar: "Natural", fr: "Natural", en: "Natural" }, // حقل الـ subtitle مستقل هنا
+        subtitle: { ar: "Natural", fr: "Natural", en: "Natural" },
         price: 300,
         originalPrice: null,
         image: "img1/powderrarebeauty.JPG",
         category: "makeup",
         description: { ar: "", fr: "", en: "" },
-        inStock: true,
+        inStock: false,
         isNew: false
     },
     {
@@ -113,7 +114,7 @@ const productsData = [
         image: "img1/correctorcherryblossom.JPG",
         category: "makeup",
         description: { ar: "", fr: "", en: "" },
-        inStock: true,
+        inStock: false,
         isNew: false
     },
     {
@@ -125,7 +126,7 @@ const productsData = [
         image: "img1/concealernougat.JPG",
         category: "makeup",
         description: { ar: "", fr: "", en: "" },
-        inStock: true,
+        inStock: false,
         isNew: false
     },
     {
@@ -208,7 +209,6 @@ const productsData = [
         inStock: true,
         isNew: false
     },
-    // منتجات Gillette Venus مع حقل subtitle منفصل لكل منها
     {
         id: "gillette_venus_breeze",
         name: { ar: "Gillette Venus", fr: "Gillette Venus", en: "Gillette Venus" },
@@ -375,7 +375,7 @@ const productsData = [
         image: "img1/starslotionwashbody.JPG",
         category: "skincare",
         description: { ar: "", fr: "", en: "" },
-        inStock: true,
+        inStock: false,
         isNew: false
     },
     {
@@ -607,7 +607,7 @@ const productsData = [
             { id: "blush_freckle", name: { ar: "Freckle", fr: "Freckle", en: "Freckle" }, price: 200, image: "img/freckle.JPG", inStock: true },
             { id: "blush_juicebox", name: { ar: "Juice Box", fr: "Juice Box", en: "Juice Box" }, price: 200, image: "img/juice-box.JPG", inStock: true },
             { id: "blush_spicymarg", name: { ar: "Spicy Marg", fr: "Spicy Marg", en: "Spicy Marg" }, price: 200, image: "img/spicy-marg.JPG", inStock: true },
-            { id: "blush_sleepygirl", name: { ar: "Sleepy Girl", fr: "Sleepy Girl", en: "Sleepy Girl" }, price: 200, image: "img/sleepy-girl.JPG", inStock: true },
+            { id: "blush_sleepygirl", name: { ar: "Sleepy Girl", fr: "Sleepy Girl", en: "Sleepy Girl" }, price: 200, image: "img/sleepy-girl.JPG", inStock: false },
             { id: "blush_piggy", name: { ar: "Piggy", fr: "Piggy", en: "Piggy" }, price: 200, image: "img/piggy.JPG", inStock: true }
         ]
     },
@@ -695,7 +695,7 @@ const productsData = [
         image: "img/dove-deodorant.JPG",
         category: "skincare",
         description: { ar: "", fr: "", en: "" },
-        inStock: true,
+        inStock: false,
         isNew: false
     },
     {
