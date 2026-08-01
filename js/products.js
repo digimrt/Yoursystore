@@ -2,7 +2,7 @@
 // Pink Rose Theme - All Products with Variants
 
 // نسبة الخصم العامة (مثلاً 30%)
-const GLOBAL_DISCOUNT_PERCENT = 30; // غيّر الرقم هنا لتغيير الخصم
+const GLOBAL_DISCOUNT_PERCENT = 0;  //غيّر الرقم هنا لتغيير الخصم
 
 const productsData = [
 
@@ -208,7 +208,7 @@ const productsData = [
         description: { ar: "", fr: "", en: "" },
         inStock: true,
         isNew: false,
-        discount: 10  // ✅ خصم 10%
+        //discount: 10  // ✅ خصم 10%
     },
     {
         id: "gillette_venus_breeze",
@@ -221,7 +221,7 @@ const productsData = [
         description: { ar: "", fr: "", en: "" },
         inStock: true,
         isNew: false,
-        discount: 10  // ✅ خصم 10%
+        //discount: 10  // ✅ خصم 10%
     },
     {
         id: "gillette_venus_coconut",
@@ -234,7 +234,7 @@ const productsData = [
         description: { ar: "", fr: "", en: "" },
         inStock: true,
         isNew: false,
-        discount: 10  // ✅ خصم 10%
+        //discount: 10  // ✅ خصم 10%
     },
     {
         id: "gillette_venus_tropical",
@@ -247,7 +247,7 @@ const productsData = [
         description: { ar: "", fr: "", en: "" },
         inStock: true,
         isNew: false,
-        discount: 10  // ✅ خصم 10%
+        //discount: 10  // ✅ خصم 10%
     },
     
     {
@@ -747,7 +747,7 @@ const productsData = [
         description: { ar: "", fr: "", en: "" },
         inStock: true,
         isNew: false,
-        discount: 10  // ✅ خصم 10%
+        //discount: 10  // ✅ خصم 10%
     },
     {
         id: "lipstick_tint",
@@ -770,7 +770,7 @@ const productsData = [
         description: { ar: "", fr: "", en: "" },
         inStock: true,
         isNew: false,
-        discount: 10  // ✅ خصم 10%
+        //discount: 10  // ✅ خصم 10%
     },
     {
         id: "eyebrows_pen",
@@ -806,7 +806,7 @@ const productsData = [
         description: { ar: "", fr: "", en: "" },
         inStock: true,
         isNew: false,
-        discount: 10  // ✅ خصم 10%
+        //discount: 10  // ✅ خصم 10%
     },
 
     // ============ NEW ARRIVALS (isNew: false) ============
@@ -825,7 +825,7 @@ const productsData = [
         },
         inStock: true,
         isNew: false,
-        discount: 10  // ✅ خصم 10%
+        //discount: 10  // ✅ خصم 10%
     },
     {
         id: "hyalu_cica",
@@ -841,7 +841,7 @@ const productsData = [
         },
         inStock: true,
         isNew: false,
-        discount: 10  // ✅ خصم 10%
+        //discount: 10  // ✅ خصم 10%
     },
    
     {
@@ -858,7 +858,7 @@ const productsData = [
         },
         inStock: true,
         isNew: false,
-        discount: 10  // ✅ خصم 10%
+        //discount: 10  // ✅ خصم 10%
     },
     {
         id: "brightening_scrub",
@@ -874,7 +874,7 @@ const productsData = [
         },
         inStock: true,
         isNew: false,
-        discount: 10  // ✅ خصم 10%
+        //discount: 10  // ✅ خصم 10%
     },
     {
         id: "gluta_collagen",
@@ -890,7 +890,7 @@ const productsData = [
         },
         inStock: true,
         isNew: false,
-        discount: 10  // ✅ خصم 10%
+        //discount: 10  // ✅ خصم 10%
     }
 ];
 
