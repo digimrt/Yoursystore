@@ -43,7 +43,7 @@
         }
     </script>
 
-    <link rel="stylesheet" href="css/style.css?v=5">
+    <link rel="stylesheet" href="css/style.css?v=6">
     <link rel="stylesheet" href="css/tailwind.css">
 </head>
 
@@ -278,10 +278,10 @@
         <i class="fa-solid fa-arrow-up"></i>
     </button>
 
-    <script src="js/products.js?v=5"></script>
-    <script src="js/main.js?v=5"></script>
-    <script src="js/cart.js?v=5"></script>
-    <script src="js/translations.js?v=5"></script>
+    <script src="js/products.js?v=6"></script>
+    <script src="js/main.js?v=6"></script>
+    <script src="js/cart.js?v=6"></script>
+    <script src="js/translations.js?v=6"></script>
 
     <script>
         const addressField = document.getElementById('delivery-address');
@@ -301,6 +301,14 @@
         });
 
         document.addEventListener('DOMContentLoaded', function () {
+            // ✅ تعيين طريقة التوصيل بشكل افتراضي
+            if (!selectedDeliveryOption) {
+                selectedDeliveryOption = 'delivery';
+                if (typeof updateCheckoutButton === 'function') {
+                    updateCheckoutButton();
+                }
+            }
+
             if (typeof renderCartPage === 'function') {
                 renderCartPage();
             }
