@@ -451,7 +451,7 @@ const productsData = [
         image: "img/ifyoumuskparfume.JPG",
         category: "perfumes",
         description: { ar: "", fr: "", en: "" },
-        inStock: true,
+        inStock: false,
         isNew: false
     },
     {
@@ -463,7 +463,7 @@ const productsData = [
         image: "img/atthebeachparfume.JPG",
         category: "perfumes",
         description: { ar: "", fr: "", en: "" },
-        inStock: true,
+        inStock: false,
         isNew: false
     },
     {
@@ -554,13 +554,13 @@ const productsData = [
         isNew: false,
         variants: [
             { id: "lipgloss_saltytan", name: { ar: "Salty Tan", fr: "Salty Tan", en: "Salty Tan" }, price: 200, image: "img/salty-tan.JPG", inStock: true },
-            { id: "lipgloss_espresso", name: { ar: "Espresso", fr: "Espresso", en: "Espresso" }, price: 200, image: "img/espresso.JPG", inStock: false },
-            { id: "lipgloss_raspberry", name: { ar: "Raspberry Jelly", fr: "Raspberry Jelly", en: "Raspberry Jelly" }, price: 200, image: "img/raspberry-jelly.JPG", inStock: false },
+            { id: "lipgloss_espresso", name: { ar: "Espresso", fr: "Espresso", en: "Espresso" }, price: 200, image: "img/espresso.JPG", inStock: true },
+            { id: "lipgloss_raspberry", name: { ar: "Raspberry Jelly", fr: "Raspberry Jelly", en: "Raspberry Jelly" }, price: 200, image: "img/raspberry-jelly.JPG", inStock: true },
             { id: "lipgloss_ribbon", name: { ar: "Ribbon", fr: "Ribbon", en: "Ribbon" }, price: 200, image: "img/ribbon.JPG", inStock: true },
-            { id: "lipgloss_toast", name: { ar: "Toast", fr: "Toast", en: "Toast" }, price: 200, image: "img/toast.JPG", inStock: false },
+            { id: "lipgloss_toast", name: { ar: "Toast", fr: "Toast", en: "Toast" }, price: 200, image: "img/toast.JPG", inStock: true },
             { id: "lipgloss_peachpit", name: { ar: "Peach Pit", fr: "Peach Pit", en: "Peach Pit" }, price: 200, image: "img/peach-pit.JPG", inStock: true },
             { id: "lipgloss_juava", name: { ar: "Juava Spritz", fr: "Juava Spritz", en: "Juava Spritz" }, price: 200, image: "img/juava-spritz.JPG", inStock: true },
-            { id: "lipgloss_vanilla", name: { ar: "Vanilla", fr: "Vanilla", en: "Vanilla" }, price: 200, image: "img/vanilla.JPG", inStock: false }
+            { id: "lipgloss_vanilla", name: { ar: "Vanilla", fr: "Vanilla", en: "Vanilla" }, price: 200, image: "img/vanilla.JPG", inStock: true },
         ]
     },
     {
@@ -592,7 +592,7 @@ const productsData = [
         variants: [
             { id: "blush_encourage", name: { ar: "Encourage", fr: "Encourage", en: "Encourage" }, price: 200, image: "img/encourage.JPG", inStock: false },
             { id: "blush_hope", name: { ar: "Hope", fr: "Hope", en: "Hope" }, price: 200, image: "img/hope.JPG", inStock: true },
-            { id: "blush_happy", name: { ar: "Happy", fr: "Happy", en: "Happy" }, price: 200, image: "img/happy.JPG", inStock: true },
+            { id: "blush_happy", name: { ar: "Happy", fr: "Happy", en: "Happy" }, price: 200, image: "img/happy.JPG", inStock: false },
             { id: "blush_bliss", name: { ar: "Bliss", fr: "Bliss", en: "Bliss" }, price: 200, image: "img/bliss.JPG", inStock: true },
         ]
     },
@@ -856,7 +856,7 @@ const productsData = [
             fr: "La marque \"Purito\" se concentre sur des ingrédients propres et sûrs pour renforcer la barrière cutanée.\n\nFonction : Nourrir la peau, renforcer la barrière naturelle et fournir des soins quotidiens équilibrés.\n\nIngrédients clés : Panthénol, centella et extraits de plantes apaisants.\n\nConvient à : Les peaux sensibles qui ont besoin d'une nutrition profonde.",
             en: "The \"Purito\" brand focuses on clean and safe ingredients to strengthen the skin barrier.\n\nFunction: Nourish the skin, strengthen the natural barrier, and provide balanced daily care.\n\nKey ingredients: Panthenol, centella, and soothing plant extracts.\n\nSuitable for: Sensitive skin that needs deep nourishment."
         },
-        inStock: true,
+        inStock: false,
         isNew: false,
         //discount: 10  // ✅ خصم 10%
     },
@@ -888,7 +888,7 @@ const productsData = [
             fr: "Ce produit combine plusieurs éléments célèbres dans le monde de la beauté :\n\n• Glutathion (Gluta) : Connu comme un puissant antioxydant, souvent utilisé pour éclaircir et unifier le teint.\n\n• Collagène : Spécifiquement \"Collagen Dipeptide\", un type facilement absorbable qui aide à l'élasticité de la peau et à la réduction des rides.\n\n• Extraits de fruits rouges : Contient tomate, fraise, framboise et cerise acérola, riches en vitamine C qui améliore l'absorption du collagène et protège la peau du stress oxydatif.\n\nDétails de l'emballage :\n• Quantité : Le sachet contient 30 sticks de 10 grammes chacun.",
             en: "This product combines several famous elements in the beauty world:\n\n• Glutathione (Gluta): Known as a powerful antioxidant, often used to brighten and even out skin tone.\n\n• Collagen: Specifically \"Collagen Dipeptide\", an easily absorbable type that helps with skin elasticity and wrinkle reduction.\n\n• Red fruit extracts: Contains tomato, strawberry, raspberry, and acerola cherry, rich in vitamin C which enhances collagen absorption and protects the skin from oxidative stress.\n\nPackage details:\n• Quantity: The bag contains 30 sachets, each weighing 10 grams."
         },
-        inStock: true,
+        inStock: false,
         isNew: false,
         //discount: 10  // ✅ خصم 10%
     }
