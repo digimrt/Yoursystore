@@ -150,7 +150,7 @@ const productsData = [
         image: "img1/packstaymatterimmel.JPG",
         category: "makeup",
         description: { ar: "", fr: "", en: "" },
-        inStock: true,
+        inStock: false,
         isNew: false
     },
     {
@@ -574,7 +574,7 @@ const productsData = [
         inStock: true,
         isNew: false,
         variants: [
-            { id: "rare_enlighten", name: { ar: "Enlighten", fr: "Enlighten", en: "Enlighten" }, price: 300, image: "img/enlighten.JPG", inStock: true },
+            { id: "rare_enlighten", name: { ar: "Enlighten", fr: "Enlighten", en: "Enlighten" }, price: 300, image: "img/enlighten.JPG", inStock: false },
             { id: "rare_mesmerize", name: { ar: "Mesmerize", fr: "Mesmerize", en: "Mesmerize" }, price: 300, image: "img/mesmerize.JPG", inStock: true },
             { id: "rare_exhilrate", name: { ar: "Exhilrate", fr: "Exhilrate", en: "Exhilrate" }, price: 300, image: "img/exhilrate.JPG", inStock: true }
         ]
@@ -626,11 +626,11 @@ const productsData = [
         inStock: true,
         isNew: false,
         variants: [
-            { id: "vs_romantic", name: { ar: "Romantic", fr: "Romantic", en: "Romantic" }, price: 600, image: "img/romantic.JPG", inStock: true },
+            { id: "vs_romantic", name: { ar: "Romantic", fr: "Romantic", en: "Romantic" }, price: 600, image: "img/romantic.JPG", inStock: false },
             { id: "vs_coconut", name: { ar: "Coconut Passion", fr: "Coconut Passion", en: "Coconut Passion" }, price: 600, image: "img/coconut-passion.JPG", inStock: true },
             { id: "vs_rush", name: { ar: "Rush", fr: "Rush", en: "Rush" }, price: 600, image: "img/rush.JPG", inStock: true },
-            { id: "vs_aquakiss", name: { ar: "Aqua Kiss", fr: "Aqua Kiss", en: "Aqua Kiss" }, price: 600, image: "img/aqua-kiss.JPG", inStock: true },
-            { id: "vs_amber", name: { ar: "Amber Romance", fr: "Amber Romance", en: "Amber Romance" }, price: 600, image: "img/amber-romance.JPG", inStock: true },
+            { id: "vs_aquakiss", name: { ar: "Aqua Kiss", fr: "Aqua Kiss", en: "Aqua Kiss" }, price: 600, image: "img/aqua-kiss.JPG", inStock: false },
+            { id: "vs_amber", name: { ar: "Amber Romance", fr: "Amber Romance", en: "Amber Romance" }, price: 600, image: "img/amber-romance.JPG", inStock: false },
             { id: "vs_velvet", name: { ar: "Velvet Petals", fr: "Velvet Petals", en: "Velvet Petals" }, price: 600, image: "img/velvetpetals.JPG", inStock: true },
             { id: "vs_Teptation", name: { ar: "Teptation", fr: "Teptation", en: "Teptation" }, price: 600, image: "img1/teptation.JPG", inStock: true }
         ]
@@ -716,7 +716,7 @@ const productsData = [
             fr: "Fonctionne comme un pansement qui absorbe les liquides du bouton.\n\n• Sa fonction :\n• Absorbe le pus et les huiles du bouton.\n• Protège le bouton du toucher et des bactéries.\n• Aide à le sécher plus rapidement.\n\n• Idéal pour les boutons ouverts ou avec tête blanche.\n\n• Généralement doux pour les peaux sensibles.\n\nIngrédients :\n• Acide salicylique\n• Essence de thé (souvent huile d'arbre à thé)\n\n• Fonction supplémentaire :\n• Absorbe les liquides comme le premier.\n• Traite le bouton chimiquement en réduisant l'inflammation et en nettoyant les pores.\n\n• Idéal pour les boutons enflammés ou pas encore ouverts.",
             en: "Works like a bandage that absorbs fluids from the pimple.\n\n• Its function:\n• Absorbs pus and oils from the pimple.\n• Protects the pimple from touch and bacteria.\n• Helps it dry faster.\n\n• Best for open pimples or those with a white head.\n\n• Usually gentle on sensitive skin.\n\nIngredients:\n• Salicylic Acid\n• Tea essence (often tea tree oil)\n\n• Additional function:\n• Absorbs fluids like the first one.\n• Treats the pimple chemically by reducing inflammation and cleaning pores.\n\n• Best for inflamed pimples or those that haven't opened yet."
         },
-        inStock: true,
+        inStock: false,
         isNew: false
     },
     {
@@ -823,7 +823,7 @@ const productsData = [
             fr: "Gamme spécialisée dans les soins des peaux souffrant d'éruptions cutanées et d'irritations soudaines.\n\nFonction : Contrôler l'excès de sébum, apaiser l'acné et purifier les pores.\n\nIngrédient clé : Mélange d'arbre à thé et de centella asiatica (Trica).\n\nConvient à : Les peaux grasses et sujettes à l'acné.",
             en: "A specialized line for skin suffering from breakouts and sudden irritation.\n\nFunction: Control oil, soothe acne, and purify pores.\n\nKey ingredient: Blend of tea tree and centella asiatica (Trica).\n\nSuitable for: Oily and acne-prone skin."
         },
-        inStock: true,
+        inStock: false,
         isNew: false,
         //discount: 10  // ✅ خصم 10%
     },
@@ -839,7 +839,7 @@ const productsData = [
             fr: "Gamme dédiée aux peaux souffrant de sécheresse et de perte de vitalité.\n\nFonction : Hydratation profonde, prévention de la perte d'eau et éclat sain.\n\nIngrédient clé : Mélange d'acide hyaluronique et de centella.\n\nConvient à : Les peaux sèches et ternes.",
             en: "A line dedicated to skin suffering from dryness and loss of vitality.\n\nFunction: Deep hydration, prevention of water loss, and healthy glow.\n\nKey ingredient: Blend of hyaluronic acid and centella.\n\nSuitable for: Dry and dull skin."
         },
-        inStock: true,
+        inStock: false,
         isNew: false,
         //discount: 10  // ✅ خصم 10%
     },
