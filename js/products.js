@@ -554,7 +554,7 @@ const productsData = [
         isNew: false,
         variants: [
             { id: "lipgloss_saltytan", name: { ar: "Salty Tan", fr: "Salty Tan", en: "Salty Tan" }, price: 200, image: "img/salty-tan.JPG", inStock: true },
-            { id: "lipgloss_espresso", name: { ar: "Espresso", fr: "Espresso", en: "Espresso" }, price: 200, image: "img/espresso.JPG", inStock: true },
+            { id: "lipgloss_espresso", name: { ar: "Espresso", fr: "Espresso", en: "Espresso" }, price: 200, image: "img/espresso.JPG", inStock: false },
             { id: "lipgloss_raspberry", name: { ar: "Raspberry Jelly", fr: "Raspberry Jelly", en: "Raspberry Jelly" }, price: 200, image: "img/raspberry-jelly.JPG", inStock: true },
             { id: "lipgloss_ribbon", name: { ar: "Ribbon", fr: "Ribbon", en: "Ribbon" }, price: 200, image: "img/ribbon.JPG", inStock: true },
             { id: "lipgloss_toast", name: { ar: "Toast", fr: "Toast", en: "Toast" }, price: 200, image: "img/toast.JPG", inStock: true },
