@@ -193,7 +193,7 @@ const productsData = [
         variants: [
             { id: "dove_original", name: { ar: "Original", fr: "Original", en: "Original" }, price: 300, image: "img1/doveoriginal.JPG", inStock: true },
             { id: "dove_apple", name: { ar: "Apple  White Tea Scent", fr: "Apple & White Tea Scent", en: "Apple & White Tea Scent" }, price: 300, image: "img1/doveapple.JPG", inStock: true },
-            { id: "dove_cucumber", name: { ar: "Cucumber and Green Tea Scent", fr: "Cucumber & Green Tea Scent", en: "Cucumber & Green Tea Scent" }, price: 300, image: "img1/dovecucumber.JPG", inStock: true },
+            { id: "dove_cucumber", name: { ar: "Cucumber and Green Tea Scent", fr: "Cucumber & Green Tea Scent", en: "Cucumber & Green Tea Scent" }, price: 300, image: "img1/dovecucumber.JPG", inStock: false },
             { id: "dove_pomegranate", name: { ar: "Pomegranate and Lemon Verbena Scent", fr: "Pomegranate & Lemon Verbena Scent", en: "Pomegranate & Lemon Verbena Scent" }, price: 300, image: "img1/dovepomegranate.JPG", inStock: true }
         ]
     },
