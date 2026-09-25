@@ -174,7 +174,7 @@ const productsData = [
         image: "img1/kohlchristine.JPG",
         category: "makeup",
         description: { ar: "", fr: "", en: "" },
-        inStock: true,
+        inStock: false,
         isNew: false
     },
 
@@ -331,7 +331,7 @@ const productsData = [
         image: "img1/dovewasherexfoliating.JPG",
         category: "skincare",
         description: { ar: "", fr: "", en: "" },
-        inStock: true,
+        inStock: false,
         isNew: false
     },
     {
@@ -740,7 +740,7 @@ const productsData = [
     {
         id: "gel_got2b",
         name: { ar: "Gel Got2b", fr: "Gel Got2b", en: "Gel Got2b" },
-        price: 320,
+        price: 400,
         originalPrice: null,
         image: "img/gelgot2b.JPG",
         category: "makeup",
@@ -804,7 +804,7 @@ const productsData = [
         image: "img1/pack_daily_scent.JPG",
         category: "perfumes",
         description: { ar: "", fr: "", en: "" },
-        inStock: true,
+        inStock: false,
         isNew: false,
         //discount: 10  // ✅ خصم 10%
     },
@@ -872,7 +872,7 @@ const productsData = [
             fr: "L'un des gommages physiques les plus célèbres au monde, primé à plusieurs reprises grâce à sa formule efficace et végétale.\n\n1. Fonction principale du produit :\nCe gommage élimine les cellules mortes et les impuretés obstruant les pores, transformant une peau terne et fatiguée en une peau plus lumineuse et plus douce.\n\n2. Ingrédients clés :\n• Varech (Sea Kelp) : Riche en minéraux qui purifient et nourrissent la peau.\n• Argile verte française : Agit comme un aimant pour extraire le sébum et les impuretés des pores.\n• Zeste de citron et canne à sucre : Exfolient en douceur et aident à éclaircir le teint.\n• Cellules souches de sauge de nuit : Offrent une protection et des antioxydants à la peau.\n\n3. Avantages :\n• 100% Végétalien : Sans cruauté et sans ingrédients d'origine animale.\n• Clean Beauty : Sans parabènes, sulfates, phtalates ni huiles minérales.\n• Résultats immédiats : Une douceur visible de la texture de la peau dès la première utilisation.",
             en: "One of the most famous physical scrubs in the world, award-winning thanks to its effective and plant-based formula.\n\n1. Main product function:\nThis scrub removes dead skin cells and impurities clogging pores, helping to transform dull, tired skin into brighter, smoother skin.\n\n2. Key ingredients:\n• Sea Kelp: Rich in minerals that purify and nourish the skin.\n• French Green Clay: Acts like a magnet to draw out oil and impurities from pores.\n• Lemon peel and sugar cane: Gently exfoliate and help brighten skin tone.\n• Night primrose stem cells: Provide protection and antioxidants to the skin.\n\n3. Benefits:\n• 100% Vegan: Cruelty-free and contains no animal ingredients.\n• Clean Beauty: Free from parabens, sulfates, phthalates, and mineral oils.\n• Immediate results: Noticeable smoothness in skin texture after first use."
         },
-        inStock: true,
+        inStock: false,
         isNew: false,
         //discount: 10  // ✅ خصم 10%
     },
